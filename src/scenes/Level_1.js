@@ -1,6 +1,6 @@
 class Level1 extends Phaser.Scene {
     constructor() {
-        super("playScene");
+        super("level1Scene");
     }
 
     preload() {
@@ -9,10 +9,39 @@ class Level1 extends Phaser.Scene {
     }
 
     create() {
-        this.player = this.add.sprite(game.config.width/2, game.config.height/2, 'rect', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.ACCELERATION = 500;
+        this.MAX_X_VEL = 500;   // pixels/second
+        this.MAX_Y_VEL = 5000;
+        this.DRAG = 600;    // DRAG < ACCELERATION = icy slide
+        this.physics.world.gravity.y = 3000;
+
+        this.cameras.main.setBackgroundColor('#333333');
+
+        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+
+
+        //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
+
+        this.player = new Cat(this, game.config.width/2, game.config.height/2, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.2);
+
+        this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
+        this.wall1 = this.add.sprite(game.config.width-100, game.config.height/2, 'rect', 0).setOrigin(0, 0.5).setScale(10);
+
+        this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
+        this.physics.add.collider(this.player, this.platformGroup);
+
+        this.platformGroup.add(this.ground);
+        this.platformGroup.add(this.wall1);
+
     }
 
     update() {
+        this.player.update();
 
     }
 

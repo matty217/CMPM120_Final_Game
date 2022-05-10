@@ -9,10 +9,10 @@ let config = {
         default: 'arcade',
         arcade: {
             gravity: { y: 3000 },
-            debug: false
+            debug: true
         }
     },
-    scene: [ ]
+    scene: [ Level1 ]
 }
 
 
@@ -22,8 +22,4 @@ game.settings = {
 };
 
 // reserving keyboard variables
-let keyW, keyA, keyS, keyD, keySPACE, keyRIGHT, keyLEFT, keyESC;
-
-game.paused = false;
-
-
+let keyW, keyA, keyS, keyD, keySPACE;
