@@ -1,6 +1,6 @@
-class Level1 extends Phaser.Scene {
+class Level3 extends Phaser.Scene {
     constructor() {
-        super("level1Scene");
+        super("level3Scene");
     }
 
     preload() {
@@ -15,7 +15,7 @@ class Level1 extends Phaser.Scene {
         this.DRAG = 600;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 3000;
 
-        this.cameras.main.setBackgroundColor('#333333');
+        this.cameras.main.setBackgroundColor('#0000ff');
 
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -38,9 +38,10 @@ class Level1 extends Phaser.Scene {
         this.platformGroup.add(this.ground);
         this.platformGroup.add(this.wall1);
 
-
         this.input.keyboard.on('keydown', sceneSwitcher);  
 
+        var style = { font: "20px Arial", fill: "#ffffff" };
+        this.add.text(100,100,'level 3', style)
     }
 
     update() {

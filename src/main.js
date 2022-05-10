@@ -12,7 +12,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Level1 ]
+    scene: [ Level1, Level3]
 }
 
 
@@ -23,3 +23,24 @@ game.settings = {
 
 // reserving keyboard variables
 let keyW, keyA, keyS, keyD, keySPACE;
+
+let sceneSwitcher = (event) => {
+    //console.log("Key is: " + event.key);
+    switch(event.key) {
+        case '1':
+            console.log('check1');
+            game.scene.start('level1Scene');
+            game.scene.bringToTop('level1Scene');
+            game.scene.pause('level3Scene');
+            break;
+        case '3':
+            console.log('check2');
+            game.scene.start('level3Scene');
+            game.scene.bringToTop('level3Scene');
+            game.scene.pause('level1Scene');
+
+            break;
+        default:
+                break;
+    }
+}
