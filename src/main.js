@@ -12,7 +12,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Level1, Level3]
+    scene: [ Level1, Level2, Level3, Level4, Level5 ]
 }
 
 
@@ -28,16 +28,51 @@ let sceneSwitcher = (event) => {
     //console.log("Key is: " + event.key);
     switch(event.key) {
         case '1':
-            console.log('check1');
             game.scene.start('level1Scene');
             game.scene.bringToTop('level1Scene');
+            game.scene.pause('level2Scene');
             game.scene.pause('level3Scene');
+            game.scene.pause('level4Scene');
+            game.scene.pause('level5Scene');
+            
+            break;
+
+        case '2':
+            game.scene.start('level2Scene');
+            game.scene.bringToTop('level2Scene');
+            game.scene.pause('level1Scene');
+            game.scene.pause('level3Scene');
+            game.scene.pause('level4Scene');
+            game.scene.pause('level5Scene');
+
             break;
         case '3':
-            console.log('check2');
             game.scene.start('level3Scene');
             game.scene.bringToTop('level3Scene');
             game.scene.pause('level1Scene');
+            game.scene.pause('level2Scene');
+            game.scene.pause('level4Scene');
+            game.scene.pause('level5Scene');
+
+            break;
+
+        case '4':
+            game.scene.start('level4Scene');
+            game.scene.bringToTop('level4Scene');
+            game.scene.pause('level1Scene');
+            game.scene.pause('level2Scene');
+            game.scene.pause('level3Scene');
+            game.scene.pause('level5Scene');
+
+            break;
+
+        case '5':
+            game.scene.start('level5Scene');
+            game.scene.bringToTop('level5Scene');
+            game.scene.pause('level1Scene');
+            game.scene.pause('level2Scene');
+            game.scene.pause('level3Scene');
+            game.scene.pause('level4Scene');
 
             break;
         default:
