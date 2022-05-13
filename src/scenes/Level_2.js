@@ -45,6 +45,13 @@ class Level2 extends Phaser.Scene {
         this.platformGroup.add(this.wall1);
         this.platformGroup.add(this.wall2);
 
+         // use checkpoint to go to next level
+         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+         this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
+         this.checkpoint.add(this.checkpoint1);
+         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel3, null, this);
+ 
+
         this.input.keyboard.on('keydown', sceneSwitcher);  
 
         var style = { font: "20px Arial", fill: "#ffffff" };
@@ -56,7 +63,15 @@ class Level2 extends Phaser.Scene {
 
     update() {
         this.player.update();
+    }
 
+    goToLevel3(player, checkpoint) {
+        game.scene.start('level3Scene');
+        game.scene.bringToTop('level3Scene');
+        game.scene.pause('level1Scene');
+        game.scene.pause('level2Scene');
+        game.scene.pause('level4Scene');
+        game.scene.pause('level5Scene');
     }
 
 }

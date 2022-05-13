@@ -49,6 +49,7 @@ class Level5 extends Phaser.Scene {
 
         var style = { font: "20px Arial", fill: "#ffffff" };
         this.add.text(100,100,'level 5', style)
+        this.add.text(1800,100,'level 5', style);
 
         // follow player with camera
         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);

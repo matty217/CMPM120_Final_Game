@@ -45,12 +45,19 @@ class Level3 extends Phaser.Scene {
         this.platformGroup.add(this.ground);
         this.platformGroup.add(this.wall1);
         this.platformGroup.add(this.wall2);
+        
+        // use checkpoint to go to next level
+        this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+        this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint.add(this.checkpoint1);
+        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel4, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);  
 
         // text to identify level for debug (delete later when backgrounds are put in)
         var style = { font: "20px Arial", fill: "#ffffff" };
         this.add.text(100,100,'level 3', style);
+        this.add.text(1800,100,'level 3', style);
 
         // follow player with camera
         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
@@ -61,8 +68,17 @@ class Level3 extends Phaser.Scene {
 
     update() {
         this.player.update();
+        
+    }
 
-
+    goToLevel4(player, checkpoint) {
+        console.log('next level 4');
+        this.scene.start('level4Scene');
+        this.scene.bringToTop('level4Scene');
+        this.scene.pause('level1Scene');
+        this.scene.pause('level2Scene');
+        this.scene.pause('level3Scene');
+        this.scene.pause('level5Scene');
     }
 
 }
