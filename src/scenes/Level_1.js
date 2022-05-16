@@ -73,6 +73,7 @@ class Level1 extends Phaser.Scene {
         this.add.text(450,400,'SPACE to jump', style)
         this.add.text(200,430,'WASD to move', style)
         this.add.text(1200,30,'Try jumping while sliding\nagainst the wall', style)
+        this.add.text(0,0,'W while sliding against\nthe wall to climb', style)
 
     }
 

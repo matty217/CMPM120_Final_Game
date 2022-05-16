@@ -15,9 +15,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         this.JUMP_VEL = -1500;
         this.AIR_JUMP_VEL = -1200;
         this.WALL_JUMP_VEL_Y = -1200;
-        this.WALL_JUMP_VEL_X = 1200;
+        this.WALL_JUMP_VEL_X = 1500;
         this.CLIMB_VEL = -500;
         this.ADDED_VEL = 150;
+        this.SLIDE_VEL = 300;
         this.addedXVelocity = 0;
     }
 
@@ -29,6 +30,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
         console.log(this.wallSliding);
+        console.log(this.body.velocity.y);
         this.onGround = this.body.touching.down;            //check to see if player is on the ground
         this.wallSliding = (!this.onGround && (this.body.touching.left || this.body.touching.right));         //check if player is in air and touching wall
         //console.log((this.onGround == false && (this.body.touching.right || this.body.touching.left)));
@@ -36,8 +38,13 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
 
         if (this.wallSliding) {
             this.body.setDragY(this.WALL_DRAG);
+            this.body.allowGravity = false;
+            if (this.body.velocity.y < this.SLIDE_VEL) {
+                this.body.velocity.y += 100;
+            }
         } else {
             this.body.setDragY(0);
+            this.body.allowGravity = true;
         }
 
         if (this.onGround) {            //reset jump counter when on the ground
