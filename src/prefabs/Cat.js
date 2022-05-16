@@ -37,13 +37,13 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
 
         if (this.wallSliding) {
             this.body.setDragY(this.WALL_DRAG);
-            this.body.allowGravity = false;
-            if (this.body.velocity.y < this.SLIDE_VEL) {
-                this.body.velocity.y += 100;
-            }
+            //this.body.allowGravity = false;
+            //if (this.body.velocity.y < this.SLIDE_VEL) {
+            //    this.body.velocity.y += 100;
+            //}
         } else {
             this.body.setDragY(0);
-            this.body.allowGravity = true;
+            //this.body.allowGravity = true;
         }
 
         if (this.onGround) {            //reset jump counter when on the ground
