@@ -2,6 +2,7 @@ class Level1 extends Phaser.Scene {
     constructor() {
         super("level1Scene");
     }
+    PlayerController
 
     preload() {
         this.load.image('rect', './assets/white-square.png');
@@ -13,12 +14,6 @@ class Level1 extends Phaser.Scene {
         // (change static values to a variable later)
         this.cameras.main.setBounds(0, 0, 2000 , 720);
         this.physics.world.setBounds(0, 0,2000, 720);
-
-        this.ACCELERATION = 500;
-        this.MAX_X_VEL = 500;   // pixels/second
-        this.MAX_Y_VEL = 5000;
-        this.DRAG = 600;    // DRAG < ACCELERATION = icy slide
-        this.physics.world.gravity.y = 3000;
 
         this.cameras.main.setBackgroundColor('#333333');
 
@@ -32,7 +27,12 @@ class Level1 extends Phaser.Scene {
 
         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
 
+            // set up player character
         this.player = new Cat(this, game.config.width/2, game.config.height/2, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.2);
+        //this.player.body.setMaxVelocity(600, 5000);
+
+            // set up player controller
+
 
         this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
         this.wall1 = this.add.sprite(game.config.width+900, game.config.height/2, 'rect', 0).setOrigin(0, 0.5).setScale(10);

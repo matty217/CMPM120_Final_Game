@@ -1,0 +1,41 @@
+//move left
+        if (keyA.isDown) {
+            if (this.body.acceleration.x > 0) {
+                this.body.setVelocityX(0);
+            }
+            this.body.setAccelerationX(-this.ACCELERATION);
+        }
+        //move right
+        else if (keyD.isDown) {
+            if (this.body.acceleration.x < 0) {
+                this.body.setVelocityX(0);
+            }
+            this.body.setAccelerationX(this.ACCELERATION);
+        }
+        //stop moving when no input
+        if (!keyA.isDown && !keyD.isDown) {
+            this.body.setAccelerationX(0);
+            this.body.setDragX(this.DRAG);
+
+        }
+
+        // jump
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            // wall jump
+            if (this.onGround == false && (this.body.touching.right || this.body.touching.left)) {
+                this.body.setVelocityY(this.WALL_JUMP_VEL_Y);
+                if (this.body.touching.right) {
+                    this.body.setVelocityX(-this.WALL_JUMP_VEL_X);
+                }
+                else if (this.body.touching.left) {
+                    this.body.setVelocityX(this.WALL_JUMP_VEL_X);
+                }
+                console.log('Wall Jump');
+            }
+            // normal jump & double jump
+            else if (this.onGround || this.jumps < this.maxJumps) {
+                this.body.setVelocityY(this.JUMP_VEL);
+                console.log('Jump');
+                this.jumps += 1;
+            }
+        }

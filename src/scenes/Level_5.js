@@ -18,7 +18,7 @@ class Level5 extends Phaser.Scene {
         this.MAX_X_VEL = 500;   // pixels/second
         this.MAX_Y_VEL = 5000;
         this.DRAG = 600;    // DRAG < ACCELERATION = icy slide
-        this.physics.world.gravity.y = 3000;
+        // this.physics.world.gravity.y = 3000;
 
         this.cameras.main.setBackgroundColor('#0000ff');
 
