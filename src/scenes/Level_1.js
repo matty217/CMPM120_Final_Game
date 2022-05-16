@@ -14,6 +14,7 @@ class Level1 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
+        this.load.audio('meow', 'assets/meow.wav');
 
     }
 
@@ -81,6 +82,7 @@ class Level1 extends Phaser.Scene {
         this.add.text(200,430,'WASD to move', style)
         this.add.text(1200,30,'Try jumping while sliding\nagainst the wall', style)
         this.add.text(0,0,'W while sliding against\nthe wall to climb', style)
+        this.add.text(580,0,'Left arrow key for meow sound effect', style)
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -94,10 +96,17 @@ class Level1 extends Phaser.Scene {
         });
 
         this.cat_example.play({ key: 'walk' });
+
+        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     }
 
     update() {
         this.player.update();
+        if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.sound.play('meow');
+        }
+
+
     }
 
     goToLevel2(player, checkpoint) {
