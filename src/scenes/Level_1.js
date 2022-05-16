@@ -10,6 +10,11 @@ class Level1 extends Phaser.Scene {
         this.load.image('platform_vert', './assets/platform_vert.png');
         this.load.image('spikes', './assets/spikes.png');
 
+        this.load.spritesheet('cat', 'assets/cat_walk_sheet.png', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+
     }
 
     create() {
@@ -33,6 +38,8 @@ class Level1 extends Phaser.Scene {
             // set up player character
         this.player = new Cat(this, 270, 500, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.2);
         //this.player.body.setMaxVelocity(600, 5000);
+
+        this.cat_example = this.add.sprite(800, 150, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
         this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
@@ -75,6 +82,18 @@ class Level1 extends Phaser.Scene {
         this.add.text(1200,30,'Try jumping while sliding\nagainst the wall', style)
         this.add.text(0,0,'W while sliding against\nthe wall to climb', style)
 
+        //ANIMATIONS
+        const catWalk = this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNames('cat', {
+                start: 0,
+                end: 11
+            }),
+            frameRate: 18,
+            repeat: -1
+        });
+
+        this.cat_example.play({ key: 'walk' });
     }
 
     update() {

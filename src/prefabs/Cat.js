@@ -30,7 +30,6 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
         console.log(this.wallSliding);
-        console.log(this.body.velocity.y);
         this.onGround = this.body.touching.down;            //check to see if player is on the ground
         this.wallSliding = (!this.onGround && (this.body.touching.left || this.body.touching.right));         //check if player is in air and touching wall
         //console.log((this.onGround == false && (this.body.touching.right || this.body.touching.left)));
