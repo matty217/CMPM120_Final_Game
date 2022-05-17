@@ -5,6 +5,8 @@ class Level3 extends Phaser.Scene {
 
     preload() {
         this.load.image('rect', './assets/white-square.png');
+        this.load.image('platform', './assets/platform.png');
+        this.load.image('platform_vert', './assets/platform_vert.png');
 
     }
 
@@ -34,17 +36,53 @@ class Level3 extends Phaser.Scene {
 
         this.player = new Cat(this, game.config.width/2, game.config.height/2, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.2);
 
-        this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
+        // this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
         this.wall1 = this.add.sprite(game.config.width+900, game.config.height/2, 'rect', 0).setOrigin(0, 0.5).setScale(10);
         this.wall2 = this.add.sprite(-200, game.config.height/2, 'rect', 0).setOrigin(0, 0).setScale(0.5);
+
+        this.plat1 = this.add.sprite(1020, 200, 'platform', 0);
+        this.plat2 = this.add.sprite(1220, 200, 'platform', 0);
+        this.plat3 = this.add.sprite(1420, 200, 'platform', 0);
+        this.plat4 = this.add.sprite(1620, 200, 'platform', 0);
+        this.plat5 = this.add.sprite(1690, 100, 'platform_vert', 0);
+        this.plat6 = this.add.sprite(700, 250, 'platform', 0).setScale(0.5);
+        this.plat6 = this.add.sprite(500, 300, 'platform', 0).setScale(0.5);
+        this.plat7 = this.add.sprite(400, 450, 'platform', 0).setScale(0.5);
+        this.plat8 = this.add.sprite(400, 565, 'platform_vert', 0);
+        this.plat9 = this.add.sprite(460, 700, 'platform', 0);
+        this.plat10 = this.add.sprite(660, 700, 'platform', 0);
+        this.plat11 = this.add.sprite(860, 700, 'platform', 0);
+        this.plat12 = this.add.sprite(1060, 700, 'platform', 0);
+        this.plat13 = this.add.sprite(1260, 700, 'platform', 0);
+        this.plat14 = this.add.sprite(1330, 600, 'platform_vert', 0);
+        this.plat15 = this.add.sprite(1260, 500, 'platform', 0);
+        this.plat16 = this.add.sprite(1460, 500, 'platform', 0);
+        this.plat17 = this.add.sprite(1660, 500, 'platform', 0);
 
         this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
         this.physics.add.collider(this.player, this.platformGroup);
  
 
-        this.platformGroup.add(this.ground);
+        // this.platformGroup.add(this.ground);
         this.platformGroup.add(this.wall1);
         this.platformGroup.add(this.wall2);
+        this.platformGroup.add(this.plat1);
+        this.platformGroup.add(this.plat2);
+        this.platformGroup.add(this.plat3);
+        this.platformGroup.add(this.plat4);
+        this.platformGroup.add(this.plat5);
+        this.platformGroup.add(this.plat6);
+        this.platformGroup.add(this.plat7);
+        this.platformGroup.add(this.plat8);
+        this.platformGroup.add(this.plat9);
+        this.platformGroup.add(this.plat10);
+        this.platformGroup.add(this.plat11);
+        this.platformGroup.add(this.plat12);
+        this.platformGroup.add(this.plat13);
+        this.platformGroup.add(this.plat14);
+        this.platformGroup.add(this.plat15);
+        this.platformGroup.add(this.plat16);
+        this.platformGroup.add(this.plat17);
         
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
