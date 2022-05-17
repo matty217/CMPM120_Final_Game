@@ -46,7 +46,7 @@ class Level3 extends Phaser.Scene {
         this.plat4 = this.add.sprite(1620, 200, 'platform', 0);
         this.plat5 = this.add.sprite(1690, 100, 'platform_vert', 0);
         this.plat6 = this.add.sprite(700, 250, 'platform', 0).setScale(0.5);
-        this.plat6 = this.add.sprite(500, 300, 'platform', 0).setScale(0.5);
+        this.plat19 = this.add.sprite(500, 300, 'platform', 0).setScale(0.5);
         this.plat7 = this.add.sprite(400, 450, 'platform', 0).setScale(0.5);
         this.plat8 = this.add.sprite(400, 565, 'platform_vert', 0);
         this.plat9 = this.add.sprite(460, 700, 'platform', 0);
@@ -85,6 +85,7 @@ class Level3 extends Phaser.Scene {
         this.platformGroup.add(this.plat16);
         this.platformGroup.add(this.plat17);
         this.platformGroup.add(this.plat18);
+        this.platformGroup.add(this.plat19);
         
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
