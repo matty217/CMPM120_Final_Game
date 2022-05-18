@@ -20,6 +20,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         this.ADDED_VEL = 150;
         this.SLIDE_VEL = 300;
         this.addedXVelocity = 0;
+        this.hurt = false;
     }
 
     create() {
@@ -27,6 +28,8 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
+
+
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
         console.log(this.wallSliding);

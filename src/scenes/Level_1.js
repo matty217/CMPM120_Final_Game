@@ -54,10 +54,10 @@ class Level1 extends Phaser.Scene {
         // this.back_0003 = this.add.sprite(-100, 400, 'back_3', 0).setScale(0.8).setOrigin(0.2,1);
 
             // set up player character
-        this.player = new Cat(this, 11100, -2000, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.15);
+        this.player = new Cat(this, 200,-200, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.15);
         //this.player.body.setMaxVelocity(600, 5000);
 
-        this.cat_example = this.add.sprite(800, 150, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
+        this.cat_example = this.add.sprite(2100, -850, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
         this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
@@ -164,6 +164,9 @@ class Level1 extends Phaser.Scene {
         this.sp_0036 = this.add.sprite(11025, -2770, 'spikes_L', 0).setScale(0.2).setOrigin(0,0);
         this.sp_0037 = this.add.sprite(11025, -2870, 'spikes_L', 0).setScale(0.2).setOrigin(0,0);
         this.sp_0038 = this.add.sprite(11025, -2970, 'spikes_L', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0039 = this.add.sprite(9900, -2270, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0040 = this.add.sprite(9900, -2370, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0041 = this.add.sprite(9900, -2470, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
 
 
         this.rock1 = this.add.sprite(1100, 80, 'block_1', 0).setScale(0.6);
@@ -171,8 +174,13 @@ class Level1 extends Phaser.Scene {
 
     
 
-        this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true, checkCollision: false } );
+        this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true} );
         this.physics.add.collider(this.player, this.platformGroup);
+
+        // SPIKES
+        this.spikeGroup = this.physics.add.group( {allowGravity: false, immovable: true});
+        this.physics.add.overlap(this.player, this.spikeGroup, this.spikeHurt, null, this);
+        
 
         this.platformGroup.add(this.ground);
         // this.platformGroup.add(this.wall1);
@@ -237,23 +245,69 @@ class Level1 extends Phaser.Scene {
 
         this.platformGroup.add(this.rock1);
         this.platformGroup.add(this.rock2);
+
+
+        this.spikeGroup.add(this.sp_0003);
+        this.spikeGroup.add(this.sp_0004);
+        this.spikeGroup.add(this.sp_0005);
+        this.spikeGroup.add(this.sp_0006);
+        this.spikeGroup.add(this.sp_0007);
+        this.spikeGroup.add(this.sp_0008);
+        this.spikeGroup.add(this.sp_0009);
+        this.spikeGroup.add(this.sp_0010);
+        this.spikeGroup.add(this.sp_0011);
+        this.spikeGroup.add(this.sp_0012);
+        this.spikeGroup.add(this.sp_0013);
+        this.spikeGroup.add(this.sp_0014);
+        this.spikeGroup.add(this.sp_0015);
+        this.spikeGroup.add(this.sp_0016);
+        this.spikeGroup.add(this.sp_0017);
+        this.spikeGroup.add(this.sp_0018);
+        this.spikeGroup.add(this.sp_0019);
+        this.spikeGroup.add(this.sp_0020);
+        this.spikeGroup.add(this.sp_0021);
+        this.spikeGroup.add(this.sp_0022);
+        this.spikeGroup.add(this.sp_0023);
+        this.spikeGroup.add(this.sp_0024);
+        this.spikeGroup.add(this.sp_0025);
+        this.spikeGroup.add(this.sp_0026);
+        this.spikeGroup.add(this.sp_0027);
+        this.spikeGroup.add(this.sp_0028);
+        this.spikeGroup.add(this.sp_0029);
+        this.spikeGroup.add(this.sp_0030);
+        this.spikeGroup.add(this.sp_0031);
+        this.spikeGroup.add(this.sp_0032);
+        this.spikeGroup.add(this.sp_0033);
+        this.spikeGroup.add(this.sp_0034);
+        this.spikeGroup.add(this.sp_0035);
+        this.spikeGroup.add(this.sp_0036);
+        this.spikeGroup.add(this.sp_0037);
+        this.spikeGroup.add(this.sp_0038);
+        this.spikeGroup.add(this.sp_0039);
+        this.spikeGroup.add(this.sp_0040);
+        this.spikeGroup.add(this.sp_0041);
+    
        
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 
-        this.input.keyboard.on('keydown', sceneSwitcher); 
+        this.input.keyboard.on('keydown', sceneSwitcher);
 
          // follow player with camera
         this.cameras.main.startFollow(this.player, true, 0.08, 0.08, 0, 100);
 
         var style = { font: "20px Arial", fill: "#ffffff" };
-        this.add.text(0,-400,'SPACE to jump', style);
+        this.add.text(200,-200,'WASD to move', style);
+        this.add.text(1000,-300,'SPACE to jump', style);
+        this.add.text(11400,-2300,'W to climb', style);
 
         this.add.text(13800,-2400,'END', style);
+
+
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -296,4 +350,19 @@ class Level1 extends Phaser.Scene {
         game.scene.pause('level5Scene');
     }
 
+    spikeHurt(player, spike) {
+        if (!player.hurt) {
+            player.hurt = true;
+            this.cameras.main.shake(100);
+            if (this.player.hurt == true) {
+                let unHurt = this.time.addEvent({ delay: 1000, callback: () =>{
+                    this.unHurt();
+                }});
+            }
+        }
+    }
+
+    unHurt() {
+        this.player.hurt = false;
+    }
 }
