@@ -7,8 +7,6 @@ class Level2 extends Phaser.Scene {
         // temp assets
         this.load.image('rect', './assets/white-square.png');
         this.load.image('platform_vert', './assets/platform_vert.png');
-        this.load.image('red', './assets/red.png'); 
-        this.load.spritesheet('boom', 'assets/temp_geyser.png', { frameWidth: 64, frameHeight: 64, endFrame: 23 });
 
     }
 
