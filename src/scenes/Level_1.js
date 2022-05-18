@@ -13,10 +13,14 @@ class Level1 extends Phaser.Scene {
         this.load.image('block_1', './assets/Levels/Blocks/1x1 Block.PNG');
         this.load.image('plat_1', './assets/Levels/Blocks/Platform Large.PNG');
         this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
-        this.load.image('spikes_1', './assets/Levels/Blocks/1x1 Spikes.PNG');
+        this.load.image('spikes_D', './assets/Levels/Blocks/1x1 Spikes.PNG');
+        this.load.image('spikes_R', './assets/Levels/Blocks/1x1 Spikes_R.PNG');
+        this.load.image('spikes_L', './assets/Levels/Blocks/1x1 Spikes_L.PNG');
+        this.load.image('spikes_U', './assets/Levels/Blocks/1x1 Spikes_U.PNG');
         this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
         this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
         this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
+        this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
 
         this.load.spritesheet('cat', 'assets/cat_walk_sheet.png', {
             frameWidth: 512,
@@ -44,12 +48,12 @@ class Level1 extends Phaser.Scene {
 
         // BACKGROUND STUFF
         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-        this.back_0001 = this.add.sprite(-100, 400, 'back_1', 0).setScale(0.8).setOrigin(0.3,1);
-        this.back_0002 = this.add.sprite(-100, 400, 'back_2', 0).setScale(0.8).setOrigin(0.2,1);
-        this.back_0003 = this.add.sprite(-100, 400, 'back_3', 0).setScale(0.8).setOrigin(0.2,1);
+        // this.back_0001 = this.add.sprite(-100, 400, 'back_1', 0).setScale(0.8).setOrigin(0.3,1);
+        // this.back_0002 = this.add.sprite(-100, 400, 'back_2', 0).setScale(0.8).setOrigin(0.2,1);
+        // this.back_0003 = this.add.sprite(-100, 400, 'back_3', 0).setScale(0.8).setOrigin(0.2,1);
 
             // set up player character
-        this.player = new Cat(this, 100, -400, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.15);
+        this.player = new Cat(this, 9600, -1000, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.15);
         //this.player.body.setMaxVelocity(600, 5000);
 
         this.cat_example = this.add.sprite(800, 150, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
@@ -62,13 +66,58 @@ class Level1 extends Phaser.Scene {
         this.platg_0000 = this.add.sprite(0, 0, 'platform', 0).setScale(13).setOrigin(0,0);
         this.platg_0001 = this.add.sprite(2900, 0, 'platform', 0).setScale(6).setOrigin(0,0);
         this.platg_0002 = this.add.sprite(4000, 100, 'platform', 0).setScale(6).setOrigin(0,0);
+        this.platg_0003 = this.add.sprite(5100, 0, 'platform', 0).setScale(3).setOrigin(0,0);
+        this.platg_0004 = this.add.sprite(5200, 100, 'platform', 0).setScale(4).setOrigin(0,0);
+        this.platg_0005 = this.add.sprite(5700, 200, 'platform', 0).setScale(3).setOrigin(0,0);
+        this.platg_0006 = this.add.sprite(5400, 300, 'platform', 0).setScale(6).setOrigin(0,0);
+        this.platg_0007 = this.add.sprite(7800, 100, 'platform', 0).setScale(8).setOrigin(0,0);
+        this.platg_0008 = this.add.sprite(9100, -400, 'platform', 0).setScale(3).setOrigin(0,0);
+        this.platg_0009 = this.add.sprite(9600, -200, 'platform', 0).setScale(3).setOrigin(0,0);
+        this.platg_0010 = this.add.sprite(9100, -200, 'platform', 0).setScale(3).setOrigin(0,0);
+        this.platg_0011 = this.add.sprite(9100, 0, 'platform', 0).setScale(3).setOrigin(0,0);
+
+        this.wall_0000 = this.add.sprite(8900, -400, '4x1', 0).setScale(0.5).setOrigin(0,0);
+        this.wall_0001 = this.add.sprite(8500, -700, '4x1', 0).setScale(0.3).setOrigin(0,0);
+        this.wall_0002 = this.add.sprite(8400, -700, '4x1', 0).setScale(0.28).setOrigin(0,0);
+        this.wall_0003 = this.add.sprite(8330, -700, '4x1', 0).setScale(0.25).setOrigin(0,0);
+        this.wall_0004 = this.add.sprite(10000, -700, '4x1', 0).setScale(0.3).setOrigin(0,0);
+        this.wall_0005 = this.add.sprite(9600, -1200, '4x1', 0).setScale(0.3).setOrigin(0,0);
+
+
 
         this.plat_0001 = this.add.sprite(820, 286, 'platform', 0);
         this.plat_0002 = this.add.sprite(3600, -10, 'plat_2', 0).setScale(0.2);
         this.plat_0003 = this.add.sprite(4500, -200, 'platform', 0);
+        this.plat_0004 = this.add.sprite(4700, -200, 'platform', 0);
+        this.plat_0005 = this.add.sprite(6600, 300, 'platform', 0).setOrigin(0,0);
+        this.plat_0006 = this.add.sprite(7200, 0, 'platform', 0).setOrigin(0,0);
+        this.plat_0007 = this.add.sprite(7100, 400, 'platform', 0).setOrigin(0,0);
+        this.plat_0008 = this.add.sprite(7600, 100, 'platform', 0).setOrigin(0,0);
+        this.plat_0009 = this.add.sprite(8600, -470, 'platform', 0).setScale(3).setOrigin(1,0);
+        this.plat_0010 = this.add.sprite(8600, -665, 'platform', 0).setScale(3).setOrigin(1,0);
+        this.plat_0011 = this.add.sprite(9150, -665, 'platform', 0).setScale(1).setOrigin(0,0);
+        this.plat_0012 = this.add.sprite(9250, -665, 'platform', 0).setScale(1).setOrigin(0,0);
 
-        this.sp_0003 = this.add.sprite(3558, -140, 'spikes_1', 0).setScale(0.2);
-        this.sp_0004 = this.add.sprite(3635, -140, 'spikes_1', 0).setScale(0.2);
+        this.sp_0003 = this.add.sprite(3558, -140, 'spikes_D', 0).setScale(0.2);
+        this.sp_0004 = this.add.sprite(3635, -140, 'spikes_D', 0).setScale(0.2);
+        this.sp_0005 = this.add.sprite(6600, 400, 'spikes_L', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0006 = this.add.sprite(6600, 500, 'spikes_L', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0007 = this.add.sprite(7700, 300, 'spikes_R', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0008 = this.add.sprite(7700, 200, 'spikes_R', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0009 = this.add.sprite(7700, 100, 'spikes_R', 0).setScale(0.2).setOrigin(0,0);
+        this.sp_0010 = this.add.sprite(8000, -370, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0011 = this.add.sprite(8000, -470, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0012 = this.add.sprite(8000, -570, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0012 = this.add.sprite(8000, -670, 'spikes_R', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0013 = this.add.sprite(8630, -780, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0014 = this.add.sprite(8530, -780, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0015 = this.add.sprite(8430, -780, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0016 = this.add.sprite(8330, -750, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0017 = this.add.sprite(8230, -750, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0018 = this.add.sprite(8130, -750, 'spikes_D', 0).setScale(0.2).setOrigin(1,0);
+        this.sp_0019 = this.add.sprite(9700, -200, 'spikes_D', 0).setScale(0.2).setOrigin(0,1);
+        this.sp_0020 = this.add.sprite(9800, -200, 'spikes_D', 0).setScale(0.2).setOrigin(0,1);
+        this.sp_0021 = this.add.sprite(9900, -200, 'spikes_D', 0).setScale(0.2).setOrigin(0,1);
 
 
         this.rock1 = this.add.sprite(1100, 80, 'block_1', 0).setScale(0.6);
@@ -76,7 +125,7 @@ class Level1 extends Phaser.Scene {
 
     
 
-        this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
+        this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true, checkCollision: false } );
         this.physics.add.collider(this.player, this.platformGroup);
 
         this.platformGroup.add(this.ground);
@@ -85,10 +134,33 @@ class Level1 extends Phaser.Scene {
         this.platformGroup.add(this.platg_0000);
         this.platformGroup.add(this.platg_0001);
         this.platformGroup.add(this.platg_0002);
+        this.platformGroup.add(this.platg_0003);
+        this.platformGroup.add(this.platg_0004);
+        this.platformGroup.add(this.platg_0005);
+        this.platformGroup.add(this.platg_0006);
+        this.platformGroup.add(this.platg_0007);
+        this.platformGroup.add(this.platg_0008);
+        this.platformGroup.add(this.platg_0009);
+
+        this.platformGroup.add(this.wall_0000);
+        this.platformGroup.add(this.wall_0001);
+        this.platformGroup.add(this.wall_0002);
+        this.platformGroup.add(this.wall_0003);
+        this.platformGroup.add(this.wall_0004);
+        this.platformGroup.add(this.wall_0005);
 
         this.platformGroup.add(this.plat_0001);
         this.platformGroup.add(this.plat_0002);
         this.platformGroup.add(this.plat_0003);
+        this.platformGroup.add(this.plat_0004);
+        this.platformGroup.add(this.plat_0005);
+        this.platformGroup.add(this.plat_0006);
+        this.platformGroup.add(this.plat_0007);
+        this.platformGroup.add(this.plat_0008);
+        this.platformGroup.add(this.plat_0009);
+        this.platformGroup.add(this.plat_0010);
+        this.platformGroup.add(this.plat_0011);
+        this.platformGroup.add(this.plat_0012);
 
         this.platformGroup.add(this.rock1);
         this.platformGroup.add(this.rock2);
@@ -131,11 +203,11 @@ class Level1 extends Phaser.Scene {
         }
 
         // BACKGROUND
-        this.back_0001.x = this.player.x/1.3;
-        this.back_0002.x = this.player.x/3;
-        this.back_0003.x = this.player.x/4;
+        // this.back_0001.x = this.player.x/1.3;
+        // this.back_0002.x = this.player.x/3;
+        // this.back_0003.x = this.player.x/4;
 
-        console.log(this.cameras.main.x);
+        console.log(this.player.x);
 
 
     }
