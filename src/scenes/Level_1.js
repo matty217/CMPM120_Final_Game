@@ -57,7 +57,7 @@ class Level1 extends Phaser.Scene {
         this.player = new Cat(this, 200,-200, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.15);
         //this.player.body.setMaxVelocity(600, 5000);
 
-        this.cat_example = this.add.sprite(2100, -850, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
+        this.cat_example = this.add.sprite(2100, -750, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
         this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
@@ -303,7 +303,7 @@ class Level1 extends Phaser.Scene {
         var style = { font: "20px Arial", fill: "#ffffff" };
         this.add.text(200,-200,'WASD to move', style);
         this.add.text(1000,-300,'SPACE to jump', style);
-        this.add.text(11400,-2300,'W to climb', style);
+        this.add.text(11400,-2200,'W to climb', style);
 
         this.add.text(13800,-2400,'END', style);
 
