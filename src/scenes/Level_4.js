@@ -6,6 +6,21 @@ class Level4 extends Phaser.Scene {
     preload() {
         this.load.image('rect', './assets/white-square.png');
 
+        this.load.image('boulder', './assets/Levels/Blocks/1x1 Boulder.PNG');
+        this.load.image('block_1', './assets/Levels/Blocks/1x1 Block.PNG');
+        this.load.image('plat_1', './assets/Levels/Blocks/Platform Large.PNG');
+        this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
+        this.load.image('spikes_D', './assets/Levels/Blocks/1x1 Spikes.PNG');
+        this.load.image('spikes_R', './assets/Levels/Blocks/1x1 Spikes_R.PNG');
+        this.load.image('spikes_L', './assets/Levels/Blocks/1x1 Spikes_L.PNG');
+        this.load.image('spikes_U', './assets/Levels/Blocks/1x1 Spikes_U.PNG');
+        this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
+        this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
+        this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
+        this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
+        this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
+        this.load.image('s_plat', './assets/Levels/Blocks/Platform Small.PNG');
+
     }
 
     create() {
@@ -46,7 +61,27 @@ class Level4 extends Phaser.Scene {
         this.platformGroup.add(this.wall1);
         this.platformGroup.add(this.wall2);
 
-         // use checkpoint to go to next level
+        // Falling Platform Group
+        this.fallPlatGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
+        this.physics.add.collider(this.player, this.fallPlatGroup, this.fallActivate);
+
+        // this.f_plat1 = this.add.sprite(400, 400, 's_plat', 0).setOrigin(0,0).setScale(0.3);
+        this.f_plat1 = this.add.sprite(800, 500, 'platform_vert', 0).setOrigin(0, 0);
+
+        // let t = this.tweens.add({
+        //     targets: this.f_plat1,
+        //     y: 700,
+        //     duration: 3000,
+        //     ease: 'Linear',
+        //     yoyo: false,
+        // });
+        // t.restart();
+        this.fallPlatGroup.add(this.f_plat1);
+        // this.physics.add.collider(this.player, this.f_plat1, this.fallActivate);
+
+        // this.physics.add.overlap(this.player, this.f_plat1, this.fallActivate, null, this);
+
+         // CHECKPOINT
          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
          this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
          this.checkpoint.add(this.checkpoint1);
@@ -73,6 +108,12 @@ class Level4 extends Phaser.Scene {
         this.scene.pause('level2Scene');
         this.scene.pause('level3Scene');
         this.scene.pause('level4Scene');
+    }
+
+    fallActivate(player, plat) {
+        console.log('check');
+        // plat.body.allowGravity = true;
+        plat.body.setVelocityY(100);
     }
 
 }

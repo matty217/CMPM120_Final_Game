@@ -8,6 +8,21 @@ class Level3 extends Phaser.Scene {
         this.load.image('platform', './assets/platform.png');
         this.load.image('platform_vert', './assets/platform_vert.png');
 
+        this.load.image('boulder', './assets/Levels/Blocks/1x1 Boulder.PNG');
+        this.load.image('block_1', './assets/Levels/Blocks/1x1 Block.PNG');
+        this.load.image('plat_1', './assets/Levels/Blocks/Platform Large.PNG');
+        this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
+        this.load.image('spikes_D', './assets/Levels/Blocks/1x1 Spikes.PNG');
+        this.load.image('spikes_R', './assets/Levels/Blocks/1x1 Spikes_R.PNG');
+        this.load.image('spikes_L', './assets/Levels/Blocks/1x1 Spikes_L.PNG');
+        this.load.image('spikes_U', './assets/Levels/Blocks/1x1 Spikes_U.PNG');
+        this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
+        this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
+        this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
+        this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
+        this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
+
+
     }
 
     create() {
@@ -86,6 +101,19 @@ class Level3 extends Phaser.Scene {
         this.platformGroup.add(this.plat17);
         this.platformGroup.add(this.plat18);
         this.platformGroup.add(this.plat19);
+
+        // COINS TO COLLECT
+        this.coin1 = new Coin(this, 800, 600, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
+        this.coin2 = new Coin(this, 1000, 600, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
+        this.coinGroup = this.physics.add.group({allowGravity: false, immovable: true });
+        this.coinGroup.add(this.coin1);
+        this.coinGroup.add(this.coin2);
+        this.physics.add.overlap(this.player, this.coinGroup, this.collectCoin, null, this);
+
+        // coin counter
+        this.coinCounter = 0;
+        this.totalCoinsCollected = this.add.text(720, 100, this.coinCounter, style);
+        this.add.text(500,100,'Total coins collected:', style);
         
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
@@ -109,6 +137,10 @@ class Level3 extends Phaser.Scene {
 
     update() {
         this.player.update();
+        console.log("coincounter", this.coinCounter);
+        this.totalCoinsCollected.text = this.coinCounter;
+
+
         
     }
 
@@ -120,6 +152,11 @@ class Level3 extends Phaser.Scene {
         this.scene.pause('level2Scene');
         this.scene.pause('level3Scene');
         this.scene.pause('level5Scene');
+    }
+
+    collectCoin(player, coin) {
+        coin.getCoin();
+        this.coinCounter+=1;
     }
 
 }

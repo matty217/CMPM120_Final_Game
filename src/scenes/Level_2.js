@@ -4,7 +4,9 @@ class Level2 extends Phaser.Scene {
     }
 
     preload() {
+        // temp assets
         this.load.image('rect', './assets/white-square.png');
+        this.load.image('platform_vert', './assets/platform_vert.png');
 
     }
 
@@ -45,7 +47,46 @@ class Level2 extends Phaser.Scene {
         this.platformGroup.add(this.wall1);
         this.platformGroup.add(this.wall2);
 
-         // use checkpoint to go to next level
+
+        // GEYSERS
+        
+        // Geyser Group
+        this.geyserGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
+        this.physics.add.collider(this.player, this.geyserGroup);
+
+        // Geyser 1
+        this.geyser1 = this.add.sprite(800, 500, 'platform_vert', 0).setOrigin(0, 0);
+        let t = this.tweens.add({
+            targets: this.geyser1,
+            y: 400,
+            duration: 3000,
+            ease: 'Linear',
+            yoyo: true,
+            repeat: 2000
+        });
+        t.restart();
+        this.geyserBase1 = this.add.sprite(800, 600, 'platform_vert', 0).setOrigin(0, 0);
+
+        // Geyser 2
+        this.geyser2 = this.add.sprite(1200, 500, 'platform_vert', 0).setOrigin(0, 0);
+        let t2 = this.tweens.add({
+            targets: this.geyser2,
+            y: 400,
+            duration: 2500,
+            ease: 'Linear',
+            yoyo: true,
+            repeat: 2000
+        });
+        t2.restart();
+        this.geyserBase2 = this.add.sprite(1200, 600, 'platform_vert', 0).setOrigin(0, 0);
+
+        // Add Geysers to group
+        this.geyserGroup.add(this.geyser1);
+        this.geyserGroup.add(this.geyserBase1);
+        this.geyserGroup.add(this.geyser2);
+        this.geyserGroup.add(this.geyserBase2);
+        
+         // CHECKPOINT TO NEXT LEVEL
          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
          this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
          this.checkpoint.add(this.checkpoint1);
@@ -73,5 +114,6 @@ class Level2 extends Phaser.Scene {
         game.scene.pause('level4Scene');
         game.scene.pause('level5Scene');
     }
+
 
 }
