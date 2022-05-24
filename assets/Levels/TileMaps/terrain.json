@@ -1,0 +1,14 @@
+{ "columns":6,
+ "image":"..\/..\/..\/..\/..\/..\/..\/Downloads\/terrain_tiles (1).png",
+ "imageheight":2048,
+ "imagewidth":3072,
+ "margin":0,
+ "name":"terrain_2",
+ "spacing":0,
+ "tilecount":24,
+ "tiledversion":"1.8.5",
+ "tileheight":512,
+ "tilewidth":512,
+ "type":"tileset",
+ "version":"1.8"
+}
