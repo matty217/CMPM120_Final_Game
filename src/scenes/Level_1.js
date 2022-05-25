@@ -40,17 +40,24 @@ class Level1 extends Phaser.Scene {
     create() {
         // BACKGROUND STUFF
         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-        this.back_0001 = this.add.sprite(-1000, 4000, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.4);
-        this.back_0002 = this.add.sprite(5800, 4000, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.4);
+        this.back_0001 = this.add.sprite(-1000, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back_0002 = this.add.sprite(5800, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
-        this.mid_0001 = this.add.sprite(-1000, 7000, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.6);
-        this.mid_0002 = this.add.sprite(5800, 7000, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.6);
+        this.mid_0001 = this.add.sprite(-1000, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0002 = this.add.sprite(5800, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0002 = this.add.sprite(12600, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
 
-        this.fore_0001 = this.add.sprite(-1000, 9500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.8);
-        this.fore_0002 = this.add.sprite(5800, 9500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.8);
 
-        this.back_brown = this.add.sprite(-1000, 14500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.8);
-        this.back_brown = this.add.sprite(5800, 14500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.8);
+        this.fore_0001 = this.add.sprite(-1000, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(5800, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(12600, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+
+
+        this.back_brown = this.add.sprite(-1000, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(5800, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(12600, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
 
         
         // create the Tilemap
@@ -68,7 +75,7 @@ class Level1 extends Phaser.Scene {
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
-        this.cameras.main.setBounds(-8000, 4000);
+        this.cameras.main.setBounds(-8000, 0);
         this.cameras.main.setZoom(0.2, 0.2);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
@@ -149,7 +156,7 @@ class Level1 extends Phaser.Scene {
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
 
-        console.log(this.player.x);
+        console.log(this.player.body.velocity.x);
 
 
     }
