@@ -33,9 +33,9 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
         console.log(this.wallSliding);
-        this.onGround = this.body.touching.down;            //check to see if player is on the ground
-        this.wallSliding = (!this.onGround && (this.body.touching.left || this.body.touching.right));         //check if player is in air and touching wall
-        //console.log((this.onGround == false && (this.body.touching.right || this.body.touching.left)));
+        this.onGround = this.body.blocked.down;            //check to see if player is on the ground
+        this.wallSliding = (!this.onGround && (this.body.blocked.left || this.body.blocked.right));         //check if player is in air and blocked wall
+        //console.log((this.onGround == false && (this.body.blocked.right || this.body.blocked.left)));
         //console.log((Phaser.Input.Keyboard.JustDown(keySPACE)));
 
         if (this.wallSliding) {
@@ -142,10 +142,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
             //stop moving when no input
             if ((!keyA.isDown && !keyD.isDown)||(keyA.isDown && keyD.isDown)) {
                 this.body.setDragX(this.DRAG);
-                if (this.body.touching.right) {
+                if (this.body.blocked.right) {
                     this.body.setVelocityX(this.ADDED_VEL);
                 }
-                else if (this.body.touching.left) {
+                else if (this.body.blocked.left) {
                     this.body.setVelocityX(-this.ADDED_VEL);
                 }
             }
@@ -153,10 +153,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
             if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                 // wall jump
                 this.body.setVelocityY(this.WALL_JUMP_VEL_Y);
-                if (this.body.touching.right) {
+                if (this.body.blocked.right) {
                     this.body.setVelocityX(-this.WALL_JUMP_VEL_X);
                 }
-                else if (this.body.touching.left) {
+                else if (this.body.blocked.left) {
                     this.body.setVelocityX(this.WALL_JUMP_VEL_X);
                 }
                 console.log('Wall Jump');
