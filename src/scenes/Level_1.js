@@ -87,6 +87,8 @@ class Level1 extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keyQ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
+        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
 
 
 
@@ -141,15 +143,11 @@ class Level1 extends Phaser.Scene {
         });
 
         this.cat_example.play({ key: 'walk' });
-
-        keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     }
 
     update() {
         this.player.update();
-        if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-            this.sound.play('meow');
-        }
+
 
         // BACKGROUND
         // this.back_0001.x = this.player.x/1.3;

@@ -22,7 +22,7 @@ game.settings = {
 };
 
 // reserving keyboard variables
-let keyW, keyA, keyS, keyD, keySPACE, keyLEFT;
+let keyW, keyA, keyS, keyD, keySPACE, keyQ, keyLEFT;
 
 let sceneSwitcher = (event) => {
     //console.log("Key is: " + event.key);

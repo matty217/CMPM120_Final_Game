@@ -160,8 +160,11 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     this.body.setVelocityX(this.WALL_JUMP_VEL_X);
                 }
                 console.log('Wall Jump');
-                }
-                
+            }
+            
         }
+        if (Phaser.Input.Keyboard.JustDown(keyQ)) {
+            game.sound.play('meow');
+        }    
     }
 }
