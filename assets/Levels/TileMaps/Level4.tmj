@@ -44,6 +44,265 @@
                  "width":512,
                  "x":-8192,
                  "y":12288
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":13,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-11776,
+                 "y":14848
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":23,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-11776,
+                 "y":14848
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":24,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-8704,
+                 "y":14848
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":25,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-8192,
+                 "y":14848
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":26,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-7680,
+                 "y":14848
+                }, 
+                {
+                 "gid":12,
+                 "height":512,
+                 "id":27,
+                 "name":"l_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-4096,
+                 "y":15360
+                }, 
+                {
+                 "gid":12,
+                 "height":512,
+                 "id":28,
+                 "name":"l_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-4096,
+                 "y":15872
+                }, 
+                {
+                 "gid":12,
+                 "height":512,
+                 "id":29,
+                 "name":"l_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-4096,
+                 "y":16384
+                }, 
+                {
+                 "gid":18,
+                 "height":512,
+                 "id":30,
+                 "name":"r_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-3584,
+                 "y":15360
+                }, 
+                {
+                 "gid":18,
+                 "height":512,
+                 "id":31,
+                 "name":"r_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-3584,
+                 "y":15872
+                }, 
+                {
+                 "gid":18,
+                 "height":512,
+                 "id":32,
+                 "name":"r_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-3584,
+                 "y":16384
+                }, 
+                {
+                 "gid":12,
+                 "height":512,
+                 "id":34,
+                 "name":"l_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-8704,
+                 "y":14336
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":35,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-1024,
+                 "y":14336
+                }, 
+                {
+                 "gid":6,
+                 "height":512,
+                 "id":36,
+                 "name":"b_spike",
+                 "properties":[
+                        {
+                         "name":"collides",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-512,
+                 "y":14336
+                },
+            
+                {
+                 "gid":8,
+                 "height":512,
+                 "id":37,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":-4608,
+                 "y":15360
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -65,8 +324,8 @@
                     8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     8, 8, 8, 2, 3, 0, 0, 0, 0, 0, 0, 1, 2, 2, 3, 0,
                     8, 8, 8, 8, 8, 2, 2, 3, 0, 0, 0, 7, 8, 8, 9, 0,
-                    8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 7, 8, 8, 8, 12,
-                    8, 8, 8, 8, 8, 8, 8, 9, 0, 6, 0, 7, 8, 8, 9, 6,
+                    8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 7, 8, 8, 8, 0,
+                    8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 0, 7, 8, 8, 9, 0,
                     8, 8, 8, 8, 8, 8, 8, 8, 2, 8, 2, 8, 8, 8, 8, 8,
                     8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
                     8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8],
@@ -86,12 +345,12 @@
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 1, 2, 2, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 7, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                    0, 0, 7, 8, 8, 8, 2, 3, 0, 0, 1, 2, 2, 3, 0, 18,
-                    0, 0, 7, 8, 8, 8, 8, 9, 0, 0, 7, 8, 8, 9, 6, 6,
-                    6, 6, 7, 8, 8, 8, 8, 9, 0, 0, 7, 8, 8, 8, 8, 8,
-                    8, 8, 8, 8, 8, 8, 8, 9, 0, 18, 8, 8, 8, 8, 8, 8,
-                    8, 8, 8, 8, 8, 8, 8, 8, 12, 18, 8, 8, 8, 8, 8, 8,
-                    8, 8, 8, 8, 8, 8, 8, 8, 12, 18, 8, 8, 8, 8, 8, 8],
+                    0, 0, 7, 8, 8, 8, 2, 3, 0, 0, 1, 2, 2, 3, 0, 0,
+                    0, 0, 7, 8, 8, 8, 8, 9, 0, 0, 7, 8, 8, 9, 0, 0,
+                    0, 0, 7, 8, 8, 8, 8, 9, 0, 0, 7, 8, 8, 8, 8, 8,
+                    8, 8, 8, 8, 8, 8, 8, 9, 0, 0, 8, 8, 8, 8, 8, 8,
+                    8, 8, 8, 8, 8, 8, 8, 8, 0, 0, 8, 8, 8, 8, 8, 8,
+                    8, 8, 8, 8, 8, 8, 8, 8, 0, 0, 8, 8, 8, 8, 8, 8],
                  "height":16,
                  "width":16,
                  "x":-16,
@@ -190,7 +449,7 @@
          "y":0
         }],
  "nextlayerid":6,
- "nextobjectid":6,
+ "nextobjectid":38,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",

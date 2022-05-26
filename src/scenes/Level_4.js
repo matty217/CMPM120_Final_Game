@@ -279,24 +279,42 @@ class Level4 extends Phaser.Scene {
         this.fallPlatGroup.runChildUpdate = true;
         
         this.physics.add.collider(this.player, this.fallPlatGroup, (obj1, obj2) => {
-            // console.log("y val", obj2.y);
-            // // obj2.y += 10;
-            // obj2.fallActivate();
-            //  obj2.body.setVelocityY(100); // remove coin on overlap
         });
         
-        // Falling Platform Group
-        // this.fallPlatGroup = this.add.group(this.fallPlat1);
-        // this.physics.add.collider(this.player, this.fallPlatGroup);
-        // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
-        // this.fallPlatGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
         
-        // this.physics.add.overlap(this.player, this.fallPlatGroup, this.fallActivate);
+        // SPIKES
+        this.bSpikes = map.createFromObjects("Objects", {
+            name: "b_spike",
+            key: "tile_sheet",
+            frame: 5 
+        });
+        this.physics.world.enable(this.bSpikes, Phaser.Physics.Arcade.STATIC_BODY);
 
-        // this.fallPlatGroup.add(this.fallPlat1);
-        // this.fallPlatGroup.runChildUpdate = true;
+        this.lSpikes = map.createFromObjects("Objects", {
+            name: "l_spike",
+            key: "tile_sheet",
+            frame: 11 
+        });
+        this.physics.world.enable(this.lSpikes, Phaser.Physics.Arcade.STATIC_BODY);
 
-        // use checkpoint to go to next level
+        this.rSpikes = map.createFromObjects("Objects", {
+            name: "r_spike",
+            key: "tile_sheet",
+            frame: 17 
+        });
+        this.physics.world.enable(this.rSpikes, Phaser.Physics.Arcade.STATIC_BODY);
+
+        this.bSpikeGroup = this.add.group(this.bSpikes);
+        this.physics.add.collider(this.player, this.bSpikeGroup, this.spikeHurt, null, this);
+
+        this.lSpikeGroup = this.add.group(this.lSpikes);
+        this.physics.add.collider(this.player, this.lSpikeGroup, this.spikeHurt, null, this);
+
+        this.rSpikeGroup = this.add.group(this.rSpikes);
+        this.physics.add.collider(this.player, this.rSpikeGroup, this.spikeHurt, null, this);
+
+        
+        // CHECKPOINT TO NEXT LEVEL
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
         this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
