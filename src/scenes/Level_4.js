@@ -179,6 +179,12 @@ class Level4 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
+
+        this.load.spritesheet("tile_sheet", "assets/Levels/TileMaps/terrain_tiles.png", {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+
         this.load.audio('meow', 'assets/meow.wav');
 
     }
@@ -211,6 +217,8 @@ class Level4 extends Phaser.Scene {
         // "Ground" layer will be on top of "Background" layer
         const groundLayer = map.createLayer('Ground', tileset);
 
+        const platformLayer = map.createLayer('Platforms', tileset);
+
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
@@ -242,17 +250,57 @@ class Level4 extends Phaser.Scene {
         groundLayer.setCollisionByProperty({ 
             collides: true 
         });
-
         this.physics.add.collider(this.player, groundLayer);
         groundLayer.setCollisionBetween(0,23);
 
+        platformLayer.setCollisionByProperty({ 
+            collides: true 
+        });
+        this.physics.add.collider(this.player, platformLayer);
+        platformLayer.setCollisionBetween(0,23);
        
+        this.fallPlat1 = map.createFromObjects("Objects", [
+            {
+                name: "fp1",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp2",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            // {classType: FallingPlatform}
+        ]);
+        // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
+        this.fallPlatGroup = this.add.group(this.fallPlat1);
+        this.fallPlatGroup.runChildUpdate = true;
+        
+        this.physics.add.collider(this.player, this.fallPlatGroup, (obj1, obj2) => {
+            // console.log("y val", obj2.y);
+            // // obj2.y += 10;
+            // obj2.fallActivate();
+            //  obj2.body.setVelocityY(100); // remove coin on overlap
+        });
+        
+        // Falling Platform Group
+        // this.fallPlatGroup = this.add.group(this.fallPlat1);
+        // this.physics.add.collider(this.player, this.fallPlatGroup);
+        // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
+        // this.fallPlatGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
+        
+        // this.physics.add.overlap(this.player, this.fallPlatGroup, this.fallActivate);
+
+        // this.fallPlatGroup.add(this.fallPlat1);
+        // this.fallPlatGroup.runChildUpdate = true;
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
         this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
-        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
+        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -296,17 +344,22 @@ class Level4 extends Phaser.Scene {
         // this.back_0003.x = this.player.x/4;
 
         console.log(this.player.x);
+        // console.log('fallx', this.fallPlat1.x);
+        // if (this.scene.physics.overlap(this.player, this.fallPlat1)) {
+        //     console.log('fall');
+        //     this.fallActivate();
+        // }
 
 
     }
 
-    goToLevel2(player, checkpoint) {
-        game.scene.start('level2Scene');
-        game.scene.bringToTop('level2Scene');
-        game.scene.pause('level1Scene');
-        game.scene.pause('level3Scene');
-        game.scene.pause('level4Scene');
-        game.scene.pause('level5Scene');
+        goToLevel5(player, checkpoint) {
+        this.scene.start('level5Scene');
+        this.scene.bringToTop('level5Scene');
+        this.scene.pause('level1Scene');
+        this.scene.pause('level2Scene');
+        this.scene.pause('level3Scene');
+        this.scene.pause('level4Scene');
     }
 
     spikeHurt(player, spike) {
@@ -323,5 +376,11 @@ class Level4 extends Phaser.Scene {
 
     unHurt() {
         this.player.hurt = false;
+    }
+
+    fallActivate(player, plat) {
+        console.log('falll');
+        // plat.body.allowGravity = true;
+        plat.setVelocityY(100);
     }
 }

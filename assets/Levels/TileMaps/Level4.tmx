@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="3" nextobjectid="1">
- <editorsettings>
-  <export format="tmx"/>
- </editorsettings>
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="6" nextobjectid="6">
  <tileset firstgid="1" name="standard_tiles" tilewidth="512" tileheight="512" tilecount="24" columns="6">
   <image source="terrain_tiles.png" width="3072" height="2048"/>
   <tile id="0">
@@ -126,10 +123,14 @@
    </properties>
   </tile>
  </tileset>
- <layer id="2" name="Background" width="30" height="20">
+ <layer id="2" name="Background" width="0" height="0">
   <data encoding="csv"/>
  </layer>
- <layer id="1" name="Ground" width="30" height="20">
+ <objectgroup id="5" name="Objects">
+  <object id="4" name="fp1" gid="5" x="-8704" y="12288" width="512" height="512"/>
+  <object id="5" name="fp2" gid="23" x="-8192" y="12288" width="512" height="512"/>
+ </objectgroup>
+ <layer id="1" name="Ground" width="64" height="16">
   <data encoding="csv">
    <chunk x="-32" y="16" width="16" height="16">
 2,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -184,6 +185,46 @@
 8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
+ <layer id="4" name="Platforms" width="30" height="20">
+  <data encoding="csv">
+   <chunk x="-32" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,5,11,23,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+   <chunk x="-16" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,5,23,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
   </data>
  </layer>
