@@ -21,6 +21,7 @@ class Level1 extends Phaser.Scene {
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
         this.load.image('smoke', './assets/Cat/smoke.png');
+        this.load.image('transparent', './assets/transparent.png');
 
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
@@ -67,7 +68,7 @@ class Level1 extends Phaser.Scene {
                 start: 0,
                 end: 5
             }),
-            frameRate: 22,
+            frameRate: 20,
             repeat: 0
         });
 
@@ -88,18 +89,29 @@ class Level1 extends Phaser.Scene {
                 end: 0
             }),
             frameRate: 0,
-            repeat: -1
+            repeat: 0
         });
 
         const catIdle = this.anims.create({
             key: 'idle',
             frames: this.anims.generateFrameNames('cat_walk', {
-                start: 0,
-                end: 0
+                start: 3,
+                end: 3
             }),
             frameRate: 16,
             repeat: -1
         });
+
+        const catFall = this.anims.create({
+            key: 'fall',
+            frames: this.anims.generateFrameNames('cat_jump', {
+                start: 5,
+                end: 5
+            }),
+            frameRate: 16,
+            repeat: -1
+        });
+
 
 
 
@@ -191,7 +203,7 @@ class Level1 extends Phaser.Scene {
         // RESPAWN POINT GROUP
         this.respawnPoint = map.createFromObjects("Objects", {
             name: "Respawn",
-            key: "",
+            key: "transparent",
             frame: ""
         });
 
@@ -206,7 +218,7 @@ class Level1 extends Phaser.Scene {
         // FALL DEATH GROUP
         this.deathPoint = map.createFromObjects("Objects", {
             name: "Death",
-            key: "",
+            key: "transparent",
             frame: ""
         });
 
@@ -221,7 +233,7 @@ class Level1 extends Phaser.Scene {
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(-6000, 13000, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(93238, -1000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 
@@ -230,10 +242,10 @@ class Level1 extends Phaser.Scene {
          // follow player with camera
         this.cameras.main.startFollow(this.player, true, 0.08, 0.08, 0, 100);
 
-        var style = { font: "20px Arial", fill: "#ffffff" };
+        var style = { font: "90px Arial", fill: "#ffffff" };
         this.add.text(200,-200,'WASD to move', style);
         this.add.text(1000,-300,'SPACE to jump', style);
-        this.add.text(11400,-2200,'W to climb', style);
+        this.add.text(40880,3500,'W to climb', style);
 
         this.add.text(13800,-2400,'END', style);
 
@@ -273,16 +285,16 @@ class Level1 extends Phaser.Scene {
                 radial: true,
                 // x: this.newCannon.x + 100,
                 // y: this.newCannon.y,
-                lifespan: 2000,
-                speed: { min: 400, max: 800 },
-                quantity: 300,
+                lifespan: { min: 1200, max: 2000},
+                speed: { min: 50, max: 800 },
+                quantity: 500,
                 gravityY: 0,
                 scale: { start: 4, end: 0, ease: 'Power3' },
                 active: true,
                 
                 follow: player
             });
-            this.partEm.explode(50, this.player.x, this.player.y);
+            this.partEm.explode(100, this.player.x, this.player.y);
             this.player.alpha = 0;
 
             let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{

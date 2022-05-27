@@ -53,11 +53,6 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 if (this.body.velocity.y < this.SLIDE_VEL) {
                     this.body.velocity.y += this.SLIDE_VEL/2;
                 }
-                this.play({ key : 'slide' });
-                this.anim_slide = true;
-                this.anim_idle = false;
-                this.anim_jumping = false;
-                this.anim_walking = false;
             } else {
                 this.body.setDrag(0);
                 this.body.allowGravity = true;
@@ -80,6 +75,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     if (!this.anim_walking) {
                         this.play({ key : 'walk' });
                         this.anim_walking = true;
+                        this.anim_slide = false;
+                        this.anim_idle = false;
+                        this.anim_jumping = false;
+                        this.anim_climb = false;
                     }
                 }
                 //move right
@@ -91,13 +90,22 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     if (!this.anim_walking) {
                         this.play({ key : 'walk' });
                         this.anim_walking = true;
+                        this.anim_slide = false;
+                        this.anim_idle = false;
+                        this.anim_jumping = false;
+                        this.anim_climb = false;
                     }
                 }
                 //stop moving when no input
                 if ((!keyA.isDown && !keyD.isDown)||(keyA.isDown && keyD.isDown)) {
                     this.body.setDragX(this.DRAG);
                     //this.addedXVelocity
-
+                    this.play({ key: 'idle' });
+                    this.anim_walking = false;
+                    this.anim_slide = false;
+                    this.anim_idle = true;
+                    this.anim_jumping = false;
+                    this.anim_climb = false;
                 }
 
                 // jump
@@ -109,6 +117,8 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                         this.play({ key : 'jump' });
                         this.anim_jumping = true;
                         this.anim_walking = false;
+                        this.anim_climb = false;
+                        this.anim_slide = false;
                     }
                 }
             }
@@ -121,8 +131,12 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     this.flipX = true;
                     if (this.body.velocity.x > -this.MAX_GROUND_VEL) {
                         this.body.velocity.x -= this.ADDED_VEL*(3/4);
-                    } else {
                     }
+                    this.play({ key: 'fall' });
+                    this.anim_jumping = false;
+                    this.anim_walking = false;
+                    this.anim_climb = false;
+                    this.anim_slide = false;
                 }
                 //move right
                 if (keyD.isDown) {
@@ -130,12 +144,21 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     if (this.body.velocity.x < this.MAX_GROUND_VEL) {
                         this.body.velocity.x += this.ADDED_VEL*(3/4);
                     }
+                    this.play({ key: 'fall' });
+                    this.anim_jumping = false;
+                    this.anim_walking = false;
+                    this.anim_climb = false;
+                    this.anim_slide = false;
                 }
                 //stop moving when no input
                 if ((!keyA.isDown && !keyD.isDown)||(keyA.isDown && keyD.isDown)) {
                     this.body.setDragX(this.AIR_DRAG);
                     //this.addedXVelocity
-
+                    this.play({ key: 'fall' });
+                    this.anim_jumping = false;
+                    this.anim_walking = false;
+                    this.anim_climb = false;
+                    this.anim_slide = false;
                 }
 
                 // jump
@@ -145,6 +168,13 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                         this.body.setVelocityY(this.AIR_JUMP_VEL);
                         console.log('Air Jump');
                         this.jumps += 1;
+                        if (!this.anim_jumping) {
+                            this.play({ key: 'jump' });
+                            this.anim_jumping = true;
+                            this.anim_walking = false;
+                            this.anim_climb = false;
+                            this.anim_slide = false;
+                        }
                     }
                 }
             }
@@ -156,12 +186,23 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 if (keyW.isDown) {
                     console.log('CLIMBING');
                     this.body.velocity.y = this.CLIMB_VEL;
+                    if (!this.anim_climb) {
+                        this.play({key: 'climb'});
+                        this.anim_climb = true;
+                        this.anim_jumping = false;
+                        this.anim_slide = false;
+                    }
+                } else {
+                    this.play({ key : 'slide' });
+                    this.anim_idle = false;
+                    this.anim_jumping = false;
+                    this.anim_walking = false;
+                    this.anim_climb = false;
                 }
                 //move left
                 if (keyA.isDown) {
                     if (this.body.velocity.x > -this.MAX_GROUND_VEL) {
                         this.body.velocity.x -= this.ADDED_VEL*(3/4);
-                    } else {
                     }
                 }
                 //move right
@@ -186,11 +227,17 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     this.body.setVelocityY(this.WALL_JUMP_VEL_Y);
                     if (this.body.blocked.right) {
                         this.body.setVelocityX(-this.WALL_JUMP_VEL_X);
+                        this.flipX = true;
                     }
                     else if (this.body.blocked.left) {
                         this.body.setVelocityX(this.WALL_JUMP_VEL_X);
+                        this.flipX = false;
                     }
                     console.log('Wall Jump');
+                    if (!this.anim_jumping) {
+                        this.play({key: 'jump'});
+                        this.anim_climb = false;
+                    }
                 }
                 
             }
