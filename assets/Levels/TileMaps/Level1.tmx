@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="3" nextobjectid="1">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="4" nextobjectid="26">
  <editorsettings>
   <export target="Level1.json" format="json"/>
  </editorsettings>
@@ -394,7 +394,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,4,0,0,0,0,0,0,0,0,0,0,0,6,6,
+0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,1,9,0,0,0,0,0,0,0,0,0,0,0,5,23,
 2,8,8,2,2,2,3,0,0,1,2,2,2,2,2,2,
 8,8,8,8,8,8,9,0,0,7,8,8,8,8,8,8,
@@ -583,4 +583,26 @@
 </chunk>
   </data>
  </layer>
+ <objectgroup id="3" name="Objects">
+  <object id="2" name="Spike" gid="6" x="7236" y="13924" width="512" height="512"/>
+  <object id="3" name="Spike" gid="3221225478" x="-6200.55" y="9248.33" width="512" height="512" rotation="270"/>
+  <object id="6" name="Respawn" x="5162.3" y="10718.2" width="900" height="3500"/>
+  <object id="8" name="Spike" gid="3221225478" x="-6208" y="9680" width="512" height="512" rotation="270"/>
+  <object id="9" name="Spike" gid="3221225478" x="-6256" y="10096" width="512" height="512" rotation="270"/>
+  <object id="10" name="Spike" gid="1073741830" x="-6670.8" y="8249.37" width="512" height="512" rotation="180"/>
+  <object id="11" name="Spike" gid="3221225478" x="-7160" y="8272" width="512" height="512" rotation="-180"/>
+  <object id="12" name="Spike" gid="1073741830" x="-7632" y="8256" width="512" height="512" rotation="180"/>
+  <object id="13" name="Spike" gid="2147483654" x="7568" y="13976" width="512" height="512"/>
+  <object id="14" name="Respawn" x="18974" y="12322" width="900" height="3500"/>
+  <object id="15" name="Respawn" x="31774" y="9242" width="900" height="3500"/>
+  <object id="16" name="Respawn" x="40030" y="994" width="900" height="3500"/>
+  <object id="17" name="Respawn" x="58622" y="-486" width="900" height="3500"/>
+  <object id="18" name="Respawn" x="68726" y="-998" width="900" height="3500"/>
+  <object id="19" name="Respawn" x="78894" y="-486" width="900" height="3500"/>
+  <object id="20" name="Respawn" x="93238" y="-2118" width="900" height="3500"/>
+  <object id="21" name="Death" x="2792" y="15832" width="2600" height="520"/>
+  <object id="23" name="Death" x="18708" y="17332" width="6688" height="520"/>
+  <object id="24" name="Death" x="48332" y="7364" width="6224" height="520"/>
+  <object id="25" name="Death" x="57148" y="5380" width="36032" height="520"/>
+ </objectgroup>
 </map>
