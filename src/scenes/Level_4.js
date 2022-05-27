@@ -259,6 +259,7 @@ class Level4 extends Phaser.Scene {
         this.physics.add.collider(this.player, platformLayer);
         platformLayer.setCollisionBetween(0,23);
        
+        // FALLING PLATFORMS
         this.fallPlat1 = map.createFromObjects("Objects", [
             {
                 name: "fp1",
@@ -272,14 +273,55 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
-            // {classType: FallingPlatform}
+            {
+                name: "fp3",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp4",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            
         ]);
         // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
         this.fallPlatGroup = this.add.group(this.fallPlat1);
         this.fallPlatGroup.runChildUpdate = true;
-        
         this.physics.add.collider(this.player, this.fallPlatGroup, (obj1, obj2) => {
         });
+
+        this.bigFallPlat = map.createFromObjects("Objects", [
+            {
+                name: "fp5",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "fp6",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "fp7",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            
+        ]);
+        // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
+        this.bigFallPlatGroup = this.add.group(this.bigFallPlat);
+        this.bigFallPlatGroup.runChildUpdate = true;
+        this.physics.add.collider(this.player, this.bigFallPlatGroup, (obj1, obj2) => {
+        });
+
+        
+
         
         
         // SPIKES
@@ -313,7 +355,7 @@ class Level4 extends Phaser.Scene {
         this.rSpikeGroup = this.add.group(this.rSpikes);
         this.physics.add.collider(this.player, this.rSpikeGroup, this.spikeHurt, null, this);
 
-        
+
         // CHECKPOINT TO NEXT LEVEL
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
         this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
