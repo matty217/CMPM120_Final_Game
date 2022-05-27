@@ -6,19 +6,19 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         scene.physics.add.existing(this);
         this.maxAirJumps = 1;
         this.jumps = 0;
-        this.DRAG = 5000;    // DRAG < ACCELERATION = icy slide
-        this.AIR_DRAG = 3000;
-        this.WALL_DRAG = 4000;
-        this.ACCELERATION = 5000;
-        this.MAX_GROUND_VEL = 800;   // pixels/second
+        this.DRAG = 25000;    // DRAG < ACCELERATION = icy slide
+        this.AIR_DRAG = 15000;
+        this.WALL_DRAG = 20000;
+        this.ACCELERATION = 25000;
+        this.MAX_GROUND_VEL = 3000;   // pixels/second
         this.MAX_Y_VEL = 5000;
-        this.JUMP_VEL = -1500;
-        this.AIR_JUMP_VEL = -1200;
-        this.WALL_JUMP_VEL_Y = -1200;
-        this.WALL_JUMP_VEL_X = 1500;
-        this.CLIMB_VEL = -500;
-        this.ADDED_VEL = 150;
-        this.SLIDE_VEL = 300;
+        this.JUMP_VEL = -8000;
+        this.AIR_JUMP_VEL = -6000;
+        this.WALL_JUMP_VEL_Y = -6000;
+        this.WALL_JUMP_VEL_X = 7500;
+        this.CLIMB_VEL = -2500;
+        this.ADDED_VEL = 750;
+        this.SLIDE_VEL = 1500;
         this.addedXVelocity = 0;
         this.hurt = false;
     }
@@ -32,20 +32,20 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
 
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
-        console.log(this.wallSliding);
-        this.onGround = this.body.touching.down;            //check to see if player is on the ground
-        this.wallSliding = (!this.onGround && (this.body.touching.left || this.body.touching.right));         //check if player is in air and touching wall
-        //console.log((this.onGround == false && (this.body.touching.right || this.body.touching.left)));
+        this.onGround = this.body.blocked.down;            //check to see if player is on the ground
+        this.wallSliding = (!this.onGround && (this.body.blocked.left || this.body.blocked.right));         //check if player is in air and blocked wall
+        //console.log((this.onGround == false && (this.body.blocked.right || this.body.blocked.left)));
         //console.log((Phaser.Input.Keyboard.JustDown(keySPACE)));
 
         if (this.wallSliding) {
-            //this.body.setDragY(this.WALL_DRAG);
+            this.body.setDragY(this.WALL_DRAG);
+            //this.body.setVelocityY(0)
             this.body.allowGravity = false;
             if (this.body.velocity.y < this.SLIDE_VEL) {
-                this.body.velocity.y += 100;
+                this.body.velocity.y += this.SLIDE_VEL/2;
             }
         } else {
-            //this.body.setDragY(0);
+            this.body.setDrag(0);
             this.body.allowGravity = true;
         }
 
@@ -142,10 +142,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
             //stop moving when no input
             if ((!keyA.isDown && !keyD.isDown)||(keyA.isDown && keyD.isDown)) {
                 this.body.setDragX(this.DRAG);
-                if (this.body.touching.right) {
+                if (this.body.blocked.right) {
                     this.body.setVelocityX(this.ADDED_VEL);
                 }
-                else if (this.body.touching.left) {
+                else if (this.body.blocked.left) {
                     this.body.setVelocityX(-this.ADDED_VEL);
                 }
             }
@@ -153,15 +153,18 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
             if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                 // wall jump
                 this.body.setVelocityY(this.WALL_JUMP_VEL_Y);
-                if (this.body.touching.right) {
+                if (this.body.blocked.right) {
                     this.body.setVelocityX(-this.WALL_JUMP_VEL_X);
                 }
-                else if (this.body.touching.left) {
+                else if (this.body.blocked.left) {
                     this.body.setVelocityX(this.WALL_JUMP_VEL_X);
                 }
                 console.log('Wall Jump');
-                }
-                
+            }
+            
         }
+        if (Phaser.Input.Keyboard.JustDown(keyQ)) {
+            game.sound.play('meow');
+        }    
     }
 }
