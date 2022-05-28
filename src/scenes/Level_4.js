@@ -191,39 +191,22 @@ class Level4 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
-        // this.back1 = this.add.sprite(-5000, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        // this.back2 = this.add.sprite(-5000, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        // this.back3 = this.add.sprite(8600, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-
-        // this.mid1 = this.add.sprite(-5000, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        // this.mid2 = this.add.sprite(-5000, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        // this.mid3 = this.add.sprite(8600, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-
-
-        // this.for1 = this.add.sprite(-1800, 4500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        // this.for2 = this.add.sprite(-5000, 4500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        // this.for3 = this.add.sprite(8600, 4500,  'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-
-
-        // this.sky = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        // this.sky = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        // this.sky = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.sky = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.sky = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.sky = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky1 = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky2 = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky3 = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
 
         this.back1 = this.add.sprite(-1000, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back3 = this.add.sprite(12600, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        // 6800
+
         this.mid1 = this.add.sprite(-2500, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
         this.mid2 = this.add.sprite(4300, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid2 = this.add.sprite(11100, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid3 = this.add.sprite(11100, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
 
 
         this.fore1 = this.add.sprite(-4000, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
         this.fore2 = this.add.sprite(2800, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore2 = this.add.sprite(9600, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore3 = this.add.sprite(9600, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
 
 
        
@@ -308,6 +291,102 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
+            // {
+            //     name: "fp8",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp9",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
+            {
+                name: "fp10",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp11",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp12",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp13",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp14",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp15",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp16",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp17",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp18",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp19",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp20",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp21",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp22",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp23",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
             
         ]);
         // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
@@ -331,6 +410,78 @@ class Level4 extends Phaser.Scene {
             }, 
             {
                 name: "fp7",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            // {
+            //     name: "bfp1",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp2",
+            //     key: "tile_sheet",
+            //     frame: 10,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp3",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: BigFallingPlatform
+            // }, 
+            {
+                name: "bfp4",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp5",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp6",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp7",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp8",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp9",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp10",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp11",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp12",
                 key: "tile_sheet",
                 frame: 22,
                 classType: BigFallingPlatform
