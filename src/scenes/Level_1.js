@@ -122,20 +122,27 @@ class Level1 extends Phaser.Scene {
         this.back_0001 = this.add.sprite(-1000, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back_0002 = this.add.sprite(5800, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back_0004 = this.add.sprite(19400, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
         this.mid_0001 = this.add.sprite(-1000, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
         this.mid_0002 = this.add.sprite(5800, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0002 = this.add.sprite(12600, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0003 = this.add.sprite(12600, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0003 = this.add.sprite(19400, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+
 
 
         this.fore_0001 = this.add.sprite(-1000, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
         this.fore_0002 = this.add.sprite(5800, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
         this.fore_0002 = this.add.sprite(12600, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(19400, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+
 
 
         this.back_brown = this.add.sprite(-1000, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
         this.back_brown = this.add.sprite(5800, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
         this.back_brown = this.add.sprite(12600, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(19400, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
 
 
         
@@ -154,7 +161,7 @@ class Level1 extends Phaser.Scene {
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
-        this.cameras.main.setBounds(-8000, 0);
+        this.cameras.main.setBounds(-8000, -1000);
         this.cameras.main.setZoom(0.2, 0.2);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
@@ -229,11 +236,42 @@ class Level1 extends Phaser.Scene {
             this.Death(obj1);
         })
 
+        // Boulder GROUP
+        this.boulder = map.createFromObjects("Objects", {
+            name: "Boulder",
+            key: "boulder",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.boulder, Phaser.Physics.Arcade.BODY);
+        this.boulderGroup = this.add.group(this.boulder);
+
+        this.physics.add.overlap(this.player, this.boulderGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
+
+        // Boulder Stop GROUP
+        this.boulderStop = map.createFromObjects("Objects", {
+            name: "BoulderStop",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.boulderStop, Phaser.Physics.Arcade.STATIC_BODY);
+        this.boulderStopGroup = this.add.group(this.boulderStop);
+
+        this.physics.add.overlap(this.boulderStopGroup, this.boulderGroup, (obj1, obj2) => {
+            obj2.y -= 5000;
+            obj2.body.velocity.y = 0;
+            obj2.body.acceleration.y = -20000;
+        })
+
+
        
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(93238, -1000, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(93238, 1000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 

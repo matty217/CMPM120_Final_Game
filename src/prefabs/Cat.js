@@ -209,8 +209,9 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 if (keyD.isDown) {
                     if (this.body.velocity.x < this.MAX_GROUND_VEL) {
                         this.body.velocity.x += this.ADDED_VEL*(3/4);
-                    }
+                     }
                 }
+                
                 //stop moving when no input
                 if ((!keyA.isDown && !keyD.isDown)||(keyA.isDown && keyD.isDown)) {
                     this.body.setDragX(this.DRAG);
@@ -221,6 +222,17 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                         this.body.setVelocityX(-this.ADDED_VEL);
                     }
                 }
+
+                // if (keyS.isDown) {
+                //     if (this.body.blocked.right) {
+                //         this.body.setVelocityX(-this.MAX_GROUND_VEL);
+                //         this.flipX = true;
+                //     }
+                //     else if (this.body.blocked.left) {
+                //         this.body.setVelocityX(this.MAX_GROUND_VEL);
+                //         this.flipX = false;
+                //     }
+                //}
 
                 if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                     // wall jump
