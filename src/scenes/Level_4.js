@@ -191,20 +191,43 @@ class Level4 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
-        //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-        // this.back_0001 = this.add.sprite(-1000, 4000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.4);
-        // this.back_0002 = this.add.sprite(5800, 4000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.4);
+        // this.back1 = this.add.sprite(-5000, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        // this.back2 = this.add.sprite(-5000, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        // this.back3 = this.add.sprite(8600, 5000, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
-        // this.mid_0001 = this.add.sprite(-1000, 7000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.6);
-        // this.mid_0002 = this.add.sprite(5800, 7000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.6);
+        // this.mid1 = this.add.sprite(-5000, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        // this.mid2 = this.add.sprite(-5000, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        // this.mid3 = this.add.sprite(8600, 5000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
 
-        // this.fore_0001 = this.add.sprite(-1000, 9500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.8);
-        // this.fore_0002 = this.add.sprite(5800, 9500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.8);
 
-        // this.sky = this.add.sprite(-1000, 14500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.8);
-        // this.sky = this.add.sprite(5800, 14500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.8);
+        // this.for1 = this.add.sprite(-1800, 4500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        // this.for2 = this.add.sprite(-5000, 4500, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        // this.for3 = this.add.sprite(8600, 4500,  'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
 
-        
+
+        // this.sky = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        // this.sky = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        // this.sky = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
+        this.back1 = this.add.sprite(-1000, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back3 = this.add.sprite(12600, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        // 6800
+        this.mid1 = this.add.sprite(-2500, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid2 = this.add.sprite(4300, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid2 = this.add.sprite(11100, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+
+
+        this.fore1 = this.add.sprite(-4000, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore2 = this.add.sprite(2800, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore2 = this.add.sprite(9600, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+
+
+       
+
         // create the Tilemap
 	    const map = this.make.tilemap({ key: 'platform_map4' });
 

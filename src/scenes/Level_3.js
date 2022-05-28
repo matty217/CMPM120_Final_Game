@@ -216,7 +216,7 @@ class Level3 extends Phaser.Scene {
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
-        this.cameras.main.setBounds(-16000, 7000);
+        this.cameras.main.setBounds(-16000, 3000);
         this.cameras.main.setZoom(0.15, 0.15);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
