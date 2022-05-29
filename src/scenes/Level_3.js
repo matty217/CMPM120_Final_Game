@@ -181,10 +181,11 @@ class Level3 extends Phaser.Scene {
         this.load.image('spikes_R', './assets/Levels/Blocks/1x1 Spikes_R.PNG');
         this.load.image('spikes_L', './assets/Levels/Blocks/1x1 Spikes_L.PNG');
         this.load.image('spikes_U', './assets/Levels/Blocks/1x1 Spikes_U.PNG');
-        this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
-        this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
-        this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
-        this.load.image('back_4', './assets/Levels/Level-1/back_brown.png');
+
+        this.load.image('lvl3back', './assets/Levels/Level-3/Background-3.PNG');
+        this.load.image('lvl3mid', './assets/Levels/Level-3/Midground-3.PNG');
+        this.load.image('lvl3fore', './assets/Levels/Level-3/Foreground-3.PNG');
+
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
 
@@ -203,6 +204,7 @@ class Level3 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
+        
         
         // create the Tilemap
 	    const map = this.make.tilemap({ key: 'platform_map3' });
