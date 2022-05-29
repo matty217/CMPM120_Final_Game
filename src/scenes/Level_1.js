@@ -302,6 +302,20 @@ class Level1 extends Phaser.Scene {
 
         this.add.text(13800,-2400,'END', style);
 
+        this.jumpParticles = this.add.particles('smoke');
+            this.partEm2 = this.jumpParticles.createEmitter({
+                radial: true,
+                lifespan: { min: 800, max: 1500},
+                speed: { min: 50, max: 600 },
+                quantity: 0,
+                gravityY: 2000,
+                scale: { start: 4, end: 0, ease: 'Power3' },
+                active: true,
+                mode: 'ADD',
+                
+                follow: this.player
+            });
+
 
     }
 
@@ -320,6 +334,10 @@ class Level1 extends Phaser.Scene {
             this.children.y -= 100;
 
         }, this);
+
+        if (this.player.double_jumped) {
+            this.partEm2.explode(40, this.player.x, this.player.y);
+        }
 
 
     }

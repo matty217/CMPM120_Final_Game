@@ -1179,7 +1179,6 @@
   <object id="96" name="Boulder" gid="17" x="29924" y="2068" width="512" height="512"/>
   <object id="97" name="BoulderStop" x="66624" y="7240" width="17016" height="672"/>
   <object id="99" name="PlayerSpawn" x="-5504" y="12288" width="768" height="832"/>
-  <object id="100" x="12416" y="2016" width="416" height="128"/>
   <object id="101" name="Boulder" gid="17" x="73824" y="-656" width="512" height="512"/>
   <object id="102" name="Boulder" gid="17" x="81918" y="-1538" width="512" height="512"/>
   <object id="103" name="BoulderStop" x="29254.3" y="8876.12" width="2274.67" height="465.939"/>

@@ -36,6 +36,9 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
 
     update() {
 
+        if (this.double_jumped) {
+            this.double_jumped = false;
+        }
 
         // console.log(this.body.acceleration.x);
         // console.log(this.body.velocity.x);
@@ -170,6 +173,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                         this.jumps += 1;
                         if (!this.anim_jumping) {
                             this.play({ key: 'jump' });
+                            this.double_jumped = true;
                             this.anim_jumping = true;
                             this.anim_walking = false;
                             this.anim_climb = false;
