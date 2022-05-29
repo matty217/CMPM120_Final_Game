@@ -32,15 +32,15 @@ class Level1 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
-        this.load.spritesheet('cat_jump', 'assets/Player/Jump_Sheet.png', {
+        this.load.spritesheet('cat_jump', 'assets/Player/Jump_Sheet.PNG', {
             frameWidth: 512,
             frameHeight: 512
         });
-        this.load.spritesheet('cat_climb', 'assets/Player/Climb_Sheet.png', {
+        this.load.spritesheet('cat_climb', 'assets/Player/Climb_Sheet.PNG', {
             frameWidth: 512,
             frameHeight: 512
         });
-        this.load.spritesheet('cat_slide', 'assets/Player/Slide_Sheet.png', {
+        this.load.spritesheet('cat_slide', 'assets/Player/Slide_Sheet.PNG', {
             frameWidth: 512,
             frameHeight: 512
         });
