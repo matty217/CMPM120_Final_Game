@@ -14,7 +14,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         this.MAX_Y_VEL = 5000;
         this.JUMP_VEL = -8000;
         this.AIR_JUMP_VEL = -6000;
-        this.WALL_JUMP_VEL_Y = -6000;
+        this.WALL_JUMP_VEL_Y = -8000;
         this.WALL_JUMP_VEL_X = 7500;
         this.CLIMB_VEL = -2500;
         this.ADDED_VEL = 750;
