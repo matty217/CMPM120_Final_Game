@@ -161,7 +161,7 @@ class Level1 extends Phaser.Scene {
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
-        this.cameras.main.setBounds(-8000, -1000);
+        this.cameras.main.setBounds(-8000, -18000);
         this.cameras.main.setZoom(0.2, 0.2);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
@@ -175,8 +175,7 @@ class Level1 extends Phaser.Scene {
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyQ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
-
-
+        
 
             // set up player character
         this.player = new Cat(this, -5000, 12000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
@@ -261,7 +260,23 @@ class Level1 extends Phaser.Scene {
         this.boulderStopGroup = this.add.group(this.boulderStop);
 
         this.physics.add.overlap(this.boulderStopGroup, this.boulderGroup, (obj1, obj2) => {
-            obj2.y -= 5000;
+            obj2.y -= 10000;
+            obj2.body.velocity.y = 0;
+            obj2.body.acceleration.y = -20000;
+        })
+
+        // Boulder Stop High GROUP
+        this.boulderStopHigh = map.createFromObjects("Objects", {
+            name: "BoulderStopHigh",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.boulderStopHigh, Phaser.Physics.Arcade.STATIC_BODY);
+        this.boulderStopHighGroup = this.add.group(this.boulderStopHigh);
+
+        this.physics.add.overlap(this.boulderStopHighGroup, this.boulderGroup, (obj1, obj2) => {
+            obj2.y -= 30000;
             obj2.body.velocity.y = 0;
             obj2.body.acceleration.y = -20000;
         })
@@ -271,7 +286,7 @@ class Level1 extends Phaser.Scene {
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(93238, 1000, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(136352.00, 9368.00, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 
@@ -300,6 +315,11 @@ class Level1 extends Phaser.Scene {
         // this.back_0003.x = this.player.x/4;
 
         console.log(this.player.body.velocity.x);
+
+        Phaser.Actions.Call(this.boulderGroup.getChildren(), function(sprite) {
+            this.children.y -= 100;
+
+        }, this);
 
 
     }
