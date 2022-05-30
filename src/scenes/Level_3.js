@@ -189,6 +189,8 @@ class Level3 extends Phaser.Scene {
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
 
+        this.load.image('transparent', './assets/transparent.png');
+
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map3', 'assets/Levels/TileMaps/Level3.json');
@@ -219,7 +221,7 @@ class Level3 extends Phaser.Scene {
 
         // (change static values to a variable later)
         this.cameras.main.setBounds(-16000, 3000);
-        this.cameras.main.setZoom(0.15, 0.15);
+        this.cameras.main.setZoom(0.2, 0.2);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
 
@@ -238,6 +240,8 @@ class Level3 extends Phaser.Scene {
             // set up player character
         this.player = new Cat(this, -15232, 13568, 'cat', 0).setOrigin(0.5, 0.5).setScale(1);
         //this.player.body.setMaxVelocity(600, 5000);
+        this.respawnX = -15232;
+        this.respawnY = 13568;
 
         this.cat_example = this.add.sprite(2100, -750, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
@@ -267,6 +271,34 @@ class Level3 extends Phaser.Scene {
 
         var style = { font: "20px Arial", fill: "#ffffff" };
 
+        // RESPAWN POINT GROUP
+        this.respawnPoint = map.createFromObjects("Objects", {
+            name: "respawn",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.respawnPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.respawnGroup = this.add.group(this.respawnPoint);
+
+        this.physics.add.overlap(this.player, this.respawnGroup, (obj1, obj2) => {
+            this.respawnX = obj2.x;
+            this.respawnY = obj2.y + 1500;
+        })
+
+        // FALL DEATH GROUP
+        this.deathPoint = map.createFromObjects("Objects", {
+            name: "death",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.deathPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.deathGroup = this.add.group(this.deathPoint);
+
+        this.physics.add.overlap(this.player, this.deathGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -318,7 +350,46 @@ class Level3 extends Phaser.Scene {
         }
     }
 
+    Death(player, spike) {
+        if (this.player.alive == true) {
+            player.alive = false;
+            this.cameras.main.shake(500);
+            this.deathParticles = this.add.particles('smoke');
+            this.partEm = this.deathParticles.createEmitter({
+                // frame: 'yellow',
+                radial: true,
+                // x: this.newCannon.x + 100,
+                // y: this.newCannon.y,
+                lifespan: { min: 1200, max: 2000},
+                speed: { min: 50, max: 800 },
+                quantity: 500,
+                gravityY: 0,
+                scale: { start: 4, end: 0, ease: 'Power3' },
+                active: true,
+                
+                follow: player
+            });
+            this.partEm.explode(100, this.player.x, this.player.y);
+            this.player.alpha = 0;
+
+            let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
+                this.cameras.main.fadeOut(500);
+
+                let respawn = this.time.addEvent({ delay: 500, callback: () =>{
+                    this.Respawn();
+                }});
+            }});
+        }
+    }
+
     unHurt() {
         this.player.hurt = false;
+    }
+
+    Respawn() {
+        this.cameras.main.fadeIn(800);
+        this.player.setPosition(this.respawnX, this.respawnY);
+        this.player.alive = true;
+        this.player.alpha = 1;
     }
 }

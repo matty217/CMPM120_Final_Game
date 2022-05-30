@@ -170,6 +170,8 @@ class Level4 extends Phaser.Scene {
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
 
+
+        this.load.image('transparent', './assets/transparent.png');
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map4', 'assets/Levels/TileMaps/Level4.json');
@@ -246,7 +248,8 @@ class Level4 extends Phaser.Scene {
             // set up player character
         this.player = new Cat(this, -14000, 12000, 'cat', 0).setOrigin(0.5, 0.5).setScale(1);
         //this.player.body.setMaxVelocity(600, 5000);
-
+        this.respawnX = -14000;
+        this.respawnY = 12000;
         this.cat_example = this.add.sprite(2100, -750, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
@@ -532,7 +535,7 @@ class Level4 extends Phaser.Scene {
 
         // CHECKPOINT TO NEXT LEVEL
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(24832, 11008, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
 
@@ -548,7 +551,34 @@ class Level4 extends Phaser.Scene {
 
         this.add.text(13800,-2400,'END', style);
 
+         // RESPAWN POINT GROUP
+        this.respawnPoint = map.createFromObjects("Objects", {
+            name: "respawn",
+            key: "transparent",
+            frame: ""
+        });
 
+        this.physics.world.enable(this.respawnPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.respawnGroup = this.add.group(this.respawnPoint);
+
+        this.physics.add.overlap(this.player, this.respawnGroup, (obj1, obj2) => {
+            this.respawnX = obj2.x;
+            this.respawnY = obj2.y;
+        })
+
+        // FALL DEATH GROUP
+        this.deathPoint = map.createFromObjects("Objects", {
+            name: "death",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.deathPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.deathGroup = this.add.group(this.deathPoint);
+
+        this.physics.add.overlap(this.player, this.deathGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -577,7 +607,7 @@ class Level4 extends Phaser.Scene {
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
 
-        console.log(this.player.x);
+        console.log(this.player.x, this.player.y);
         // console.log('fallx', this.fallPlat1.x);
         // if (this.scene.physics.overlap(this.player, this.fallPlat1)) {
         //     console.log('fall');
@@ -587,7 +617,7 @@ class Level4 extends Phaser.Scene {
 
     }
 
-        goToLevel5(player, checkpoint) {
+    goToLevel5(player, checkpoint) {
         this.scene.start('level5Scene');
         this.scene.bringToTop('level5Scene');
         this.scene.pause('level1Scene');
@@ -610,6 +640,45 @@ class Level4 extends Phaser.Scene {
 
     unHurt() {
         this.player.hurt = false;
+    }
+
+    Death(player, spike) {
+        if (this.player.alive == true) {
+            player.alive = false;
+            this.cameras.main.shake(500);
+            this.deathParticles = this.add.particles('smoke');
+            this.partEm = this.deathParticles.createEmitter({
+                // frame: 'yellow',
+                radial: true,
+                // x: this.newCannon.x + 100,
+                // y: this.newCannon.y,
+                lifespan: { min: 1200, max: 2000},
+                speed: { min: 50, max: 800 },
+                quantity: 500,
+                gravityY: 0,
+                scale: { start: 4, end: 0, ease: 'Power3' },
+                active: true,
+                
+                follow: player
+            });
+            this.partEm.explode(100, this.player.x, this.player.y);
+            this.player.alpha = 0;
+
+            let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
+                this.cameras.main.fadeOut(500);
+
+                let respawn = this.time.addEvent({ delay: 500, callback: () =>{
+                    this.Respawn();
+                }});
+            }});
+        }
+    }
+
+    Respawn() {
+        this.cameras.main.fadeIn(800);
+        this.player.setPosition(this.respawnX, this.respawnY);
+        this.player.alive = true;
+        this.player.alpha = 1;
     }
 
     fallActivate(player, plat) {

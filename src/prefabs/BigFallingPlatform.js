@@ -18,7 +18,7 @@ class BigFallingPlatform extends Phaser.Physics.Arcade.Sprite {
         // console.log('plat cat y', this.y, this.target.y);
         // console.log('plat cat x', this.x, this.target.x);
        
-        if ((this.target.x <this.x+5000) && (this.target.x > this.x-5000)  && (this.target.y == (this.y-512))) {
+        if ((this.target.x <this.x+3000) && (this.target.x > this.x-3000)  && (this.target.y == (this.y-512))) {
             console.log('fall check');
             this.fallActivate();
         }
