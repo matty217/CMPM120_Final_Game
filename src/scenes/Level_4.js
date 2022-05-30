@@ -354,18 +354,18 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
-            {
-                name: "fp18",
-                key: "tile_sheet",
-                frame: 4,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp19",
-                key: "tile_sheet",
-                frame: 22,
-                classType: FallingPlatform
-            }, 
+            // {
+            //     name: "fp18",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp19",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
                 name: "fp20",
                 key: "tile_sheet",
@@ -378,30 +378,30 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
-            {
-                name: "fp22",
-                key: "tile_sheet",
-                frame: 4,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp23",
-                key: "tile_sheet",
-                frame: 22,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp28",
-                key: "tile_sheet",
-                frame: 4,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp29",
-                key: "tile_sheet",
-                frame: 22,
-                classType: FallingPlatform
-            }, 
+            // {
+            //     name: "fp22",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp23",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp28",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp29",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
                 name: "fp30",
                 key: "tile_sheet",
@@ -477,24 +477,24 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: BigFallingPlatform
             }, 
-            {
-                name: "bfp7",
-                key: "tile_sheet",
-                frame: 4,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp8",
-                key: "tile_sheet",
-                frame: 10,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp9",
-                key: "tile_sheet",
-                frame: 22,
-                classType: BigFallingPlatform
-            }, 
+            // {
+            //     name: "bfp7",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp8",
+            //     key: "tile_sheet",
+            //     frame: 10,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp9",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: BigFallingPlatform
+            // }, 
             {
                 name: "bfp10",
                 key: "tile_sheet",
@@ -527,6 +527,24 @@ class Level4 extends Phaser.Scene {
             }, 
             {
                 name: "bfp15",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test1",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test2",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test3",
                 key: "tile_sheet",
                 frame: 22,
                 classType: BigFallingPlatform
