@@ -8,9 +8,23 @@ class Level2 extends Phaser.Scene {
         this.load.image('rect', './assets/white-square.png');
         this.load.image('platform_vert', './assets/platform_vert.png');
 
+        this.load.spritesheet('geyser', 'assets/Levels/Blocks/Tiles/Geyser_Sheet.png', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+
     }
 
     create() {
+        const geyserAnimate = this.anims.create({
+            key: 'geyser',
+            frames: this.anims.generateFrameNames('geyser', {
+                start: 0,
+                end: 16
+            }),
+            frameRate: 16,
+            repeat: -1
+        });
         // camera and world bounds
         // (change static values to a variable later)
         this.cameras.main.setBounds(0, 0, 2000 , 720);
@@ -55,7 +69,7 @@ class Level2 extends Phaser.Scene {
         this.physics.add.collider(this.player, this.geyserGroup);
 
         // Geyser 1
-        this.geyser1 = this.add.sprite(800, 500, 'platform_vert', 0).setOrigin(0, 0);
+        this.geyser1 = this.add.sprite(800, 500, 'geyser', 0).setOrigin(0, 0);
         let t = this.tweens.add({
             targets: this.geyser1,
             y: 400,

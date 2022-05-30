@@ -274,35 +274,35 @@ class Level5 extends Phaser.Scene {
             this.Death(obj1);
         })
 
-        // // Boulder GROUP
-        // this.boulder = map.createFromObjects("Objects", {
-        //     name: "Boulder",
-        //     key: "boulder",
-        //     frame: ""
-        // });
+        // Boulder GROUP
+        this.boulder = map.createFromObjects("Objects", {
+            name: "boulder",
+            key: "boulder",
+            frame: ""
+        });
 
-        // this.physics.world.enable(this.boulder, Phaser.Physics.Arcade.BODY);
-        // this.boulderGroup = this.add.group(this.boulder);
+        this.physics.world.enable(this.boulder, Phaser.Physics.Arcade.BODY);
+        this.boulderGroup = this.add.group(this.boulder);
 
-        // this.physics.add.overlap(this.player, this.boulderGroup, (obj1, obj2) => {
-        //     this.Death(obj1);
-        // })
+        this.physics.add.overlap(this.player, this.boulderGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
 
-        // // Boulder Stop GROUP
-        // this.boulderStop = map.createFromObjects("Objects", {
-        //     name: "BoulderStop",
-        //     key: "transparent",
-        //     frame: ""
-        // });
+        // Boulder Stop GROUP
+        this.boulderStop = map.createFromObjects("Objects", {
+            name: "boulderStop",
+            key: "transparent",
+            frame: ""
+        });
     
-        // this.physics.world.enable(this.boulderStop, Phaser.Physics.Arcade.STATIC_BODY);
-        // this.boulderStopGroup = this.add.group(this.boulderStop);
+        this.physics.world.enable(this.boulderStop, Phaser.Physics.Arcade.STATIC_BODY);
+        this.boulderStopGroup = this.add.group(this.boulderStop);
 
-        // this.physics.add.overlap(this.boulderStopGroup, this.boulderGroup, (obj1, obj2) => {
-        //     obj2.y -= 10000;
-        //     obj2.body.velocity.y = 0;
-        //     obj2.body.acceleration.y = -20000;
-        // })
+        this.physics.add.overlap(this.boulderStopGroup, this.boulderGroup, (obj1, obj2) => {
+            obj2.y -= Phaser.Math.Between(8000, 13000);
+            obj2.body.velocity.y = 0;
+            obj2.body.acceleration.y = -20000;
+        })
 
         // // Boulder Stop High GROUP
         // this.boulderStopHigh = map.createFromObjects("Objects", {

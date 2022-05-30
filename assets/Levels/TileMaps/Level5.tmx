@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="9" nextobjectid="201">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="9" nextobjectid="215">
  <tileset firstgid="1" name="standard_tiles" tilewidth="512" tileheight="512" tilecount="24" columns="6">
   <image source="terrain_tiles.png" width="3072" height="2048"/>
   <tile id="0">
@@ -214,8 +214,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,5,11,23,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,19,20,21,0,
+0,19,20,20,21,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
    <chunk x="96" y="0" width="16" height="16">
@@ -279,7 +279,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,
 0,0,0,0,0,0,0,0,0,1,2,9,0,0,0,7,
 0,0,0,5,11,23,0,0,0,7,8,9,0,0,0,7,
-0,0,0,0,0,0,0,0,0,7,8,9,0,0,0,7,
+19,21,0,0,0,0,0,0,0,7,8,9,0,0,0,7,
 0,0,0,0,0,0,0,0,1,8,8,9,0,0,0,7,
 0,0,0,0,0,0,0,7,8,8,8,9,0,0,0,14,
 0,0,0,0,0,19,20,8,8,8,8,9,0,0,0,0,
@@ -581,7 +581,7 @@
   <object id="178" name="fp26" gid="5" x="47616" y="6144" width="512" height="512"/>
   <object id="179" name="fp27" gid="23" x="48128" y="6144" width="512" height="512"/>
   <object id="180" name="death" x="-8704" y="17408" width="34816" height="2560"/>
-  <object id="181" name="death" x="13824" y="8192" width="6144" height="11264"/>
+  <object id="181" name="death" x="13824" y="7680" width="6144" height="11264"/>
   <object id="182" x="12288" y="18432"/>
   <object id="188" name="death" x="25600" y="18432" width="13824" height="2560"/>
   <object id="189" name="death" x="39424" y="8704" width="13824" height="11776"/>
@@ -593,5 +593,12 @@
   <object id="197" name="respawn" x="8192" y="6656" width="512" height="1536"/>
   <object id="198" name="respawn" x="23040" y="12800" width="512" height="1536"/>
   <object id="199" name="respawn" x="-13824" y="12800" width="512" height="2048"/>
+  <object id="201" name="boulder" gid="17" x="15872" y="4096" width="512" height="512"/>
+  <object id="208" name="boulderStop" x="13312" y="8192" width="7168" height="1536"/>
+  <object id="209" name="boulder" gid="17" x="-6144" y="11776" width="512" height="512"/>
+  <object id="210" name="boulderStop" x="-9216" y="17408" width="6656" height="1536"/>
+  <object id="212" name="boulder" gid="17" x="-5632" y="12800" width="512" height="512"/>
+  <object id="213" name="boulder" gid="17" x="3072" y="9216" width="512" height="512"/>
+  <object id="214" name="boulderStop" x="-2048" y="15872" width="6656" height="1536"/>
  </objectgroup>
 </map>

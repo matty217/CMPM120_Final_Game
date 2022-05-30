@@ -390,6 +390,30 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
+            {
+                name: "fp28",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp29",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp30",
+                key: "tile_sheet",
+                frame: 4,
+                classType: FallingPlatform
+            }, 
+            {
+                name: "fp31",
+                key: "tile_sheet",
+                frame: 22,
+                classType: FallingPlatform
+            }, 
             
         ]);
         // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
@@ -489,6 +513,24 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: BigFallingPlatform
             }, 
+            {
+                name: "bfp13",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp14",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp15",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
             
         ]);
         // this.physics.world.enable(this.fallPlat1, Phaser.Physics.Arcade.STATIC_BODY);
@@ -524,20 +566,30 @@ class Level4 extends Phaser.Scene {
         this.physics.world.enable(this.rSpikes, Phaser.Physics.Arcade.STATIC_BODY);
 
         this.bSpikeGroup = this.add.group(this.bSpikes);
-        this.physics.add.collider(this.player, this.bSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.bSpikeGroup, this.Death, null, this);
 
         this.lSpikeGroup = this.add.group(this.lSpikes);
-        this.physics.add.collider(this.player, this.lSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.lSpikeGroup, this.Death, null, this);
 
         this.rSpikeGroup = this.add.group(this.rSpikes);
-        this.physics.add.collider(this.player, this.rSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.rSpikeGroup, this.Death, null, this);
 
 
         // CHECKPOINT TO NEXT LEVEL
-        this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(24832, 11008, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint.add(this.checkpoint1);
-        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
+        this.checkPoint = map.createFromObjects("Objects", {
+            name: "checkpoint",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.checkPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.checkpointGroup = this.add.group(this.checkPoint);
+
+        this.physics.add.overlap(this.player, this.checkpointGroup, this.goToLevel5, null, this);
+        // this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+        // this.checkpoint1 = this.add.sprite(24832, 11008, 'rect', 0).setOrigin(0,0.5);
+        // this.checkpoint.add(this.checkpoint1);
+        // this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
