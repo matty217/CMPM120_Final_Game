@@ -37,6 +37,8 @@ class Menu extends Phaser.Scene {
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.pressedCounter = 1;
 
+        // this.input.keyboard.on('keydown', sceneSwitcher);
+
     }
 
     update() {

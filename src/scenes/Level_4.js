@@ -194,22 +194,28 @@ class Level4 extends Phaser.Scene {
     create() {
         // BACKGROUND STUFF
         // this.physics.enable(sky, Phaser.Physics.ARCADE);
+        this.topSky1 = this.add.sprite(-5000, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky2 = this.add.sprite(1800, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky3 = this.add.sprite(8600, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky4 = this.add.sprite(15400, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
         this.sky1 = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        // this.sky2 = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        // this.sky3 = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky2 = this.add.sprite(1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky3 = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky4 = this.add.sprite(15400, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
 
         this.back1 = this.add.sprite(-1000, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        // this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        // this.back3 = this.add.sprite(12600, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back3 = this.add.sprite(12600, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
         this.mid1 = this.add.sprite(-2500, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        // this.mid2 = this.add.sprite(4300, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        // this.mid3 = this.add.sprite(11100, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid2 = this.add.sprite(4300, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid3 = this.add.sprite(11100, 4000, 'bg2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
 
 
         this.fore1 = this.add.sprite(-4000, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        // this.fore2 = this.add.sprite(2800, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        // this.fore3 = this.add.sprite(9600, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore2 = this.add.sprite(2800, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore3 = this.add.sprite(9600, 5000, 'bg3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
 
 
        
@@ -677,10 +683,10 @@ class Level4 extends Phaser.Scene {
         // this.back_0001.x = this.player.x/1.3;
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
-        this.sky1.x = this.player.x/8;
-        this.back1.x = this.player.x/8;
-        this.mid1.x = this.player.x/8;
-        this.fore1.x = this.player.x/8;
+        // this.sky1.x = this.player.x/8;
+        // this.back1.x = this.player.x/8;
+        // this.mid1.x = this.player.x/8;
+        // this.fore1.x = this.player.x/8;
         // this.sky1.y = this.player.y*0.5;
 
         console.log(this.player.x, this.player.y);
