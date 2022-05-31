@@ -12,7 +12,7 @@ let config = {
             debug: false
         }
     },
-    scene: [ Menu, Level1, Level2, Level3, Level4, Level5, GameOver ]
+    scene: [ Menu, Level1, Level2, Level3, Charon, Level4, Level5, GameOver ]
 }
 
 

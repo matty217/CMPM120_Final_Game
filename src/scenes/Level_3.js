@@ -193,11 +193,12 @@ class Level3 extends Phaser.Scene {
 
     goToLevel4(player, checkpoint) {
         console.log('next level 4');
-        this.scene.start('level4Scene');
-        this.scene.bringToTop('level4Scene');
+        this.scene.start('charonScene');
+        this.scene.bringToTop('charonScene');
         this.scene.pause('level1Scene');
         this.scene.pause('level2Scene');
         this.scene.pause('level3Scene');
+        this.scene.pause('level4Scene');
         this.scene.pause('level5Scene');
     }
 
