@@ -31,8 +31,7 @@ class Charon extends Phaser.Scene {
                 left: 5
             },
         }
-        this.add.text(game.config.width/2, 360, 'You have collected all the coins.', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 400, 'Charon has agreed to take you accross River Styx.', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, game.config.height/2, 'Charon has accepted your payment of 3 memories. \n He has granted you access to cross the River of Styx.', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 650, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

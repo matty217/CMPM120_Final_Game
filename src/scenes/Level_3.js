@@ -27,6 +27,10 @@ class Level3 extends Phaser.Scene {
 
         this.load.image('transparent', './assets/transparent.png');
 
+        this.load.image('pg11', './assets/Storyboard/Page (11).jpg');
+        this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
+        this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
+
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map3', 'assets/Levels/TileMaps/Level3.json');
@@ -43,7 +47,7 @@ class Level3 extends Phaser.Scene {
     create() {
         // BACKGROUND STUFF
         
-        
+        this.cameras.main.fadeIn(1000);
         // create the Tilemap
 	    const map = this.make.tilemap({ key: 'platform_map3' });
 
@@ -148,24 +152,25 @@ class Level3 extends Phaser.Scene {
         // COINS TO COLLECT
         this.coin1 = new Coin(this, -306, 20736, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
         this.coin2 = new Coin(this, -12063, 8960, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
-        this.coin3 = new Coin(this, -50, 5376, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
+        // this.coin3 = new Coin(this, -50, 5376, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
         this.coin4 = new Coin(this, 4864, 4864, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
         this.coinGroup = this.physics.add.group({allowGravity: false, immovable: true });
         this.coinGroup.add(this.coin1);
         this.coinGroup.add(this.coin2);
-        this.coinGroup.add(this.coin3);
+        // this.coinGroup.add(this.coin3);
         this.coinGroup.add(this.coin4);
         this.physics.add.overlap(this.player, this.coinGroup, this.collectCoin, null, this);
 
         let style = { font: "200px Arial", fill: "#ff0000"};
+        this.displayMemoryCounter = 11;
         // coin counter
         this.coinCounter = 0;
-        this.totalCoinsCollected = this.add.text(4187, 14000, this.coinCounter, style);
-        this.add.text(2300, 14000,'Total coins collected:', style);
+        this.totalCoinsCollected = this.add.text(4600, 14000, this.coinCounter, style);
+        this.add.text(2300, 14000,'Total memories collected:', style);
         
         // CHARON
         this.charon = this.add.sprite(2813, 15616, 'rect', 0).setOrigin(0.5,0.5).setScale(0.5);
-        this.charonMessage =  this.add.text(2300, 14400, 'To cross the river of Styx,\n please collect 3 coins.', style);
+        this.charonMessage =  this.add.text(2300, 14400, 'To cross the river of Styx,\n please collect 3 memories.', style);
         //ANIMATIONS
         const catWalk = this.anims.create({
             key: 'walk',
@@ -202,12 +207,12 @@ class Level3 extends Phaser.Scene {
         if (this.coinCounter == 3) {
             console.log('next level 4');
             this.scene.start('charonScene');
-            this.scene.bringToTop('charonScene');
-            this.scene.pause('level1Scene');
-            this.scene.pause('level2Scene');
-            this.scene.pause('level3Scene');
-            this.scene.pause('level4Scene');
-            this.scene.pause('level5Scene');
+            // this.scene.bringToTop('charonScene');
+            this.scene.sleep('level1Scene');
+            // this.scene.pause('level2Scene');
+            // this.scene.pause('level3Scene');
+            // this.scene.pause('level4Scene');
+            // this.scene.pause('level5Scene');
         }
     }
 
@@ -269,5 +274,10 @@ class Level3 extends Phaser.Scene {
     collectCoin(player, coin) {
         coin.getCoin();
         this.coinCounter+=1;
+        this.totalCoinsCollected.text = this.coinCounter;
+        this.story = this.add.sprite(this.player.x, this.player.y - 900, 'pg'+[this.displayMemoryCounter]).setScale(0.5);
+        this.story.alpha = 0.5;
+        this.displayMemoryCounter+=1;
+        
     }
 }
