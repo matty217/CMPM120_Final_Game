@@ -19,7 +19,7 @@ class Menu extends Phaser.Scene {
         
         // menu text configuration
         let menuConfig = {
-            fontSize: '20px',
+            fontSize: '40px',
             backgroundColor: '#637a68',
             color: '#dddace',
             align: 'center',
@@ -31,7 +31,13 @@ class Menu extends Phaser.Scene {
             },
         }
         
-        this.add.text(game.config.width/2, 180, 'menu', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 180, 'Gone But Not Forgotten', menuConfig).setOrigin(0.5);
+        menuConfig.fontSize = '20px';
+        this.add.text(game.config.width/2, 240, 'Game Instructions:', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 280, 'A: Move Left', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 320, 'D: Move Right', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 360, 'Space: Jump/Double Jump', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 400, 'W+Space: Wall Climb', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 650, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
