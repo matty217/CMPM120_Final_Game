@@ -114,7 +114,7 @@ class Level3 extends Phaser.Scene {
          // follow player with camera
         this.cameras.main.startFollow(this.player, true, 0.08, 0.08, 0, 100);
 
-        var style = { font: "20px Arial", fill: "#ffffff" };
+        
 
         // RESPAWN POINT GROUP
         this.respawnPoint = map.createFromObjects("Objects", {
@@ -157,12 +157,15 @@ class Level3 extends Phaser.Scene {
         this.coinGroup.add(this.coin4);
         this.physics.add.overlap(this.player, this.coinGroup, this.collectCoin, null, this);
 
+        let style = { font: "200px Arial", fill: "#ff0000"};
         // coin counter
         this.coinCounter = 0;
-        this.totalCoinsCollected = this.add.text(720, 100, this.coinCounter, style);
-        this.add.text(500,100,'Total coins collected:', style);
+        this.totalCoinsCollected = this.add.text(4187, 14000, this.coinCounter, style);
+        this.add.text(2300, 14000,'Total coins collected:', style);
         
-
+        // CHARON
+        this.charon = this.add.sprite(2813, 15616, 'rect', 0).setOrigin(0.5,0.5).setScale(0.5);
+        this.charonMessage =  this.add.text(2300, 14400, 'To cross the river of Styx,\n please collect 3 coins.', style);
         //ANIMATIONS
         const catWalk = this.anims.create({
             key: 'walk',
@@ -185,21 +188,27 @@ class Level3 extends Phaser.Scene {
         // this.back_0001.x = this.player.x/1.3;
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
-
+        console.log('this.coinCounter1', this.coinCounter);
+        if (this.coinCounter == 3) {
+            console.log('ahhh this.coinCounter', this.coinCounter);
+            this.charonMessage.text = 'You have all collected 3 coins. \nI will take you accross the river';
+        }
         console.log(this.player.x, this.player.y);
 
 
     }
 
     goToLevel4(player, checkpoint) {
-        console.log('next level 4');
-        this.scene.start('charonScene');
-        this.scene.bringToTop('charonScene');
-        this.scene.pause('level1Scene');
-        this.scene.pause('level2Scene');
-        this.scene.pause('level3Scene');
-        this.scene.pause('level4Scene');
-        this.scene.pause('level5Scene');
+        if (this.coinCounter == 3) {
+            console.log('next level 4');
+            this.scene.start('charonScene');
+            this.scene.bringToTop('charonScene');
+            this.scene.pause('level1Scene');
+            this.scene.pause('level2Scene');
+            this.scene.pause('level3Scene');
+            this.scene.pause('level4Scene');
+            this.scene.pause('level5Scene');
+        }
     }
 
     spikeHurt(player, spike) {
