@@ -15,9 +15,9 @@ class Level1 extends Phaser.Scene {
         this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
         this.load.image('spikes_D', './assets/Levels/Blocks/Tiles/1x1 Spikes.PNG');
         this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
-        this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
-        this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
-        this.load.image('back_4', './assets/Levels/Level-1/back_brown.png');
+        this.load.image('mid_1', './assets/Levels/Level-1/Midground-1.PNG');
+        this.load.image('fore_1', './assets/Levels/Level-1/Foreground-1.PNG');
+        this.load.image('brown_1', './assets/Levels/Level-1/back_brown.png');
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
         this.load.image('smoke', './assets/Cat/smoke.png');
@@ -25,7 +25,7 @@ class Level1 extends Phaser.Scene {
 
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
-        this.load.tilemapTiledJSON('platform_map', 'assets/Levels/TileMaps/Level1.json');
+        this.load.tilemapTiledJSON('platform_map1', 'assets/Levels/TileMaps/Level1.json');
 
 
         this.load.spritesheet('cat_walk', 'assets/Player/Walk_Sheet.png', {
@@ -124,30 +124,30 @@ class Level1 extends Phaser.Scene {
         this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back_0004 = this.add.sprite(19400, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
-        this.mid_0001 = this.add.sprite(-1000, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0002 = this.add.sprite(5800, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0003 = this.add.sprite(12600, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0003 = this.add.sprite(19400, 2500, 'back_2', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0001 = this.add.sprite(-1000, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0002 = this.add.sprite(5800, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0003 = this.add.sprite(12600, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
+        this.mid_0003 = this.add.sprite(19400, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
 
 
 
-        this.fore_0001 = this.add.sprite(-1000, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(5800, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(12600, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(19400, 3500, 'back_3', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0001 = this.add.sprite(-1000, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(5800, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(12600, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore_0002 = this.add.sprite(19400, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
 
 
 
-        this.back_brown = this.add.sprite(-1000, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(5800, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(12600, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(19400, 8500, 'back_4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(-1000, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(5800, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(12600, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.back_brown = this.add.sprite(19400, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
 
 
 
         
         // create the Tilemap
-	    const map = this.make.tilemap({ key: 'platform_map' });
+	    const map = this.make.tilemap({ key: 'platform_map1' });
 
         // add the tileset image we are using
         const tileset = map.addTilesetImage('standard_tiles', 'terrain_tiles');
@@ -287,6 +287,7 @@ class Level1 extends Phaser.Scene {
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
         this.checkpoint1 = this.add.sprite(136352.00, 9368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 

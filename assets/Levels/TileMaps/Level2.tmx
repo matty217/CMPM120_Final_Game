@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="4" nextobjectid="295">
+ <editorsettings>
+  <export target="Level2.json" format="json"/>
+ </editorsettings>
+ <tileset firstgid="1" name="standard_tiles" tilewidth="512" tileheight="512" tilecount="24" columns="6">
+  <image source="terrain_tiles.png" width="3072" height="2048"/>
+  <tile id="0">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="collides" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="collides" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="collides" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="collides" type="bool" value="false"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer id="2" name="Background" width="30" height="20">
+  <data encoding="csv"/>
+ </layer>
+ <layer id="1" name="Ground" width="30" height="20">
+  <data encoding="csv">
+   <chunk x="-16" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,4,0,0,0,
+8,8,8,2,2,2,2,2,2,2,2,2,8,2,2,2,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8
+</chunk>
+   <chunk x="0" y="16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,1,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2,8,8,2,2,2,3,0,0,0,0,0,0,0,0,0,
+8,8,8,8,8,8,9,0,0,0,0,0,0,0,0,0,
+8,8,8,8,8,8,9,0,0,0,0,0,0,0,0,0,
+8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0
+</chunk>
+   <chunk x="0" y="32" width="16" height="16">
+8,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,
+0,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,
+0,8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
+ <objectgroup id="3" name="Objects">
+  <object id="3" name="Spike" gid="3221225478" x="3463.45" y="35296.3" width="512" height="512" rotation="270"/>
+  <object id="6" name="Respawn" x="14314.3" y="29470.2" width="900" height="3500"/>
+  <object id="8" name="Spike" gid="3221225478" x="-6208" y="9680" width="512" height="512" rotation="270"/>
+  <object id="9" name="Spike" gid="3221225478" x="-6256" y="10096" width="512" height="512" rotation="270"/>
+  <object id="10" name="Spike" gid="1073741830" x="-6670.8" y="8249.37" width="512" height="512" rotation="180"/>
+  <object id="11" name="Spike" gid="3221225478" x="-7160" y="8272" width="512" height="512" rotation="-180"/>
+  <object id="12" name="Spike" gid="1073741830" x="-7632" y="8256" width="512" height="512" rotation="180"/>
+  <object id="21" name="Death" x="-3112" y="34944" width="2600" height="520"/>
+  <object id="96" name="Boulder" gid="17" x="10148" y="34260" width="512" height="512"/>
+  <object id="97" name="BoulderStop" x="5952" y="31240" width="3128" height="672"/>
+  <object id="217" name="BoulderStopHigh" x="-2636" y="30816" width="2960" height="672"/>
+  <object id="291" name="Geyser" x="-3072" y="13136" width="528" height="1296"/>
+  <object id="294" name="Fire" x="-6600" y="13192" width="400" height="1200"/>
+ </objectgroup>
+</map>
