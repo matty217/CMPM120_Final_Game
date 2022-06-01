@@ -281,6 +281,20 @@ class Level1 extends Phaser.Scene {
             obj2.body.acceleration.y = -20000;
         })
 
+        // Falling Ground Group
+        this.lava = map.createFromObjects("Objects", {
+            name: "Lava",
+            key: "lava",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.lava, Phaser.Physics.Arcade.STATIC_BODY);
+        this.lavaGroup = this.add.group(this.lava);
+
+        this.physics.add.overlap(this.player, this.lavaGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
+
 
        
 
