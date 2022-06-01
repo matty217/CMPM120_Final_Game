@@ -9,6 +9,8 @@ class Level2 extends Phaser.Scene {
         this.load.image('back_2', './assets/Levels/Level-2/Background-2.PNG');
         this.load.image('mid_2', './assets/Levels/Level-2/Midground-2.PNG');
         this.load.image('fore_2', './assets/Levels/Level-2/Foreground-2.PNG');
+        this.load.image('fire', './assets/Levels/Blocks/Tiles/fire.png');
+        this.load.image('lava', './assets/Levels/Blocks/Tiles/lava.png');
 
 
         // TILE MAP
@@ -20,6 +22,11 @@ class Level2 extends Phaser.Scene {
             frameHeight: 512
         });
 
+        this.load.spritesheet('blue_geyser', 'assets/Levels/Blocks/Tiles/Geyser_Sheet_Blue.png', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+
     }
 
     create() {
@@ -27,9 +34,9 @@ class Level2 extends Phaser.Scene {
             key: 'geyser',
             frames: this.anims.generateFrameNames('geyser', {
                 start: 0,
-                end: 16
+                end: 2
             }),
-            frameRate: 16,
+            frameRate: 10,
             repeat: -1
         });
         // camera and world bounds
@@ -163,10 +170,10 @@ class Level2 extends Phaser.Scene {
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         
 
-            // set up player character
-        this.player = new Cat(this, -5000, 12000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
-        this.respawnX = -4000;
-        this.respawnY = 13000;
+            // set up PLAYER -----------------
+        this.player = new Cat(this, -5000, 5000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.respawnX = -6725.70;
+        this.respawnY = 10630.20;
         //this.player.body.setMaxVelocity(600, 5000);
         
         // geyser
@@ -272,7 +279,7 @@ class Level2 extends Phaser.Scene {
         // GEYSER GROUP
         this.geyser = map.createFromObjects("Objects", {
             name: "Geyser",
-            key: "geyser",
+            key: "blue_geyser",
             frame: ""
         });
     
@@ -294,46 +301,62 @@ class Level2 extends Phaser.Scene {
         this.fireGroup = this.add.group(this.fire);
 
         this.physics.add.overlap(this.player, this.fireGroup, (obj1, obj2) => {
+            if (this.fireOn) {
+                this.Death(obj1);
+            }
+        })
+
+        // Lava GROUP
+        this.lava = map.createFromObjects("Objects", {
+            name: "Lava",
+            key: "lava",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.lava, Phaser.Physics.Arcade.STATIC_BODY);
+        this.lavaGroup = this.add.group(this.lava);
+
+        this.physics.add.overlap(this.player, this.lavaGroup, (obj1, obj2) => {
             this.Death(obj1);
         })
 
         // GEYSERS
         
-        // Geyser Group
-        this.geyserGroup2 = this.physics.add.group( {allowGravity: false, immovable: true } );
-        this.physics.add.collider(this.player, this.geyserGroup2);
+        // // Geyser Group
+        // this.geyserGroup2 = this.physics.add.group( {allowGravity: false, immovable: true } );
+        // this.physics.add.collider(this.player, this.geyserGroup2);
 
-        // Geyser 1
-        this.geyser1 = this.add.sprite(800, 500, 'geyser', 0).setOrigin(0, 0);
-        let t = this.tweens.add({
-            targets: this.geyser1,
-            y: 400,
-            duration: 3000,
-            ease: 'Linear',
-            yoyo: true,
-            repeat: 2000
-        });
-        t.restart();
-        this.geyserBase1 = this.add.sprite(800, 600, 'platform_vert', 0).setOrigin(0, 0);
+        // // Geyser 1
+        // this.geyser1 = this.add.sprite(-3000, 13136, 'geyser', 0).setOrigin(0, 0);
+        // let t = this.tweens.add({
+        //     targets: this.geyser1,
+        //     y: 400,
+        //     duration: 3000,
+        //     ease: 'Linear',
+        //     yoyo: true,
+        //     repeat: 2000
+        // });
+        // t.restart();
+        // this.geyserBase1 = this.add.sprite(800, 600, 'platform_vert', 0).setOrigin(0, 0);
 
-        // Geyser 2
-        this.geyser2 = this.add.sprite(1200, 500, 'platform_vert', 0).setOrigin(0, 0);
-        let t2 = this.tweens.add({
-            targets: this.geyser2,
-            y: 400,
-            duration: 2500,
-            ease: 'Linear',
-            yoyo: true,
-            repeat: 2000
-        });
-        t2.restart();
-        this.geyserBase2 = this.add.sprite(1200, 600, 'platform_vert', 0).setOrigin(0, 0);
+        // // Geyser 2
+        // this.geyser2 = this.add.sprite(1200, 500, 'platform_vert', 0).setOrigin(0, 0);
+        // let t2 = this.tweens.add({
+        //     targets: this.geyser2,
+        //     y: 400,
+        //     duration: 2500,
+        //     ease: 'Linear',
+        //     yoyo: true,
+        //     repeat: 2000
+        // });
+        // t2.restart();
+        // this.geyserBase2 = this.add.sprite(1200, 600, 'platform_vert', 0).setOrigin(0, 0);
 
-        // Add Geysers to group
-        this.geyserGroup2.add(this.geyser1);
-        this.geyserGroup2.add(this.geyserBase1);
-        this.geyserGroup2.add(this.geyser2);
-        this.geyserGroup2.add(this.geyserBase2);
+        // // Add Geysers to group
+        // this.geyserGroup2.add(this.geyser1);
+        // this.geyserGroup2.add(this.geyserBase1);
+        // this.geyserGroup2.add(this.geyser2);
+        // this.geyserGroup2.add(this.geyserBase2);
         
          // CHECKPOINT TO NEXT LEVEL
          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
@@ -357,10 +380,6 @@ class Level2 extends Phaser.Scene {
 
         var style = { font: "90px Arial", fill: "#ffffff" };
         this.add.text(200,-200,'WASD to move', style);
-        this.add.text(1000,-300,'SPACE to jump', style);
-        this.add.text(40880,3500,'W to climb', style);
-
-        this.add.text(13800,-2400,'END', style);
 
         this.jumpParticles = this.add.particles('smoke');
         this.partEm2 = this.jumpParticles.createEmitter({
@@ -376,20 +395,28 @@ class Level2 extends Phaser.Scene {
             follow: this.player
         });
 
-        this.fireParticles = this.add.particles('smoke');
+
+        // FIRE PARTICLE EMITTERS
+        this.fireParticles = this.add.particles('fire');
         this.fireEm = this.fireParticles.createEmitter({
-            // frame: 'yellow',
-            radial: false,
-            // x: this.newCannon.x + 100,
-            // y: this.newCannon.y,
-            lifespan: { min: 1200, max: 2000},
-            speed: { min: 50, max: 800 },
-            quantity: 50,
-            gravityY: 0,
-            scale: { start: 4, end: 0, ease: 'Power3' },
+            radial: true,
+            x: -3592.00,
+            y: 14368.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
             active: true,
-            follow: this.geyser
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
         });
+
+
+
+
+        this.cameras.main.fadeOut(1);
+        this.cameras.main.fadeIn(3000);
 
 
     }
@@ -397,7 +424,34 @@ class Level2 extends Phaser.Scene {
     update() {
         this.player.update();
 
-        this.fireEm.active = this.geyser.partOn;
+        if (!this.looping) {
+            this.looping = true;
+            if (!this.fireOn) {
+                console.log("OFFFFF");
+                let fireOn = this.time.addEvent({ delay: 3000, callback: () =>{
+                    console.log("AABBBBBBBBBBAA");
+                    this.fireOn = true;
+                    let fireOff = this.time.addEvent({ delay: 2000, callback: () =>{
+                        this.fireOn = false;
+                        console.log("AAAAAAAAAAAAAAA");
+                        this.looping = false;
+                    }});
+                }});
+            }
+        }
+
+        if (this.fireOn) {
+            this.fireEm.on = true;
+        } else {
+            this.fireEm.on = false;
+        }
+        console.log(this.fireOn);
+        
+        
+
+
+        //this.fireEm.active = this.geyser.partOn;
+        
 
 
         // BACKGROUND
