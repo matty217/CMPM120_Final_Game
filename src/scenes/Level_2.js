@@ -293,7 +293,7 @@ class Level2 extends Phaser.Scene {
         // FIRE GROUP
         this.fire = map.createFromObjects("Objects", {
             name: "Fire",
-            key: "geyser",
+            key: "transparent",
             frame: ""
         });
     
@@ -397,11 +397,88 @@ class Level2 extends Phaser.Scene {
 
 
         // FIRE PARTICLE EMITTERS
+        // shoots up
         this.fireParticles = this.add.particles('fire');
         this.fireEm = this.fireParticles.createEmitter({
             radial: true,
             x: -3592.00,
             y: 14368.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+        this.fireEm.active = false;
+
+        // shoots right
+        this.fireEm2 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 30000,
+            y: 9894,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
+
+        // shoots left
+        this.fireEm3 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 34956.00,
+            y: 10020.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
+        // shoots up
+        this.fireEm4 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 31820.00,
+            y: 13912.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        // shoots up
+        this.fireEm5 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 33250.00,
+            y: 16984.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        // shoots up
+        this.fireEm6 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 34314.00,
+            y: 16984.00,
             lifespan: { min: 1000, max: 1500},
             speed: { min: 1500, max: 3000 },
             quantity: 2,
@@ -427,13 +504,10 @@ class Level2 extends Phaser.Scene {
         if (!this.looping) {
             this.looping = true;
             if (!this.fireOn) {
-                console.log("OFFFFF");
                 let fireOn = this.time.addEvent({ delay: 3000, callback: () =>{
-                    console.log("AABBBBBBBBBBAA");
                     this.fireOn = true;
                     let fireOff = this.time.addEvent({ delay: 2000, callback: () =>{
                         this.fireOn = false;
-                        console.log("AAAAAAAAAAAAAAA");
                         this.looping = false;
                     }});
                 }});
@@ -442,10 +516,19 @@ class Level2 extends Phaser.Scene {
 
         if (this.fireOn) {
             this.fireEm.on = true;
+            this.fireEm2.on = true;
+            this.fireEm3.on = true;
+            this.fireEm4.on = true;
+            this.fireEm5.on = true;
+            this.fireEm6.on = true;
         } else {
             this.fireEm.on = false;
+            this.fireEm2.on = false;
+            this.fireEm3.on = false;
+            this.fireEm4.on = false;
+            this.fireEm5.on = false;
+            this.fireEm6.on = false;
         }
-        console.log(this.fireOn);
         
         
 

@@ -1059,7 +1059,7 @@
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     2, 2, 2, 2, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-                    8, 8, 8, 8, 8, 8, 11, 11, 11, 11, 11, 11, 11, 11, 11, 8,
+                    8, 8, 8, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8,
                     8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7,
                     8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7,
                     8, 8, 8, 8, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7,
@@ -4247,8 +4247,8 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6220.275,
-                 "y":7736.165
+                 "x":-6220.28,
+                 "y":7736.16
                 }, 
                 {
                  "gid":3221225478,
@@ -4259,8 +4259,8 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6227.725,
-                 "y":8167.835
+                 "x":-6227.73,
+                 "y":8167.83
                 }, 
                 {
                  "gid":3221225478,
@@ -4271,8 +4271,8 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6275.725,
-                 "y":8583.835
+                 "x":-6275.73,
+                 "y":8583.83
                 }, 
                 {
                  "gid":3221225478,
@@ -4283,8 +4283,8 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6292.275,
-                 "y":6192.165
+                 "x":-6292.28,
+                 "y":6192.16
                 }, 
                 {
                  "gid":3221225478,
@@ -4295,8 +4295,8 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6299.725,
-                 "y":6623.835
+                 "x":-6299.73,
+                 "y":6623.83
                 }, 
                 {
                  "gid":3221225478,
@@ -4307,8 +4307,140 @@
                  "type":"",
                  "visible":true,
                  "width":512,
-                 "x":-6347.725,
-                 "y":7039.835
+                 "x":-6347.73,
+                 "y":7039.83
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":297,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":134657,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":298,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":134145,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":299,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":135169,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":300,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":136186,
+                 "y":10749
+                },
+            
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":301,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":135674,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":302,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":136698,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":303,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":137722,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":304,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":137210,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":305,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":138234,
+                 "y":10749
+                }, 
+                {
+                 "gid":11,
+                 "height":512,
+                 "id":306,
+                 "name":"Breaking_Ground",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":512,
+                 "x":138734,
+                 "y":10742
+                }, 
+                {
+                 "height":2400,
+                 "id":307,
+                 "name":"Level_End",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":2584,
+                 "x":135128,
+                 "y":6808
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4317,7 +4449,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":297,
+ "nextobjectid":309,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",

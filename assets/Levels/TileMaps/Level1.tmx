@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="4" nextobjectid="297">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="4" nextobjectid="309">
  <editorsettings>
   <export target="Level1.json" format="json"/>
  </editorsettings>
@@ -982,7 +982,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 2,2,2,2,2,3,0,0,0,0,0,0,0,0,0,1,
-8,8,8,8,8,8,11,11,11,11,11,11,11,11,11,8,
+8,8,8,8,8,8,0,0,0,0,0,0,0,0,0,8,
 8,8,8,8,8,9,0,0,0,0,0,0,0,0,0,7,
 8,8,8,8,8,9,0,0,0,0,0,0,0,0,0,7,
 8,8,8,8,8,9,0,0,0,0,0,0,0,0,0,7,
@@ -1412,5 +1412,16 @@
   <object id="294" name="Spike" gid="3221225478" x="-6292.28" y="6192.16" width="512" height="512" rotation="270"/>
   <object id="295" name="Spike" gid="3221225478" x="-6299.73" y="6623.83" width="512" height="512" rotation="270"/>
   <object id="296" name="Spike" gid="3221225478" x="-6347.73" y="7039.83" width="512" height="512" rotation="270"/>
+  <object id="297" name="Breaking_Ground" gid="11" x="134657" y="10749" width="512" height="512"/>
+  <object id="298" name="Breaking_Ground" gid="11" x="134145" y="10749" width="512" height="512"/>
+  <object id="299" name="Breaking_Ground" gid="11" x="135169" y="10749" width="512" height="512"/>
+  <object id="300" name="Breaking_Ground" gid="11" x="136186" y="10749" width="512" height="512"/>
+  <object id="301" name="Breaking_Ground" gid="11" x="135674" y="10749" width="512" height="512"/>
+  <object id="302" name="Breaking_Ground" gid="11" x="136698" y="10749" width="512" height="512"/>
+  <object id="303" name="Breaking_Ground" gid="11" x="137722" y="10749" width="512" height="512"/>
+  <object id="304" name="Breaking_Ground" gid="11" x="137210" y="10749" width="512" height="512"/>
+  <object id="305" name="Breaking_Ground" gid="11" x="138234" y="10749" width="512" height="512"/>
+  <object id="306" name="Breaking_Ground" gid="11" x="138734" y="10742" width="512" height="512"/>
+  <object id="307" name="Level_End" x="135128" y="6808" width="2584" height="2400"/>
  </objectgroup>
 </map>
