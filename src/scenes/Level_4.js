@@ -170,6 +170,8 @@ class Level4 extends Phaser.Scene {
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
 
+
+        this.load.image('transparent', './assets/transparent.png');
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map4', 'assets/Levels/TileMaps/Level4.json');
@@ -191,9 +193,16 @@ class Level4 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
+        // this.physics.enable(sky, Phaser.Physics.ARCADE);
+        this.topSky1 = this.add.sprite(-5000, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky2 = this.add.sprite(1800, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky3 = this.add.sprite(8600, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky4 = this.add.sprite(15400, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
         this.sky1 = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.sky2 = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky2 = this.add.sprite(1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
         this.sky3 = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky4 = this.add.sprite(15400, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
 
         this.back1 = this.add.sprite(-1000, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
@@ -246,7 +255,8 @@ class Level4 extends Phaser.Scene {
             // set up player character
         this.player = new Cat(this, -14000, 12000, 'cat', 0).setOrigin(0.5, 0.5).setScale(1);
         //this.player.body.setMaxVelocity(600, 5000);
-
+        this.respawnX = -14000;
+        this.respawnY = 12000;
         this.cat_example = this.add.sprite(2100, -750, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
@@ -351,18 +361,18 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
-            {
-                name: "fp18",
-                key: "tile_sheet",
-                frame: 4,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp19",
-                key: "tile_sheet",
-                frame: 22,
-                classType: FallingPlatform
-            }, 
+            // {
+            //     name: "fp18",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp19",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
                 name: "fp20",
                 key: "tile_sheet",
@@ -375,14 +385,38 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
+            // {
+            //     name: "fp22",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp23",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp28",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp29",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
-                name: "fp22",
+                name: "fp30",
                 key: "tile_sheet",
                 frame: 4,
                 classType: FallingPlatform
             }, 
             {
-                name: "fp23",
+                name: "fp31",
                 key: "tile_sheet",
                 frame: 22,
                 classType: FallingPlatform
@@ -450,24 +484,24 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: BigFallingPlatform
             }, 
-            {
-                name: "bfp7",
-                key: "tile_sheet",
-                frame: 4,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp8",
-                key: "tile_sheet",
-                frame: 10,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp9",
-                key: "tile_sheet",
-                frame: 22,
-                classType: BigFallingPlatform
-            }, 
+            // {
+            //     name: "bfp7",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp8",
+            //     key: "tile_sheet",
+            //     frame: 10,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp9",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: BigFallingPlatform
+            // }, 
             {
                 name: "bfp10",
                 key: "tile_sheet",
@@ -482,6 +516,42 @@ class Level4 extends Phaser.Scene {
             }, 
             {
                 name: "bfp12",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp13",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp14",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp15",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test1",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test2",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test3",
                 key: "tile_sheet",
                 frame: 22,
                 classType: BigFallingPlatform
@@ -521,20 +591,30 @@ class Level4 extends Phaser.Scene {
         this.physics.world.enable(this.rSpikes, Phaser.Physics.Arcade.STATIC_BODY);
 
         this.bSpikeGroup = this.add.group(this.bSpikes);
-        this.physics.add.collider(this.player, this.bSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.bSpikeGroup, this.Death, null, this);
 
         this.lSpikeGroup = this.add.group(this.lSpikes);
-        this.physics.add.collider(this.player, this.lSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.lSpikeGroup, this.Death, null, this);
 
         this.rSpikeGroup = this.add.group(this.rSpikes);
-        this.physics.add.collider(this.player, this.rSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.rSpikeGroup, this.Death, null, this);
 
 
         // CHECKPOINT TO NEXT LEVEL
-        this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint.add(this.checkpoint1);
-        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
+        this.checkPoint = map.createFromObjects("Objects", {
+            name: "checkpoint",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.checkPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.checkpointGroup = this.add.group(this.checkPoint);
+
+        this.physics.add.overlap(this.player, this.checkpointGroup, this.goToLevel5, null, this);
+        // this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+        // this.checkpoint1 = this.add.sprite(24832, 11008, 'rect', 0).setOrigin(0,0.5);
+        // this.checkpoint.add(this.checkpoint1);
+        // this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -548,7 +628,34 @@ class Level4 extends Phaser.Scene {
 
         this.add.text(13800,-2400,'END', style);
 
+         // RESPAWN POINT GROUP
+        this.respawnPoint = map.createFromObjects("Objects", {
+            name: "respawn",
+            key: "transparent",
+            frame: ""
+        });
 
+        this.physics.world.enable(this.respawnPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.respawnGroup = this.add.group(this.respawnPoint);
+
+        this.physics.add.overlap(this.player, this.respawnGroup, (obj1, obj2) => {
+            this.respawnX = obj2.x;
+            this.respawnY = obj2.y;
+        })
+
+        // FALL DEATH GROUP
+        this.deathPoint = map.createFromObjects("Objects", {
+            name: "death",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.deathPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.deathGroup = this.add.group(this.deathPoint);
+
+        this.physics.add.overlap(this.player, this.deathGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -576,8 +683,13 @@ class Level4 extends Phaser.Scene {
         // this.back_0001.x = this.player.x/1.3;
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
+        // this.sky1.x = this.player.x/8;
+        // this.back1.x = this.player.x/8;
+        // this.mid1.x = this.player.x/8;
+        // this.fore1.x = this.player.x/8;
+        // this.sky1.y = this.player.y*0.5;
 
-        console.log(this.player.x);
+        console.log(this.player.x, this.player.y);
         // console.log('fallx', this.fallPlat1.x);
         // if (this.scene.physics.overlap(this.player, this.fallPlat1)) {
         //     console.log('fall');
@@ -587,7 +699,7 @@ class Level4 extends Phaser.Scene {
 
     }
 
-        goToLevel5(player, checkpoint) {
+    goToLevel5(player, checkpoint) {
         this.scene.start('level5Scene');
         this.scene.bringToTop('level5Scene');
         this.scene.pause('level1Scene');
@@ -610,6 +722,45 @@ class Level4 extends Phaser.Scene {
 
     unHurt() {
         this.player.hurt = false;
+    }
+
+    Death(player, spike) {
+        if (this.player.alive == true) {
+            player.alive = false;
+            this.cameras.main.shake(500);
+            this.deathParticles = this.add.particles('smoke');
+            this.partEm = this.deathParticles.createEmitter({
+                // frame: 'yellow',
+                radial: true,
+                // x: this.newCannon.x + 100,
+                // y: this.newCannon.y,
+                lifespan: { min: 1200, max: 2000},
+                speed: { min: 50, max: 800 },
+                quantity: 500,
+                gravityY: 0,
+                scale: { start: 4, end: 0, ease: 'Power3' },
+                active: true,
+                
+                follow: player
+            });
+            this.partEm.explode(100, this.player.x, this.player.y);
+            this.player.alpha = 0;
+
+            let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
+                this.cameras.main.fadeOut(500);
+
+                let respawn = this.time.addEvent({ delay: 500, callback: () =>{
+                    this.Respawn();
+                }});
+            }});
+        }
+    }
+
+    Respawn() {
+        this.cameras.main.fadeIn(800);
+        this.player.setPosition(this.respawnX, this.respawnY);
+        this.player.alive = true;
+        this.player.alpha = 1;
     }
 
     fallActivate(player, plat) {

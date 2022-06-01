@@ -10,15 +10,32 @@ class Level2 extends Phaser.Scene {
         this.load.image('mid_2', './assets/Levels/Level-2/Midground-2.PNG');
         this.load.image('fore_2', './assets/Levels/Level-2/Foreground-2.PNG');
 
-        this.load.image('geyser', './assets/Levels/Level-2/Background-2.PNG');
 
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map2', 'assets/Levels/TileMaps/Level2.json');
 
+        this.load.spritesheet('geyser', 'assets/Levels/Blocks/Tiles/Geyser_Sheet.png', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+
     }
 
     create() {
+        const geyserAnimate = this.anims.create({
+            key: 'geyser',
+            frames: this.anims.generateFrameNames('geyser', {
+                start: 0,
+                end: 16
+            }),
+            frameRate: 16,
+            repeat: -1
+        });
+        // camera and world bounds
+        // (change static values to a variable later)
+        this.cameras.main.setBounds(0, 0, 2000 , 720);
+        this.physics.world.setBounds(0, 0,2000, 720);
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -280,6 +297,50 @@ class Level2 extends Phaser.Scene {
             this.Death(obj1);
         })
 
+        // GEYSERS
+        
+        // Geyser Group
+        this.geyserGroup2 = this.physics.add.group( {allowGravity: false, immovable: true } );
+        this.physics.add.collider(this.player, this.geyserGroup2);
+
+        // Geyser 1
+        this.geyser1 = this.add.sprite(800, 500, 'geyser', 0).setOrigin(0, 0);
+        let t = this.tweens.add({
+            targets: this.geyser1,
+            y: 400,
+            duration: 3000,
+            ease: 'Linear',
+            yoyo: true,
+            repeat: 2000
+        });
+        t.restart();
+        this.geyserBase1 = this.add.sprite(800, 600, 'platform_vert', 0).setOrigin(0, 0);
+
+        // Geyser 2
+        this.geyser2 = this.add.sprite(1200, 500, 'platform_vert', 0).setOrigin(0, 0);
+        let t2 = this.tweens.add({
+            targets: this.geyser2,
+            y: 400,
+            duration: 2500,
+            ease: 'Linear',
+            yoyo: true,
+            repeat: 2000
+        });
+        t2.restart();
+        this.geyserBase2 = this.add.sprite(1200, 600, 'platform_vert', 0).setOrigin(0, 0);
+
+        // Add Geysers to group
+        this.geyserGroup2.add(this.geyser1);
+        this.geyserGroup2.add(this.geyserBase1);
+        this.geyserGroup2.add(this.geyser2);
+        this.geyserGroup2.add(this.geyserBase2);
+        
+         // CHECKPOINT TO NEXT LEVEL
+         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+         this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
+         this.checkpoint.add(this.checkpoint1);
+         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel3, null, this);
+ 
 
        
 
