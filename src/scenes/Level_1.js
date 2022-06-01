@@ -22,6 +22,7 @@ class Level1 extends Phaser.Scene {
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
         this.load.image('smoke', './assets/Cat/smoke.png');
         this.load.image('transparent', './assets/transparent.png');
+        this.load.image('breaking', './assets/Levels/Blocks/Tiles/1x1 Break.PNG');
 
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
@@ -178,7 +179,7 @@ class Level1 extends Phaser.Scene {
         
 
             // set up player character
-        this.player = new Cat(this, -5000, 12000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.player = new Cat(this, 133352.00, 9368.00, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
         this.respawnX = -4000;
         this.respawnY = 13000;
         //this.player.body.setMaxVelocity(600, 5000);
@@ -281,28 +282,52 @@ class Level1 extends Phaser.Scene {
             obj2.body.acceleration.y = -20000;
         })
 
-        // Falling Ground Group
-        this.lava = map.createFromObjects("Objects", {
-            name: "Lava",
-            key: "lava",
+        // Breaking Ground Group
+        this.breakingGround = map.createFromObjects("Objects", {
+            name: "Breaking_Ground",
+            key: "breaking",
             frame: ""
         });
     
-        this.physics.world.enable(this.lava, Phaser.Physics.Arcade.STATIC_BODY);
-        this.lavaGroup = this.add.group(this.lava);
+        this.physics.world.enable(this.breakingGround, Phaser.Physics.Arcade.STATIC_BODY);
+        this.breakingGroundGroup = this.add.group(this.breakingGround);
+        this.physics.add.collider(this.player, this.breakingGroundGroup);
 
-        this.physics.add.overlap(this.player, this.lavaGroup, (obj1, obj2) => {
-            this.Death(obj1);
+        this.physics.add.overlap(this.player, this.breakingGroundGroup, (obj1, obj2) => {
+            if (this.ended == true) {
+            }
         })
 
+        // Level End Group
+        this.levelEnd = map.createFromObjects("Objects", {
+            name: "Level_End",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.levelEnd, Phaser.Physics.Arcade.STATIC_BODY);
+        this.levelEndGroup = this.add.group(this.levelEnd);
+
+        this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.breakingGroundGroup.clear(true);
+        })
 
        
 
         // use checkpoint to go to next level
         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(136352.00, 9368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint1 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint1 = this.add.sprite(136352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint2 = this.add.sprite(135352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint3 = this.add.sprite(134352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint4 = this.add.sprite(137352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint5 = this.add.sprite(138352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
+        this.checkpoint6 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
         this.checkpoint.add(this.checkpoint1);
+        this.checkpoint.add(this.checkpoint2);
+        this.checkpoint.add(this.checkpoint3);
+        this.checkpoint.add(this.checkpoint4);
+        this.checkpoint.add(this.checkpoint5);
+        this.checkpoint.add(this.checkpoint6);
         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
@@ -353,7 +378,6 @@ class Level1 extends Phaser.Scene {
         if (this.player.double_jumped) {
             this.partEm2.explode(40, this.player.x, this.player.y);
         }
-
 
     }
 

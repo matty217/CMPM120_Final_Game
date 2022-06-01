@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="5" nextobjectid="369">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="5" nextobjectid="370">
  <editorsettings>
   <export target="Level2.json" format="json"/>
  </editorsettings>
@@ -570,11 +570,9 @@
   <object id="6" name="Respawn" x="-6725.7" y="10630.2" width="2684" height="4108"/>
   <object id="11" name="Spike" gid="3221225478" x="-4328" y="17864" width="512" height="512" rotation="-180"/>
   <object id="21" name="Death" x="-3112" y="34944" width="2600" height="520"/>
-  <object id="96" name="Boulder" gid="17" x="7076" y="28340" width="512" height="512"/>
+  <object id="96" name="Boulder" gid="17" x="4660" y="31764" width="512" height="512"/>
   <object id="97" name="BoulderStop" x="5952" y="31240" width="3128" height="672"/>
   <object id="217" name="BoulderStopHigh" x="-2636" y="30816" width="2960" height="672"/>
-  <object id="291" name="Geyser" x="-6712" y="13304" width="528" height="1296"/>
-  <object id="294" name="Fire" x="-3648" y="13324" width="112" height="1096"/>
   <object id="299" name="Respawn" x="13726" y="33994" width="900" height="3500"/>
   <object id="301" name="Spike" gid="2147483654" x="-6752" y="1440" width="512" height="512" rotation="90"/>
   <object id="302" name="Spike" gid="2147483654" x="-6704" y="968" width="512" height="512" rotation="90"/>
@@ -636,5 +634,6 @@
   <object id="366" name="Respawn" x="2118" y="11194" width="900" height="3500"/>
   <object id="367" name="Fire" x="37188" y="13460" width="1032" height="104"/>
   <object id="368" name="Fire" x="38628" y="13492" width="1032" height="104"/>
+  <object id="369" name="Boulder" gid="17" x="41488" y="2752" width="512" height="512"/>
  </objectgroup>
 </map>
