@@ -27,15 +27,20 @@ class Level3 extends Phaser.Scene {
 
         this.load.image('transparent', './assets/transparent.png');
 
-        this.load.image('water', './assets/Levels/Blocks/Tiles/water.png');
+        // this.load.image('water', './assets/Levels/Blocks/Tiles/water.png');
+        this.load.image('water', './assets/Levels/Blocks/Tiles/lava.png');
+        
 
         this.load.image('pg11', './assets/Storyboard/Page (11).jpg');
         this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
         this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
 
         this.load.image('charon', './assets/Levels/Charon/unnamed.jpg');
-        this.load.image('coin', './assets/Levels/Blocks/Tiles/Coin Spritesheet.jpg');
-
+        
+        this.load.spritesheet('coin', './assets/Levels/Blocks/Tiles/Coin Sheet.png', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map3', 'assets/Levels/TileMaps/Level3.json');
@@ -51,7 +56,41 @@ class Level3 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
-        
+
+        this.back1 = this.add.sprite(-800, 2500, 'lvl3back', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back2 = this.add.sprite(6000, 2500, 'lvl3back', 0).setScale(3).setScrollFactor(0.2,0.2);
+
+        // midground
+        this.mid1 = this.add.sprite(-2100, 4000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+        this.mid2 = this.add.sprite(6000, 4000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+
+        this.topMid1  = this.add.sprite(-2100, -2000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+        this.topMid2 = this.add.sprite(6000, -2000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+
+        this.bottomMid1  = this.add.sprite(-2100, 10000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+        this.bottomMid2 = this.add.sprite(6000, 10000, 'lvl3mid', 0).setScale(3).setScrollFactor(0.3,0.3);
+
+        // foreground
+        this.fore1 = this.add.sprite(-4300, 5000, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.fore2 = this.add.sprite(2500, 5000, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+
+        this.topFore1 = this.add.sprite(-4300, 400, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.topFore2 = this.add.sprite(2500, 400, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+
+        this.bottomFore1 = this.add.sprite(-4300, 10000, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.bottomFore2 = this.add.sprite(2500, 10000, 'lvl3fore', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+       
+        // coin animation
+        const coinAnimate = this.anims.create({
+            key: 'coinAnimate',
+            frames: this.anims.generateFrameNames('coin', {
+                start: 0,
+                end: 7
+            }),
+            frameRate: 16,
+            repeat: -1
+        });
+
         this.cameras.main.fadeIn(1000);
         // create the Tilemap
 	    const map = this.make.tilemap({ key: 'platform_map3' });
@@ -70,7 +109,7 @@ class Level3 extends Phaser.Scene {
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
 
-        this.cameras.main.setBackgroundColor('#5f4e48');
+        this.cameras.main.setBackgroundColor('#6a8b7b');
 
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -168,10 +207,10 @@ class Level3 extends Phaser.Scene {
         });
 
         // COINS TO COLLECT
-        this.coin1 = new Coin(this, -306, 20736, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
-        this.coin2 = new Coin(this, -12063, 8960, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
+        this.coin1 = new Coin(this, -306, 20736, 'coin', 0).setOrigin(0.5, 0.5);
+        this.coin2 = new Coin(this, -12063, 8960, 'coin', 0).setOrigin(0.5, 0.5);
         // this.coin3 = new Coin(this, -50, 5376, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
-        this.coin4 = new Coin(this, 4864, 4864, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
+        this.coin4 = new Coin(this, 4864, 4864, 'coin', 0).setOrigin(0.5, 0.5);
         this.coinGroup = this.physics.add.group({allowGravity: false, immovable: true });
         this.coinGroup.add(this.coin1);
         this.coinGroup.add(this.coin2);
@@ -294,7 +333,7 @@ class Level3 extends Phaser.Scene {
         this.coinCounter+=1;
         this.totalCoinsCollected.text = this.coinCounter;
         this.story = this.add.sprite(this.player.x, this.player.y - 900, 'pg'+[this.displayMemoryCounter]).setScale(0.5);
-        this.story.alpha = 0.5;
+        this.story.alpha = 0.8;
         this.displayMemoryCounter+=1;
         
     }
