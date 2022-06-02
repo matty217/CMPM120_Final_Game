@@ -557,12 +557,13 @@ class Level4 extends Phaser.Scene {
     }
 
     goToLevel5(player, checkpoint) {
-        this.scene.start('level5Scene');
-        this.scene.bringToTop('level5Scene');
-        this.scene.pause('level1Scene');
-        this.scene.pause('level2Scene');
-        this.scene.pause('level3Scene');
-        this.scene.pause('level4Scene');
+        this.scene.start('beforeLevel5Scene');
+        this.scene.bringToTop('beforeLevel5Scene');
+        this.scene.sleep('level1Scene');
+        this.scene.sleep('level2Scene');
+        this.scene.sleep('level3Scene');
+        this.scene.sleep('level4Scene');
+        this.scene.sleep('level5Scene');
     }
 
     spikeHurt(player, spike) {
