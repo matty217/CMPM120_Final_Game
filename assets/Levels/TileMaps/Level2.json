@@ -1272,18 +1272,6 @@
                  "y":10596
                 }, 
                 {
-                 "gid":17,
-                 "height":512,
-                 "id":361,
-                 "name":"Boulder",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":512,
-                 "x":41480,
-                 "y":10862
-                }, 
-                {
                  "height":672,
                  "id":362,
                  "name":"BoulderStop",
@@ -1315,8 +1303,7 @@
                  "width":900,
                  "x":35798,
                  "y":12762
-                },
-            
+                }, 
                 {
                  "height":3500,
                  "id":365,
@@ -1327,7 +1314,8 @@
                  "width":900,
                  "x":46270,
                  "y":12202
-                }, 
+                },
+            
                 {
                  "height":3500,
                  "id":366,
@@ -1360,18 +1348,6 @@
                  "width":1032,
                  "x":38628,
                  "y":13492
-                }, 
-                {
-                 "gid":17,
-                 "height":512,
-                 "id":369,
-                 "name":"Boulder",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":512,
-                 "x":41488,
-                 "y":2752
                 }],
          "opacity":1,
          "type":"objectgroup",
