@@ -220,17 +220,6 @@
          "name":"Objects",
          "objects":[
                 {
-                 "height":6144,
-                 "id":43,
-                 "name":"death",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":3072,
-                 "x":-16384,
-                 "y":17920
-                }, 
-                {
                  "height":0,
                  "id":46,
                  "name":"",
@@ -248,9 +237,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":24576,
+                 "width":31744,
                  "x":-16384,
-                 "y":24064
+                 "y":25088
                 }, 
                 {
                  "height":2048,
@@ -295,6 +284,83 @@
                  "width":512,
                  "x":3072,
                  "y":14848
+                }, 
+                {
+                 "height":1536,
+                 "id":55,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4608,
+                 "x":-16384,
+                 "y":16384
+                }, 
+                {
+                 "height":2048,
+                 "id":57,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":18416,
+                 "x":-3584,
+                 "y":16384
+                }, 
+                {
+                 "height":6656,
+                 "id":58,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":13824,
+                 "x":1024,
+                 "y":18432
+                }, 
+                {
+                 "height":7168,
+                 "id":60,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4608,
+                 "x":-16384,
+                 "y":17920
+                }, 
+                {
+                 "height":2048,
+                 "id":62,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":12800,
+                 "x":-11776,
+                 "y":23040
+                }, 
+                {
+                 "height":1536,
+                 "id":63,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4096,
+                 "x":-3072,
+                 "y":21504
+                }, 
+                {
+                 "height":1536,
+                 "id":64,
+                 "name":"water",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":1024,
+                 "x":-3072,
+                 "y":20480
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -303,7 +369,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":53,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",

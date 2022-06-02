@@ -37,7 +37,6 @@ class BigFallingPlatform extends Phaser.Physics.Arcade.Sprite {
     }
 
     fallActivate() {
-        
         this.body.setVelocityY(1300);
     }
 }

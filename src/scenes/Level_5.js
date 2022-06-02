@@ -76,7 +76,7 @@ class Level5 extends Phaser.Scene {
         this.physics.world.TILE_BIAS = 200;
 
         // (change static values to a variable later)
-        this.cameras.main.setBounds(-20000, 1000);
+        this.cameras.main.setBounds(-15000, 1000);
         this.cameras.main.setZoom(0.2, 0.2);
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
@@ -240,22 +240,17 @@ class Level5 extends Phaser.Scene {
             obj2.body.acceleration.y = -20000;
         })
 
-        // // Boulder Stop High GROUP
-        // this.boulderStopHigh = map.createFromObjects("Objects", {
-        //     name: "BoulderStopHigh",
-        //     key: "transparent",
-        //     frame: ""
-        // });
-    
-        // this.physics.world.enable(this.boulderStopHigh, Phaser.Physics.Arcade.STATIC_BODY);
-        // this.boulderStopHighGroup = this.add.group(this.boulderStopHigh);
+        // CHECKPOINT TO NEXT LEVEL
+        this.checkPoint = map.createFromObjects("Objects", {
+            name: "checkpoint",
+            key: "transparent",
+            frame: ""
+        });
 
-        // this.physics.add.overlap(this.boulderStopHighGroup, this.boulderGroup, (obj1, obj2) => {
-        //     obj2.y -= 30000;
-        //     obj2.body.velocity.y = 0;
-        //     obj2.body.acceleration.y = -20000;
-        // })
+        this.physics.world.enable(this.checkPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.checkpointGroup = this.add.group(this.checkPoint);
 
+        this.physics.add.overlap(this.player, this.checkpointGroup, this.goToEndTransition, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -336,7 +331,15 @@ class Level5 extends Phaser.Scene {
             }});
         }
     }
-
+    goToEndTransition() {
+        this.scene.start('endStoryBoardScene'); 
+        this.scene.bringToTop('endStoryBoardScene');
+        this.scene.sleep('level1Scene');
+        this.scene.sleep('level2Scene');
+        this.scene.sleep('level3Scene');
+        this.scene.sleep('level4Scene');
+        this.scene.sleep('level5Scene');
+    }
     Respawn() {
         this.cameras.main.fadeIn(800);
         this.player.setPosition(this.respawnX, this.respawnY);

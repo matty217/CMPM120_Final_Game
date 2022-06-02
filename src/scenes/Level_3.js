@@ -27,6 +27,8 @@ class Level3 extends Phaser.Scene {
 
         this.load.image('transparent', './assets/transparent.png');
 
+        this.load.image('water', './assets/Levels/Blocks/Tiles/water.png');
+
         this.load.image('pg11', './assets/Storyboard/Page (11).jpg');
         this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
         this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
@@ -96,7 +98,20 @@ class Level3 extends Phaser.Scene {
         this.physics.add.collider(this.player, groundLayer);
         groundLayer.setCollisionBetween(0,23);
 
-       
+        // WATER GROUP
+        this.water = map.createFromObjects("Objects", {
+            name: "water",
+            key: "water",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.water, Phaser.Physics.Arcade.STATIC_BODY);
+        this.waterGroup = this.add.group(this.water);
+
+        this.physics.add.overlap(this.player, this.waterGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
+
         // CHECKPOINT TO NEXT LEVEL
         this.checkPoint = map.createFromObjects("Objects", {
             name: "checkpoint",
