@@ -33,6 +33,9 @@ class Level3 extends Phaser.Scene {
         this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
         this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
 
+        this.load.image('charon', './assets/Levels/Charon/unnamed.jpg');
+        this.load.image('coin', './assets/Levels/Blocks/Tiles/Coin Spritesheet.jpg');
+
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map3', 'assets/Levels/TileMaps/Level3.json');
@@ -180,12 +183,12 @@ class Level3 extends Phaser.Scene {
         this.displayMemoryCounter = 11;
         // coin counter
         this.coinCounter = 0;
-        this.totalCoinsCollected = this.add.text(4600, 14000, this.coinCounter, style);
-        this.add.text(2300, 14000,'Total memories collected:', style);
+        this.totalCoinsCollected = this.add.text(3300, 13700, this.coinCounter, style);
+        this.add.text(1000, 13700,'Total memories collected:', style);
         
         // CHARON
-        this.charon = this.add.sprite(2813, 15616, 'rect', 0).setOrigin(0.5,0.5).setScale(0.5);
-        this.charonMessage =  this.add.text(2300, 14400, 'To cross the river of Styx,\n please collect 3 memories.', style);
+        this.charon = this.add.sprite(2813, 15216, 'charon', 0).setOrigin(0.5,0.5).setScale(1.3);
+        this.charonMessage =  this.add.text(1000, 14000, 'To cross the river of Styx,\n please collect 3 memories.', style);
         //ANIMATIONS
         const catWalk = this.anims.create({
             key: 'walk',
