@@ -385,12 +385,12 @@ class Level1 extends Phaser.Scene {
     }
 
     goToLevel2(player, checkpoint) {
-        game.scene.start('level2Scene');
-        game.scene.bringToTop('level2Scene');
-        game.scene.pause('level1Scene');
-        game.scene.pause('level3Scene');
-        game.scene.pause('level4Scene');
-        game.scene.pause('level5Scene');
+        game.scene.start('beforeLevel2Scene');
+        game.scene.bringToTop('beforeLevel2Scene');
+        game.scene.sleep('level1Scene');
+        game.scene.sleep('level3Scene');
+        game.scene.sleep('level4Scene');
+        game.scene.sleep('level5Scene');
     }
 
     Death(player, spike) {

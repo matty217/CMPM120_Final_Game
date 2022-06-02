@@ -11,9 +11,6 @@ class Menu extends Phaser.Scene {
         this.load.image('pg5', './assets/Storyboard/Page (5).jpg');
         this.load.image('pg6', './assets/Storyboard/Page (6).jpg');
         this.load.image('pg7', './assets/Storyboard/Page (7).jpg');
-        this.load.image('pg8', './assets/Storyboard/Page (8).jpg');
-        this.load.image('pg9', './assets/Storyboard/Page (9).jpg');
-        this.load.image('pg10', './assets/Storyboard/Page (10).jpg');
     }
     create() {
         
@@ -66,7 +63,7 @@ class Menu extends Phaser.Scene {
         this.story = this.add.sprite(540, 320, 'pg'+[this.pressedCounter]).setScale(0.3);
         this.pressedCounter+=1;
 
-          if (this.pressedCounter == 12) {
+          if (this.pressedCounter == 9) {
             this.scene.start('level1Scene'); 
           }
     }
