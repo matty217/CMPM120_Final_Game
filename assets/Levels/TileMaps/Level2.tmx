@@ -626,7 +626,6 @@
   <object id="358" name="Spike" gid="2147483654" x="39356" y="10612" width="512" height="512" rotation="180"/>
   <object id="359" name="Spike" gid="6" x="44044" y="10668" width="512" height="512" rotation="180"/>
   <object id="360" name="Spike" gid="2147483654" x="44564" y="10596" width="512" height="512" rotation="180"/>
-  <object id="361" name="Boulder" gid="17" x="41480" y="10862" width="512" height="512"/>
   <object id="362" name="BoulderStop" x="40356" y="17874" width="3128" height="672"/>
   <object id="363" name="Respawn" x="29174" y="6130" width="900" height="3500"/>
   <object id="364" name="Respawn" x="35798" y="12762" width="900" height="3500"/>
@@ -634,6 +633,5 @@
   <object id="366" name="Respawn" x="2118" y="11194" width="900" height="3500"/>
   <object id="367" name="Fire" x="37188" y="13460" width="1032" height="104"/>
   <object id="368" name="Fire" x="38628" y="13492" width="1032" height="104"/>
-  <object id="369" name="Boulder" gid="17" x="41488" y="2752" width="512" height="512"/>
  </objectgroup>
 </map>

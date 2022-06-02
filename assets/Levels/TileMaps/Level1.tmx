@@ -588,8 +588,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-2,20,20,20,21,0,0,0,0,0,0,0,0,19,20,2,
-9,0,24,0,0,0,0,19,20,20,21,0,0,0,0,24,
+2,20,2,20,21,0,0,0,0,0,0,0,0,19,20,2,
+9,0,24,0,0,0,0,19,2,2,21,0,0,0,0,24,
 9,0,0,0,0,0,0,0,24,24,0,0,0,0,0,0,
 9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -624,7 +624,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,1,2,20,21,0,0,0,0,0,0,0,0,0,
-0,0,0,24,24,0,0,0,0,19,20,20,20,21,0,0,
+0,0,0,24,24,0,0,0,0,1,20,20,20,21,0,0,
 0,0,0,0,0,0,0,0,0,24,24,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1177,7 +1177,7 @@
   <object id="27" name="Spike" gid="6" x="25640" y="12760" width="512" height="512" rotation="270"/>
   <object id="38" name="Spike" gid="6" x="28560" y="10776" width="512" height="512"/>
   <object id="39" name="Spike" gid="6" x="29080" y="10792" width="512" height="512"/>
-  <object id="40" name="Spike" gid="6" x="29552" y="10844" width="512" height="512"/>
+  <object id="40" name="Spike" gid="2147483654" x="29552" y="10844" width="512" height="512"/>
   <object id="41" name="Spike" gid="6" x="31266.3" y="9111.76" width="512" height="512" rotation="180"/>
   <object id="42" name="Spike" gid="6" x="30788" y="9088" width="512" height="512" rotation="180"/>
   <object id="43" name="Spike" gid="6" x="30328" y="9160" width="512" height="512" rotation="180"/>
@@ -1193,9 +1193,9 @@
   <object id="57" name="Spike" gid="6" x="36808" y="13856" width="512" height="512"/>
   <object id="58" name="Spike" gid="6" x="37368" y="13904" width="512" height="512"/>
   <object id="59" name="Spike" gid="6" x="35852" y="7732" width="512" height="512"/>
-  <object id="60" name="Spike" gid="6" x="36328" y="7816" width="512" height="512"/>
+  <object id="60" name="Spike" gid="2147483654" x="36328" y="7816" width="512" height="512"/>
   <object id="61" name="Spike" gid="6" x="40876" y="2112" width="512" height="512" rotation="90"/>
-  <object id="62" name="Spike" gid="6" x="40888" y="2548" width="512" height="512" rotation="90"/>
+  <object id="62" name="Spike" gid="1073741830" x="41392" y="3052" width="512" height="512" rotation="-90"/>
   <object id="63" name="Spike" gid="6" x="40844" y="1756" width="512" height="512" rotation="90"/>
   <object id="64" name="Spike" gid="6" x="40880" y="1208" width="512" height="512" rotation="90"/>
   <object id="65" name="Spike" gid="6" x="40920" y="712" width="512" height="512" rotation="90"/>
@@ -1215,12 +1215,12 @@
   <object id="79" name="Spike" gid="6" x="48584" y="5696" width="512" height="512" rotation="90"/>
   <object id="81" name="Spike" gid="6" x="53804" y="7172" width="512" height="512" rotation="270"/>
   <object id="82" name="Spike" gid="6" x="48040" y="-1004" width="512" height="512" rotation="90"/>
-  <object id="83" name="Spike" gid="6" x="48020" y="-504" width="512" height="512" rotation="90"/>
+  <object id="83" name="Spike" gid="1073741830" x="48532" y="8" width="512" height="512" rotation="-90"/>
   <object id="84" name="Spike" gid="6" x="47628" y="-924" width="512" height="512"/>
   <object id="85" name="Spike" gid="6" x="47124" y="-908" width="512" height="512"/>
   <object id="86" name="Spike" gid="6" x="80964" y="-504" width="512" height="512" rotation="270"/>
   <object id="87" name="Spike" gid="6" x="81012" y="-40" width="512" height="512" rotation="270"/>
-  <object id="88" name="Spike" gid="6" x="83280" y="1096" width="512" height="512" rotation="90"/>
+  <object id="88" name="Spike" gid="6" x="83383" y="1108.12" width="512" height="512" rotation="90"/>
   <object id="89" name="Spike" gid="6" x="83372" y="2728" width="512" height="512" rotation="90"/>
   <object id="90" name="Spike" gid="6" x="83424" y="3224" width="512" height="512" rotation="90"/>
   <object id="91" name="Spike" gid="6" x="92768" y="5112" width="512" height="512" rotation="270"/>
@@ -1234,8 +1234,8 @@
   <object id="102" name="Boulder" gid="17" x="81918" y="-1538" width="512" height="512"/>
   <object id="103" name="BoulderStop" x="29254.3" y="8876.12" width="2274.67" height="465.939"/>
   <object id="104" name="Spike" gid="6" x="101656" y="-448" width="512" height="512"/>
-  <object id="105" name="Spike" gid="6" x="102048" y="-456" width="512" height="512"/>
-  <object id="106" name="Spike" gid="2147483654" x="101496" y="-448" width="512" height="512"/>
+  <object id="105" name="Spike" gid="2147483654" x="102048" y="-456" width="512" height="512"/>
+  <object id="106" name="Spike" gid="6" x="101496" y="-448" width="512" height="512"/>
   <object id="107" name="Spike" gid="1073741830" x="98224" y="-2072" width="512" height="512" rotation="-90"/>
   <object id="108" name="Spike" gid="6" x="97712" y="-2976" width="512" height="512" rotation="90"/>
   <object id="109" name="Spike" gid="6" x="103880" y="-5568" width="512" height="512" rotation="90"/>
@@ -1243,7 +1243,7 @@
   <object id="111" name="Spike" gid="1073741830" x="105024" y="-5760" width="512" height="512" rotation="-270"/>
   <object id="112" name="Spike" gid="1073741830" x="105064" y="-5296" width="512" height="512" rotation="-270"/>
   <object id="113" name="Spike" gid="1073741830" x="105088" y="-4824" width="512" height="512" rotation="-270"/>
-  <object id="114" name="Spike" gid="1073741830" x="105040" y="-4368" width="512" height="512" rotation="-270"/>
+  <object id="114" name="Spike" gid="6" x="105552" y="-3856" width="512" height="512" rotation="270"/>
   <object id="115" name="Spike" gid="2147483654" x="100784" y="-7768" width="512" height="512" rotation="180"/>
   <object id="116" name="Spike" gid="2147483654" x="100296" y="-7832" width="512" height="512" rotation="180"/>
   <object id="117" name="Spike" gid="2147483654" x="99912" y="-7784" width="512" height="512" rotation="180"/>
