@@ -187,6 +187,7 @@ class Level1 extends Phaser.Scene {
         //this.player.body.setMaxVelocity(600, 5000);
         
     
+        //fgdg
         // TILE MAP COLLIDER
         groundLayer.setCollisionByProperty({ 
             collides: true 
