@@ -189,8 +189,8 @@ class Level1 extends Phaser.Scene {
     
         //fgdg
         // TILE MAP COLLIDER
-        groundLayer.setCollisionByProperty({ 
-            collides: true 
+        groundLayer.setCollisionByProperty({
+            collides: true
         });
 
         this.physics.add.collider(this.player, groundLayer);
