@@ -1,147 +1,3 @@
-// class Level4 extends Phaser.Scene {
-//     constructor() {
-//         super("level4Scene");
-//     }
-
-//     preload() {
-//         this.load.image('rect', './assets/white-square.png');
-
-//         this.load.image('boulder', './assets/Levels/Blocks/1x1 Boulder.PNG');
-//         this.load.image('block_1', './assets/Levels/Blocks/1x1 Block.PNG');
-//         this.load.image('plat_1', './assets/Levels/Blocks/Platform Large.PNG');
-//         this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
-//         this.load.image('spikes_D', './assets/Levels/Blocks/1x1 Spikes.PNG');
-//         this.load.image('spikes_R', './assets/Levels/Blocks/1x1 Spikes_R.PNG');
-//         this.load.image('spikes_L', './assets/Levels/Blocks/1x1 Spikes_L.PNG');
-//         this.load.image('spikes_U', './assets/Levels/Blocks/1x1 Spikes_U.PNG');
-//         this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
-//         this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
-//         this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
-//         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
-//         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
-//         this.load.image('s_plat', './assets/Levels/Blocks/Platform Small.PNG');
-
-//         this.load.image('back_1', './assets/Levels/Level-4/Background-4.PNG');
-//         this.load.image('back_2', './assets/Levels/Level-4/Midground-4.PNG');
-//         this.load.image('back_3', './assets/Levels/Level-4/Foreground-4.PNG');
-//         this.load.image('back_4', './assets/Levels/Level-4/Sky-4.PNG');
-
-//         this.load.spritesheet('cat', 'assets/Cat/cat_walk_sheet.png', {
-//             frameWidth: 512,
-//             frameHeight: 512
-//         });
-
-//         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
-//         this.load.tilemapTiledJSON('platform_map4', 'assets/Levels/TileMaps/Level4.json');
-
-
-
-//     }
-
-//     create() {
-//         // create the Tilemap
-// 	    const map = this.make.tilemap({ key: 'platform_map4' });
-
-//         // add the tileset image we are using
-//         const tileset = map.addTilesetImage('standard_tiles', 'terrain_tiles');
-        
-//         // create the layers we want in the right order
-//         const backLayer = map.createLayer('Background', tileset);
-
-//         // "Ground" layer will be on top of "Background" layer
-//         const groundLayer = map.createLayer('Ground', tileset);
-//         this.physics.world.TILE_BIAS = 200;
-//         groundLayer.setCollisionByProperty({ 
-//             collides: true 
-//         });
-
-//         this.physics.add.collider(this.player, groundLayer);
-//         groundLayer.setCollisionBetween(0,23);
-
-//         // camera and world bounds
-//         // (change static values to a variable later)
-//         this.cameras.main.setBounds(0, 0, 2000 , 720);
-//         this.physics.world.setBounds(0, 0,2000, 720);
-
-//         this.ACCELERATION = 500;
-//         this.MAX_X_VEL = 500;   // pixels/second
-//         this.MAX_Y_VEL = 5000;
-//         this.DRAG = 600;    // DRAG < ACCELERATION = icy slide
-//         // this.physics.world.gravity.y = 3000;
-
-//         this.cameras.main.setBackgroundColor('#0000ff');
-
-//         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-//         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-//         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-//         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-//         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-
-
-
-//         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-
-//         this.player = new Cat(this, game.config.width/2, game.config.height/2, 'cat', 0).setOrigin(0.5, 0.5).setScale(0.2);
-
-//         // this.ground = this.add.sprite(game.config.width/2, game.config.height-100, 'rect', 0).setOrigin(0.5,0).setScale(10);
-//         // this.wall1 = this.add.sprite(game.config.width+900, game.config.height/2, 'rect', 0).setOrigin(0, 0.5).setScale(10);
-//         // this.wall2 = this.add.sprite(-200, game.config.height/2, 'rect', 0).setOrigin(0, 0).setScale(0.5);
-
-
-//         // this.platformGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
-//         // this.physics.add.collider(this.player, this.platformGroup);
-
-//         // this.platformGroup.add(this.ground);
-//         // this.platformGroup.add(this.wall1);
-//         // this.platformGroup.add(this.wall2);
-
-//         // // Falling Platform Group
-//         // this.fallPlatGroup = this.physics.add.group( {allowGravity: false, immovable: true } );
-//         // this.physics.add.collider(this.player, this.fallPlatGroup, this.fallActivate);
-
-//         // this.f_plat1 = this.add.sprite(800, 500, 'platform_vert', 0).setOrigin(0, 0);
-
-//         // this.fallPlatGroup.add(this.f_plat1);
-
-//          // CHECKPOINT
-//          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-//          this.checkpoint1 = this.add.sprite(1800, game.config.height - 200, 'rect', 0).setOrigin(0,0.5);
-//          this.checkpoint.add(this.checkpoint1);
-//          this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
-
-//         this.input.keyboard.on('keydown', sceneSwitcher);  
-
-//         var style = { font: "20px Arial", fill: "#ffffff" };
-//         this.add.text(100,100,'level 4', style)
-//         this.add.text(1800,100,'level 4', style);
-
-//         // follow player with camera
-//         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
-//     }
-
-//     update() {
-//         this.player.update();
-//     }
-
-//     goToLevel5(player, checkpoint) {
-//         this.scene.start('level5Scene');
-//         this.scene.bringToTop('level5Scene');
-//         this.scene.pause('level1Scene');
-//         this.scene.pause('level2Scene');
-//         this.scene.pause('level3Scene');
-//         this.scene.pause('level4Scene');
-//     }
-
-//     fallActivate(player, plat) {
-//         console.log('check');
-//         // plat.body.allowGravity = true;
-//         plat.body.setVelocityY(100);
-//     }
-
-// }
-
-//////***************************************///////
-
 class Level4 extends Phaser.Scene {
     constructor() {
         super("level4Scene");
@@ -170,6 +26,8 @@ class Level4 extends Phaser.Scene {
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
 
+
+        this.load.image('transparent', './assets/transparent.png');
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
         this.load.tilemapTiledJSON('platform_map4', 'assets/Levels/TileMaps/Level4.json');
@@ -191,9 +49,17 @@ class Level4 extends Phaser.Scene {
 
     create() {
         // BACKGROUND STUFF
+        this.cameras.main.fadeIn(1000);
+        // this.physics.enable(sky, Phaser.Physics.ARCADE);
+        this.topSky1 = this.add.sprite(-5000, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky2 = this.add.sprite(1800, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky3 = this.add.sprite(8600, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.topSky4 = this.add.sprite(15400, 4500, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+
         this.sky1 = this.add.sprite(-5000, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.sky2 = this.add.sprite(-1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky2 = this.add.sprite(1800, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
         this.sky3 = this.add.sprite(8600, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.sky4 = this.add.sprite(15400, 5000, 'bg4', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
 
         this.back1 = this.add.sprite(-1000, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
         this.back2 = this.add.sprite(5800, 2500, 'bg1', 0).setScale(3).setScrollFactor(0.2,0.2);
@@ -246,7 +112,8 @@ class Level4 extends Phaser.Scene {
             // set up player character
         this.player = new Cat(this, -14000, 12000, 'cat', 0).setOrigin(0.5, 0.5).setScale(1);
         //this.player.body.setMaxVelocity(600, 5000);
-
+        this.respawnX = -14000;
+        this.respawnY = 12000;
         this.cat_example = this.add.sprite(2100, -750, 'cat', 0).setOrigin(0.5,0.5).setScale(0.5);
 
 
@@ -351,18 +218,18 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
-            {
-                name: "fp18",
-                key: "tile_sheet",
-                frame: 4,
-                classType: FallingPlatform
-            }, 
-            {
-                name: "fp19",
-                key: "tile_sheet",
-                frame: 22,
-                classType: FallingPlatform
-            }, 
+            // {
+            //     name: "fp18",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp19",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
                 name: "fp20",
                 key: "tile_sheet",
@@ -375,14 +242,38 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: FallingPlatform
             }, 
+            // {
+            //     name: "fp22",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp23",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp28",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: FallingPlatform
+            // }, 
+            // {
+            //     name: "fp29",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: FallingPlatform
+            // }, 
             {
-                name: "fp22",
+                name: "fp30",
                 key: "tile_sheet",
                 frame: 4,
                 classType: FallingPlatform
             }, 
             {
-                name: "fp23",
+                name: "fp31",
                 key: "tile_sheet",
                 frame: 22,
                 classType: FallingPlatform
@@ -450,24 +341,24 @@ class Level4 extends Phaser.Scene {
                 frame: 22,
                 classType: BigFallingPlatform
             }, 
-            {
-                name: "bfp7",
-                key: "tile_sheet",
-                frame: 4,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp8",
-                key: "tile_sheet",
-                frame: 10,
-                classType: BigFallingPlatform
-            }, 
-            {
-                name: "bfp9",
-                key: "tile_sheet",
-                frame: 22,
-                classType: BigFallingPlatform
-            }, 
+            // {
+            //     name: "bfp7",
+            //     key: "tile_sheet",
+            //     frame: 4,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp8",
+            //     key: "tile_sheet",
+            //     frame: 10,
+            //     classType: BigFallingPlatform
+            // }, 
+            // {
+            //     name: "bfp9",
+            //     key: "tile_sheet",
+            //     frame: 22,
+            //     classType: BigFallingPlatform
+            // }, 
             {
                 name: "bfp10",
                 key: "tile_sheet",
@@ -482,6 +373,42 @@ class Level4 extends Phaser.Scene {
             }, 
             {
                 name: "bfp12",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp13",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp14",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "bfp15",
+                key: "tile_sheet",
+                frame: 22,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test1",
+                key: "tile_sheet",
+                frame: 4,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test2",
+                key: "tile_sheet",
+                frame: 10,
+                classType: BigFallingPlatform
+            }, 
+            {
+                name: "test3",
                 key: "tile_sheet",
                 frame: 22,
                 classType: BigFallingPlatform
@@ -521,20 +448,30 @@ class Level4 extends Phaser.Scene {
         this.physics.world.enable(this.rSpikes, Phaser.Physics.Arcade.STATIC_BODY);
 
         this.bSpikeGroup = this.add.group(this.bSpikes);
-        this.physics.add.collider(this.player, this.bSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.bSpikeGroup, this.Death, null, this);
 
         this.lSpikeGroup = this.add.group(this.lSpikes);
-        this.physics.add.collider(this.player, this.lSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.lSpikeGroup, this.Death, null, this);
 
         this.rSpikeGroup = this.add.group(this.rSpikes);
-        this.physics.add.collider(this.player, this.rSpikeGroup, this.spikeHurt, null, this);
+        this.physics.add.collider(this.player, this.rSpikeGroup, this.Death, null, this);
 
 
         // CHECKPOINT TO NEXT LEVEL
-        this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(14000, -2000, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint.add(this.checkpoint1);
-        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
+        this.checkPoint = map.createFromObjects("Objects", {
+            name: "checkpoint",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.checkPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.checkpointGroup = this.add.group(this.checkPoint);
+
+        this.physics.add.overlap(this.player, this.checkpointGroup, this.goToLevel5, null, this);
+        // this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
+        // this.checkpoint1 = this.add.sprite(24832, 11008, 'rect', 0).setOrigin(0,0.5);
+        // this.checkpoint.add(this.checkpoint1);
+        // this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel5, null, this);
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -548,7 +485,34 @@ class Level4 extends Phaser.Scene {
 
         this.add.text(13800,-2400,'END', style);
 
+         // RESPAWN POINT GROUP
+        this.respawnPoint = map.createFromObjects("Objects", {
+            name: "respawn",
+            key: "transparent",
+            frame: ""
+        });
 
+        this.physics.world.enable(this.respawnPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.respawnGroup = this.add.group(this.respawnPoint);
+
+        this.physics.add.overlap(this.player, this.respawnGroup, (obj1, obj2) => {
+            this.respawnX = obj2.x;
+            this.respawnY = obj2.y;
+        })
+
+        // FALL DEATH GROUP
+        this.deathPoint = map.createFromObjects("Objects", {
+            name: "death",
+            key: "transparent",
+            frame: ""
+        });
+
+        this.physics.world.enable(this.deathPoint, Phaser.Physics.Arcade.STATIC_BODY);
+        this.deathGroup = this.add.group(this.deathPoint);
+
+        this.physics.add.overlap(this.player, this.deathGroup, (obj1, obj2) => {
+            this.Death(obj1);
+        })
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -576,8 +540,13 @@ class Level4 extends Phaser.Scene {
         // this.back_0001.x = this.player.x/1.3;
         // this.back_0002.x = this.player.x/3;
         // this.back_0003.x = this.player.x/4;
+        // this.sky1.x = this.player.x/8;
+        // this.back1.x = this.player.x/8;
+        // this.mid1.x = this.player.x/8;
+        // this.fore1.x = this.player.x/8;
+        // this.sky1.y = this.player.y*0.5;
 
-        console.log(this.player.x);
+        console.log(this.player.x, this.player.y);
         // console.log('fallx', this.fallPlat1.x);
         // if (this.scene.physics.overlap(this.player, this.fallPlat1)) {
         //     console.log('fall');
@@ -587,13 +556,14 @@ class Level4 extends Phaser.Scene {
 
     }
 
-        goToLevel5(player, checkpoint) {
-        this.scene.start('level5Scene');
-        this.scene.bringToTop('level5Scene');
-        this.scene.pause('level1Scene');
-        this.scene.pause('level2Scene');
-        this.scene.pause('level3Scene');
-        this.scene.pause('level4Scene');
+    goToLevel5(player, checkpoint) {
+        this.scene.start('beforeLevel5Scene');
+        this.scene.bringToTop('beforeLevel5Scene');
+        this.scene.sleep('level1Scene');
+        this.scene.sleep('level2Scene');
+        this.scene.sleep('level3Scene');
+        this.scene.sleep('level4Scene');
+        this.scene.sleep('level5Scene');
     }
 
     spikeHurt(player, spike) {
@@ -610,6 +580,45 @@ class Level4 extends Phaser.Scene {
 
     unHurt() {
         this.player.hurt = false;
+    }
+
+    Death(player, spike) {
+        if (this.player.alive == true) {
+            player.alive = false;
+            this.cameras.main.shake(500);
+            this.deathParticles = this.add.particles('smoke');
+            this.partEm = this.deathParticles.createEmitter({
+                // frame: 'yellow',
+                radial: true,
+                // x: this.newCannon.x + 100,
+                // y: this.newCannon.y,
+                lifespan: { min: 1200, max: 2000},
+                speed: { min: 50, max: 800 },
+                quantity: 500,
+                gravityY: 0,
+                scale: { start: 4, end: 0, ease: 'Power3' },
+                active: true,
+                
+                follow: player
+            });
+            this.partEm.explode(100, this.player.x, this.player.y);
+            this.player.alpha = 0;
+
+            let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
+                this.cameras.main.fadeOut(500);
+
+                let respawn = this.time.addEvent({ delay: 500, callback: () =>{
+                    this.Respawn();
+                }});
+            }});
+        }
+    }
+
+    Respawn() {
+        this.cameras.main.fadeIn(800);
+        this.player.setPosition(this.respawnX, this.respawnY);
+        this.player.alive = true;
+        this.player.alpha = 1;
     }
 
     fallActivate(player, plat) {
