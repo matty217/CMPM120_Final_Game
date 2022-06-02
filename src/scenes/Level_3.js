@@ -85,9 +85,9 @@ class Level3 extends Phaser.Scene {
             key: 'coinAnimate',
             frames: this.anims.generateFrameNames('coin', {
                 start: 0,
-                end: 7
+                end: 6
             }),
-            frameRate: 16,
+            frameRate: 12,
             repeat: -1
         });
 
@@ -207,10 +207,16 @@ class Level3 extends Phaser.Scene {
         });
 
         // COINS TO COLLECT
-        this.coin1 = new Coin(this, -306, 20736, 'coin', 0).setOrigin(0.5, 0.5);
-        this.coin2 = new Coin(this, -12063, 8960, 'coin', 0).setOrigin(0.5, 0.5);
+        this.coin1 = new Coin(this, -306, 20736, 'coin', 0).setOrigin(0.5, 0.5).setSize(128, 128);
+        this.coin1.play({ key: 'coinAnimate', repeat: 1000 });
+
+        this.coin2 = new Coin(this, -12063, 8960, 'coin', 0).setOrigin(0.5, 0.5).setSize(128, 128);
+        this.coin2.play({ key: 'coinAnimate', repeat: 1000 });
+
         // this.coin3 = new Coin(this, -50, 5376, 'rect', 0).setOrigin(0.5, 0.5).setScale(0.08);
-        this.coin4 = new Coin(this, 4864, 4864, 'coin', 0).setOrigin(0.5, 0.5);
+        this.coin4 = new Coin(this, 4864, 4864, 'coin', 0).setOrigin(0.5, 0.5).setSize(128, 128);
+        this.coin4.play({ key: 'coinAnimate', repeat: 1000 });
+
         this.coinGroup = this.physics.add.group({allowGravity: false, immovable: true });
         this.coinGroup.add(this.coin1);
         this.coinGroup.add(this.coin2);
@@ -253,7 +259,7 @@ class Level3 extends Phaser.Scene {
         console.log('this.coinCounter1', this.coinCounter);
         if (this.coinCounter == 3) {
             console.log('ahhh this.coinCounter', this.coinCounter);
-            this.charonMessage.text = 'You have all collected 3 coins. \nI will take you accross the river';
+            this.charonMessage.text = 'You have collected all 3 memories. \nI will take you accross the river';
         }
         console.log(this.player.x, this.player.y);
 
@@ -264,8 +270,12 @@ class Level3 extends Phaser.Scene {
         if (this.coinCounter == 3) {
             console.log('next level 4');
             this.scene.start('charonScene');
-            // this.scene.bringToTop('charonScene');
+            this.scene.bringToTop('charonScene');
             this.scene.sleep('level1Scene');
+            this.scene.sleep('level2Scene');
+            this.scene.sleep('level3Scene');
+            this.scene.sleep('level4Scene');
+            this.scene.sleep('level5Scene');
             // this.scene.pause('level2Scene');
             // this.scene.pause('level3Scene');
             // this.scene.pause('level4Scene');
