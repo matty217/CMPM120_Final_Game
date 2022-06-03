@@ -22,7 +22,8 @@ class Menu extends Phaser.Scene {
         this.titleImg = this.add.sprite(100, 445, 'titleimg').setScale(0.27);
         // menu text configuration
         let menuConfig = {
-            fontSize: '50px',
+            fontSize: '70px',
+            fontFamily: 'amaticSC',
             // backgroundColor: '#637a68',
             color: '#dddace',
             align: 'center',
@@ -47,13 +48,13 @@ class Menu extends Phaser.Scene {
         }
         
         this.add.text(game.config.width/2, 160, 'Gone But Not Forgotten', menuConfig).setOrigin(0.5);
-        menuConfig.fontSize = '20px';
+        menuConfig.fontSize = '40px';
         this.add.text(game.config.width/2, 240, 'Game Instructions:', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 280, 'A: Move Left', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 320, 'D: Move Right', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 360, 'Space: Jump/Double Jump', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 400, 'W+Space: Wall Climb', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 300, 'A: Move Left', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 350, 'D: Move Right', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 400, 'Space: Jump/Double Jump', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 450, 'W+Space: Wall Climb', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 685, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.pressedCounter = 1;

@@ -4,9 +4,17 @@ class GameOver extends Phaser.Scene {
 
     }
 
+    preload() {
+      this.bg = {};
+    }
+
     create() {
+      this.bg.camera = this.cameras.add(0, 0, 1080, 720);
+      this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
+
       let gameOverConfig = {
-        fontSize: '20px',
+        fontSize: '40px',
+        fontFamily: 'amaticSC',
         // backgroundColor: '#637a68',
         color: '#dddace',
         align: 'center',
@@ -32,9 +40,9 @@ class GameOver extends Phaser.Scene {
     
     this.add.text(game.config.width/2, 180, 'Thank you for playing!', gameOverConfig).setOrigin(0.5);
     this.add.text(game.config.width/2, 300, 'To restart the game, please press <- ', gameOverConfig).setOrigin(0.5);
-    this.add.text(game.config.width/2, 500, 'Credits:', gameOverConfig).setOrigin(0.5);
+    this.add.text(game.config.width/2, 480, 'Credits:', gameOverConfig).setOrigin(0.5);
     gameOverConfig.align = 'left';
-    this.add.text(game.config.width/2, 570, ' Micah Mahelona:   Artist and Audio Designer\n Matthew Hill:     Programmer and Level Designer\n Mrinmoyee Mishra: Programmer and Level Designer', gameOverConfig).setOrigin(0.5);
+    this.add.text(game.config.width/2, 570, ' Micah Mahelona:     Artist and Audio Designer\n Matthew Hill:          Programmer and Level Designer\n Mrinmoyee Mishra: Programmer and Level Designer', gameOverConfig).setOrigin(0.5);
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     }
 
