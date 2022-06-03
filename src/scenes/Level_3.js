@@ -224,11 +224,35 @@ class Level3 extends Phaser.Scene {
         this.coinGroup.add(this.coin4);
         this.physics.add.overlap(this.player, this.coinGroup, this.collectCoin, null, this);
 
-        let style = { font: "200px Arial", fill: "#ff0000"};
+        let style = {
+            fontSize: '200px',
+            fontFamily: 'amaticSC',
+            // backgroundColor: '#637a68',
+            color: '#dddace',
+            align: 'center',
+            padding: {
+                top: 5,
+                bottom: 5,
+                right: 5,
+                left: 5
+            },
+            shadow: {
+              offsetY: 5,
+              color: '#fff6c2',
+              blur: 30,
+              stroke: true,
+              fill: true
+          }, padding: {
+              left: 60,
+              right: 60,
+              top: 60,
+              bottom: 60,
+          },
+        }
         this.displayMemoryCounter = 11;
         // coin counter
         this.coinCounter = 0;
-        this.totalCoinsCollected = this.add.text(3300, 13700, this.coinCounter, style);
+        this.totalCoinsCollected = this.add.text(2600, 13700, this.coinCounter, style);
         this.add.text(1000, 13700,'Total memories collected:', style);
         
         // CHARON
