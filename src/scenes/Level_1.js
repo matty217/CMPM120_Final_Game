@@ -315,6 +315,20 @@ class Level1 extends Phaser.Scene {
             this.breakingGroundGroup.clear(true);
         })
 
+        // Hidden Coin GROUP
+        this.goodBoyCoin = map.createFromObjects("Objects", {
+            name: "GoodBoyCoin",
+            key: "lava",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.goodBoyCoin, Phaser.Physics.Arcade.STATIC_BODY);
+        this.goodBoyCoinGroup = this.add.group(this.goodBoyCoin);
+
+        this.physics.add.overlap(this.player, this.goodBoyCoinGroup, (obj1, obj2) => {
+            game.goodBoyCoins += 1;
+        })
+
        
 
         // use checkpoint to go to next level

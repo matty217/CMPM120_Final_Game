@@ -171,7 +171,9 @@ class Level2 extends Phaser.Scene {
         
 
             // set up PLAYER -----------------
-        this.player = new Cat(this, -5000, 5000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.player = new Cat(this, -5000, 5000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1)
+        .setSize(400, 300)
+        .setOffset(50, 150);
         this.respawnX = -6725.70;
         this.respawnY = 10630.20;
         //this.player.body.setMaxVelocity(600, 5000);
@@ -320,6 +322,21 @@ class Level2 extends Phaser.Scene {
             this.Death(obj1);
         })
 
+        // Hidden Coin GROUP
+        this.goodBoyCoin = map.createFromObjects("Objects", {
+            name: "GoodBoyCoin",
+            key: "lava",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.goodBoyCoin, Phaser.Physics.Arcade.STATIC_BODY);
+        this.goodBoyCoinGroup = this.add.group(this.goodBoyCoin);
+
+        this.physics.add.overlap(this.player, this.goodBoyCoinGroup, (obj1, obj2) => {
+            game.goodBoyCoins += 1;
+            obj2.setActive(false).setVisible(false);
+        })
+
         // GEYSERS
         
         // // Geyser Group
@@ -360,7 +377,7 @@ class Level2 extends Phaser.Scene {
         
          // CHECKPOINT TO NEXT LEVEL
          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-         this.checkpoint1 = this.add.sprite(136352.00, 9368.00, 'rect', 0).setOrigin(0,0.5);
+         this.checkpoint1 = this.add.sprite(65232.00, 12000.00, 'rect', 0).setOrigin(0,0.5);
          this.checkpoint.add(this.checkpoint1);
          this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel3, null, this);
  
@@ -482,6 +499,35 @@ class Level2 extends Phaser.Scene {
             angle: {min:-80, max: -100}
         });
 
+        // shoots left
+        this.fireEm7 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 39728.00,
+            y: 13460.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
+        // shoots right
+        this.fireEm8 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 37188.00,
+            y: 13460.00,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
 
 
 
@@ -514,6 +560,8 @@ class Level2 extends Phaser.Scene {
             this.fireEm4.on = true;
             this.fireEm5.on = true;
             this.fireEm6.on = true;
+            this.fireEm7.on = true;
+            this.fireEm8.on = true;
         } else {
             this.fireEm.on = false;
             this.fireEm2.on = false;
@@ -521,6 +569,8 @@ class Level2 extends Phaser.Scene {
             this.fireEm4.on = false;
             this.fireEm5.on = false;
             this.fireEm6.on = false;
+            this.fireEm7.on = false;
+            this.fireEm8.on = false;
         }
         
         
@@ -549,11 +599,11 @@ class Level2 extends Phaser.Scene {
 
     }
 
-    goToLevel2(player, checkpoint) {
-        game.scene.start('level2Scene');
-        game.scene.bringToTop('level2Scene');
+    goToLevel3(player, checkpoint) {
+        game.scene.start('level3Scene');
+        game.scene.bringToTop('level3Scene');
         game.scene.pause('level1Scene');
-        game.scene.pause('level3Scene');
+        game.scene.pause('level2Scene');
         game.scene.pause('level4Scene');
         game.scene.pause('level5Scene');
     }

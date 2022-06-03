@@ -20,6 +20,7 @@ let game = new Phaser.Game(config);
 game.settings = {
     worldSpeed: 8
 };
+game.goodBoyCoins = 0;
 
 // reserving keyboard variables
 let keyW, keyA, keyS, keyD, keySPACE, keyQ, keyLEFT;

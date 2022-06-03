@@ -1155,8 +1155,8 @@
                  "type":"",
                  "visible":true,
                  "width":1032,
-                 "x":30118.5782516147,
-                 "y":9918.57619878104
+                 "x":30118.6,
+                 "y":9918.58
                 }, 
                 {
                  "height":80,
@@ -1489,8 +1489,20 @@
                  "type":"",
                  "visible":true,
                  "width":432,
-                 "x":65352,
-                 "y":11960
+                 "x":65232,
+                 "y":12000
+                }, 
+                {
+                 "ellipse":true,
+                 "height":480,
+                 "id":376,
+                 "name":"GoodBoyCoin",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":480,
+                 "x":-7824,
+                 "y":2552
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1499,7 +1511,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":376,
+ "nextobjectid":377,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
