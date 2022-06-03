@@ -4,16 +4,18 @@ class EndStoryBoard extends Phaser.Scene {
 
     }
     preload() {
-
+        this.bg = {};
 
     }
     create() {
        
         
-        // menu text configuration
+        this.bg.camera = this.cameras.add(0, 0, 1080, 720);
+        this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
+
         let menuConfig = {
             fontSize: '20px',
-            backgroundColor: '#637a68',
+            // backgroundColor: '#637a68',
             color: '#dddace',
             align: 'center',
             padding: {
@@ -22,6 +24,18 @@ class EndStoryBoard extends Phaser.Scene {
                 right: 5,
                 left: 5
             },
+            shadow: {
+              offsetY: 5,
+              color: '#fff6c2',
+              blur: 30,
+              stroke: true,
+              fill: true
+          }, padding: {
+              left: 60,
+              right: 60,
+              top: 60,
+              bottom: 60,
+          },
         }
         this.add.text(game.config.width/2, game.config.height/2, 'You found home!', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 650, 'Press Space to Continue', menuConfig).setOrigin(0.5);

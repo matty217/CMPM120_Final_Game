@@ -10,6 +10,7 @@ class Charon extends Phaser.Scene {
         this.load.image('pg17', './assets/Storyboard/Page (17).jpg');
         this.load.image('pg18', './assets/Storyboard/Page (18).jpg');
         this.load.image('black', './assets/Levels/Blocks/Tiles/Solid Block.PNG');
+        this.bg = {};
 
     }
     create() {
@@ -18,10 +19,12 @@ class Charon extends Phaser.Scene {
         this.scene.stop('level3Scene');
 
         
-        // menu text configuration
+        this.bg.camera = this.cameras.add(0, 0, 1080, 720);
+        this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
+
         let menuConfig = {
             fontSize: '20px',
-            backgroundColor: '#637a68',
+            // backgroundColor: '#637a68',
             color: '#dddace',
             align: 'center',
             padding: {
@@ -30,6 +33,18 @@ class Charon extends Phaser.Scene {
                 right: 5,
                 left: 5
             },
+            shadow: {
+              offsetY: 5,
+              color: '#fff6c2',
+              blur: 30,
+              stroke: true,
+              fill: true
+          }, padding: {
+              left: 60,
+              right: 60,
+              top: 60,
+              bottom: 60,
+          },
         }
         this.add.text(game.config.width/2, game.config.height/2, 'Charon has accepted your payment of 3 memories. \n He has granted you access to cross the River of Styx.', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 650, 'Press Space to Continue', menuConfig).setOrigin(0.5);
