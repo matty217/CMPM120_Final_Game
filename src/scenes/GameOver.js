@@ -6,8 +6,8 @@ class GameOver extends Phaser.Scene {
 
     create() {
       let gameOverConfig = {
-        fontSize: '30px',
-        backgroundColor: '#637a68',
+        fontSize: '20px',
+        // backgroundColor: '#637a68',
         color: '#dddace',
         align: 'center',
         padding: {
@@ -16,6 +16,18 @@ class GameOver extends Phaser.Scene {
             right: 5,
             left: 5
         },
+        shadow: {
+          offsetY: 5,
+          color: '#fff6c2',
+          blur: 30,
+          stroke: true,
+          fill: true
+      }, padding: {
+          left: 60,
+          right: 60,
+          top: 60,
+          bottom: 60,
+      },
     }
     
     this.add.text(game.config.width/2, 180, 'Thank you for playing!', gameOverConfig).setOrigin(0.5);
