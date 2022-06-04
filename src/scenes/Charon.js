@@ -4,11 +4,11 @@ class Charon extends Phaser.Scene {
 
     }
     preload() {
-        this.load.image('pg14', './assets/Storyboard/Page (14).jpg');
-        this.load.image('pg15', './assets/Storyboard/Page (15).jpg');
-        this.load.image('pg16', './assets/Storyboard/Page (16).jpg');
         this.load.image('pg17', './assets/Storyboard/Page (17).jpg');
         this.load.image('pg18', './assets/Storyboard/Page (18).jpg');
+        this.load.image('pg19', './assets/Storyboard/Page (19).jpg');
+        this.load.image('pg20', './assets/Storyboard/Page (20).jpg');
+        this.load.image('pg21', './assets/Storyboard/Page (21).jpg');
         this.load.image('black', './assets/Levels/Blocks/Tiles/Solid Block.PNG');
         this.bg = {};
 

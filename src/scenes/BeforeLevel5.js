@@ -4,8 +4,8 @@ class BeforeLevel5 extends Phaser.Scene {
 
     }
     preload() {
-        this.load.image('pg19', './assets/Storyboard/Page (19).jpg');
-        this.load.image('pg20', './assets/Storyboard/Page (20).jpg');
+        this.load.image('pg26', './assets/Storyboard/Page (26).jpg');
+        this.load.image('pg27', './assets/Storyboard/Page (27).jpg');
         this.bg = {};
 
     }
