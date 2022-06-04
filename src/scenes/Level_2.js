@@ -378,7 +378,9 @@ class Level2 extends Phaser.Scene {
          // CHECKPOINT TO NEXT LEVEL
          this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
          this.checkpoint1 = this.add.sprite(65232.00, 12000.00, 'rect', 0).setOrigin(0,0.5);
+         this.checkpoint2 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
          this.checkpoint.add(this.checkpoint1);
+         this.checkpoint.add(this.checkpoint2);
          this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel3, null, this);
  
 

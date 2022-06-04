@@ -18,7 +18,7 @@ class FallingPlatform extends Phaser.Physics.Arcade.Sprite {
         // console.log('plat cat y', this.y, this.target.y);
         // console.log('plat cat x', this.x, this.target.x);
        
-        if ((this.target.x <this.x+1024) && (this.target.x > this.x-1024)  && (this.target.y >= (this.y-512))) {
+        if ((this.target.x <this.x+1024) && (this.target.x > this.x-1024)  && this.body.touching.up ) {//(this.target.y >= (this.y-256))) {
             console.log('fall check');
             this.fallActivate();
         }
