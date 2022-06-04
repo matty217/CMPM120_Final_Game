@@ -9,6 +9,10 @@ class Charon extends Phaser.Scene {
         this.load.image('pg19', './assets/Storyboard/Page (19).jpg');
         this.load.image('pg20', './assets/Storyboard/Page (20).jpg');
         this.load.image('pg21', './assets/Storyboard/Page (21).jpg');
+        this.load.image('pg22', './assets/Storyboard/Page (22).jpg');
+        this.load.image('pg23', './assets/Storyboard/Page (23).jpg');
+        this.load.image('pg24', './assets/Storyboard/Page (24).jpg');
+        this.load.image('pg25', './assets/Storyboard/Page (25).jpg');
         this.load.image('black', './assets/Levels/Blocks/Tiles/Solid Block.PNG');
         this.bg = {};
 
@@ -51,14 +55,14 @@ class Charon extends Phaser.Scene {
         this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.pressCounter = 14;
+        this.charonPressCounter = 17;
 
         // this.input.keyboard.on('keydown', sceneSwitcher);
 
     }
 
     update() {
-        console.log('pressCounter', this.pressCounter);
+        console.log('pressCounter', this.charonPressCounter);
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.nextImage();  
           }
@@ -67,10 +71,10 @@ class Charon extends Phaser.Scene {
     }
 
     nextImage() {
-        this.story = this.add.sprite(540, 340, 'pg'+[this.pressCounter]).setScale(0.3);
-        this.pressCounter+=1;
+        this.story = this.add.sprite(540, 340, 'pg'+[this.charonPressCounter]).setScale(0.3);
+        this.charonPressCounter+=1;
 
-          if (this.pressCounter == 20) {
+          if (this.charonPressCounter == 27) {
             this.scene.start('level4Scene'); 
             this.scene.bringToTop('level4Scene');
             this.scene.pause('level1Scene');

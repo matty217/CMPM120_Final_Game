@@ -4,6 +4,14 @@ class EndStoryBoard extends Phaser.Scene {
 
     }
     preload() {
+        this.load.image('pg28', './assets/Storyboard/Page (28).jpg');
+        this.load.image('pg29', './assets/Storyboard/Page (29).jpg');
+        this.load.image('pg30', './assets/Storyboard/Page (30).jpg');
+        this.load.image('pg31', './assets/Storyboard/Page (31).jpg');
+        this.load.image('pg32', './assets/Storyboard/Page (32).jpg');
+        this.load.image('pg33', './assets/Storyboard/Page (33).jpg');
+        this.load.image('pg34', './assets/Storyboard/Page (34).jpg');
+        this.load.image('pg35', './assets/Storyboard/Page (35).jpg');
         this.bg = {};
 
     }
@@ -42,7 +50,7 @@ class EndStoryBoard extends Phaser.Scene {
         this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.pressCounter = 1;
+        this.endpressCounter = 28;
 
         
 
@@ -58,10 +66,10 @@ class EndStoryBoard extends Phaser.Scene {
     }
 
     nextImage() {
-        // this.story = this.add.sprite(540, 340, 'pg'+[this.pressCounter]).setScale(0.3);
-        this.pressCounter+=1;
+        this.story = this.add.sprite(540, 340, 'pg'+[this.endpressCounter]).setScale(0.3);
+        this.endpressCounter+=1;
 
-          if (this.pressCounter == 2) {
+          if (this.endpressCounter == 37) {
             this.scene.start('gameOverScene'); 
             this.scene.bringToTop('gameOverScene');
             this.scene.sleep('level1Scene');

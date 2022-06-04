@@ -31,9 +31,9 @@ class Level3 extends Phaser.Scene {
         this.load.image('water', './assets/Levels/Blocks/Tiles/lava.png');
         
 
-        this.load.image('pg11', './assets/Storyboard/Page (11).jpg');
-        this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
-        this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
+        this.load.image('pg14', './assets/Storyboard/Page (14).jpg');
+        this.load.image('pg15', './assets/Storyboard/Page (15).jpg');
+        this.load.image('pg16', './assets/Storyboard/Page (16).jpg');
 
         this.load.image('charon', './assets/Levels/Charon/unnamed.jpg');
         
@@ -251,7 +251,7 @@ class Level3 extends Phaser.Scene {
               bottom: 60,
           },
         }
-        this.displayMemoryCounter = 11;
+        this.displayMemoryCounter = 14;
         // coin counter
         this.coinCounter = 0;
         this.totalCoinsCollected = this.add.text(2600, 13700, this.coinCounter, style);

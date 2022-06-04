@@ -43,10 +43,11 @@ class BeforeLevel2 extends Phaser.Scene {
               bottom: 60,
           },
         }
+        this.add.text(game.config.width/2, game.config.height/2, 'You escaped the Grim Reaper!', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        this.pressCounter = 8;
+        this.pressCounter = 11;
 
         // this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -65,7 +66,7 @@ class BeforeLevel2 extends Phaser.Scene {
         this.story = this.add.sprite(540, 340, 'pg'+[this.pressCounter]).setScale(0.3);
         this.pressCounter+=1;
 
-          if (this.pressCounter == 12) {
+          if (this.pressCounter == 15) {
             this.scene.start('level2Scene'); 
             this.scene.bringToTop('level2Scene');
             this.scene.sleep('level1Scene');
