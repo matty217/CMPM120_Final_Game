@@ -23,6 +23,7 @@ class Level1 extends Phaser.Scene {
         this.load.image('smoke', './assets/Cat/smoke.png');
         this.load.image('transparent', './assets/transparent.png');
         this.load.image('breaking', './assets/Levels/Blocks/Tiles/1x1 Break.PNG');
+        this.load.image('red_part', './assets/Levels/Blocks/Tiles/red_part.png');
 
         // TILE MAP
         this.load.image('terrain_tiles', 'assets/Levels/TileMaps/terrain_tiles.png');
@@ -42,6 +43,10 @@ class Level1 extends Phaser.Scene {
             frameHeight: 512
         });
         this.load.spritesheet('cat_slide', 'assets/Player/Slide_Sheet.PNG', {
+            frameWidth: 512,
+            frameHeight: 512
+        });
+        this.load.spritesheet('heart', './assets/Levels/Blocks/Tiles/Heart sheet.png', {
             frameWidth: 512,
             frameHeight: 512
         });
@@ -120,29 +125,31 @@ class Level1 extends Phaser.Scene {
 
         // BACKGROUND STUFF
         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-        this.back_0001 = this.add.sprite(-1000, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.back_0002 = this.add.sprite(5800, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.back_0004 = this.add.sprite(19400, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.back_0001 = this.add.sprite(-1000, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0002 = this.add.sprite(5800, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0004 = this.add.sprite(19400, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
 
-        this.mid_0001 = this.add.sprite(-1000, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0002 = this.add.sprite(5800, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0003 = this.add.sprite(12600, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-        this.mid_0003 = this.add.sprite(19400, 2500, 'mid_1', 0).setScale(2.5).setScrollFactor(0.3,0.3);
-
-
-
-        this.fore_0001 = this.add.sprite(-1000, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(5800, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(12600, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
-        this.fore_0002 = this.add.sprite(19400, 3500, 'fore_1', 0).setScale(2.5).setScrollFactor(0.4,0.4);
+        this.mid_0001 = this.add.sprite(-1000, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0002 = this.add.sprite(5800, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0003 = this.add.sprite(12600, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0003 = this.add.sprite(19400, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
 
 
-        this.back_brown = this.add.sprite(-1000, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(5800, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(12600, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
-        this.back_brown = this.add.sprite(19400, 8500, 'brown_1', 0).setScale(2.5).setScrollFactor(0.4, 0.4);
+        this.fore_0001 = this.add.sprite(-1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0002 = this.add.sprite(5800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0003 = this.add.sprite(12600, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0004 = this.add.sprite(this.fore_0003.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0005 = this.add.sprite(this.fore_0004.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0006 = this.add.sprite(this.fore_0005.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+
+
+
+        // this.back_brown = this.add.sprite(-1000, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        // this.back_brown = this.add.sprite(5800, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        // this.back_brown = this.add.sprite(12600, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        // this.back_brown = this.add.sprite(19400, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
 
 
 
@@ -179,7 +186,7 @@ class Level1 extends Phaser.Scene {
         
 
             // set up player character
-        this.player = new Cat(this, -5000, 10000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1)
+        this.player = new Cat(this, -5000.00, 10000.00, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1)
         .setSize(400, 300)
         .setOffset(50, 150);
         this.respawnX = -4000;
@@ -304,14 +311,15 @@ class Level1 extends Phaser.Scene {
         // Level End Group
         this.levelEnd = map.createFromObjects("Objects", {
             name: "Level_End",
-            key: "transparent",
-            frame: ""
+            key: "heart",
+            frame: "4"
         });
     
         this.physics.world.enable(this.levelEnd, Phaser.Physics.Arcade.STATIC_BODY);
         this.levelEndGroup = this.add.group(this.levelEnd);
 
         this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.partEmHeart.explode(30);
             this.breakingGroundGroup.clear(true);
         })
 
@@ -372,6 +380,20 @@ class Level1 extends Phaser.Scene {
                 
                 follow: this.player
             });
+
+        this.heartParticles = this.add.particles('red_part');
+        this.partEmHeart = this.heartParticles.createEmitter({
+            radial: true,
+            lifespan: { min: 800, max: 1500},
+            speed: { min: 2000, max: 3000 },
+            quantity: 0,
+            gravityY: 2000,
+            scale: { start: 4, end: 0, ease: 'Power3' },
+            active: true,
+            mode: 'ADD',
+            x: 136392.00,
+            y: 8016.00
+        });
 
 
     }
