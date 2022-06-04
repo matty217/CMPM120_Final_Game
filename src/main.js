@@ -12,7 +12,7 @@ let config = {
             debug: true
         }
     },
-    scene: [  Menu, Level1, BeforeLevel2, Level2, Level3, Charon, Level4, BeforeLevel5, Level5, EndStoryBoard, GameOver ]
+    scene: [ Menu, Level1, BeforeLevel2, Level2, Level3, Charon, Level4, BeforeLevel5, Level5, EndStoryBoard, GameOver ]
 }
 
 
@@ -20,6 +20,7 @@ let game = new Phaser.Game(config);
 game.settings = {
     worldSpeed: 8
 };
+game.goodBoyCoins = 0;
 
 // reserving keyboard variables
 let keyW, keyA, keyS, keyD, keySPACE, keyQ, keyLEFT;

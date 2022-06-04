@@ -110,7 +110,9 @@ class Level4 extends Phaser.Scene {
 
 
             // set up player character
-        this.player = new Cat(this, -14000, 12000, 'cat', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.player = new Cat(this, -14000, 12000, 'cat', 0).setOrigin(0.5, 0.5).setScale(1)
+        .setSize(400, 300)
+        .setOffset(50, 150);
         //this.player.body.setMaxVelocity(600, 5000);
         this.respawnX = -14000;
         this.respawnY = 12000;

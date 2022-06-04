@@ -14,10 +14,12 @@ class Level5 extends Phaser.Scene {
         this.load.image('plat_1', './assets/Levels/Blocks/Platform Large.PNG');
         this.load.image('plat_2', './assets/Levels/Blocks/Platform Small.PNG');
         this.load.image('spikes_D', './assets/Levels/Blocks/Tiles/1x1 Spikes.PNG');
-        this.load.image('back_1', './assets/Levels/Level-1/Background-1.PNG');
-        this.load.image('back_2', './assets/Levels/Level-1/Midground-1.PNG');
-        this.load.image('back_3', './assets/Levels/Level-1/Foreground-1.PNG');
-        this.load.image('back_4', './assets/Levels/Level-1/back_brown.png');
+        
+        this.load.image('lvl5back', './assets/Levels/Level-5/Background-5.PNG');
+        this.load.image('lvl5mid', './assets/Levels/Level-5/Midground-5.PNG');
+        this.load.image('lvl5fore', './assets/Levels/Level-5/Foreground-5.PNG');
+
+
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
         this.load.image('1x4', './assets/Levels/Blocks/4x1 Block_Rf.PNG');
         this.load.image('smoke', './assets/Cat/smoke.png');
@@ -58,7 +60,21 @@ class Level5 extends Phaser.Scene {
 
 
         // BACKGROUND STUFF
-        
+        this.back0 = this.add.sprite(-5000, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.back1 = this.add.sprite(3200, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.back2 = this.add.sprite(11400, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.back3 = this.add.sprite(19610, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
+
+        this.mid0 = this.add.sprite(-5000, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.mid1 = this.add.sprite(3200, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.mid2 = this.add.sprite(11400, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.mid3 = this.add.sprite(19610, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
+
+        this.for0 = this.add.sprite(-5000, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for1 = this.add.sprite(3200, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for2 = this.add.sprite(11400, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for3 = this.add.sprite(19610, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+
         this.cameras.main.fadeIn(1000);
         
         // create the Tilemap
@@ -81,7 +97,7 @@ class Level5 extends Phaser.Scene {
         //this.physics.world.setBounds(0, 0, 20000, 10000);
         //this.physics.world.removeBounds(0, 0, 20000, 10000);
 
-        this.cameras.main.setBackgroundColor('#5f4e48');
+        this.cameras.main.setBackgroundColor('#435a49');
 
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -93,7 +109,9 @@ class Level5 extends Phaser.Scene {
         
 
             // set up player character
-        this.player = new Cat(this, -14000, 13000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1);
+        this.player = new Cat(this, -14000, 13000, 'cat_walk', 0).setOrigin(0.5, 0.5).setScale(1)
+        .setSize(400, 300)
+        .setOffset(50, 150);
         this.respawnX = -14000;
         this.respawnY = 13000;
         //this.player.body.setMaxVelocity(600, 5000);
