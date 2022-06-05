@@ -4,14 +4,14 @@ class EndStoryBoard extends Phaser.Scene {
 
     }
     preload() {
-        this.load.image('pg28', './assets/Storyboard/Page (28).jpg');
-        this.load.image('pg29', './assets/Storyboard/Page (29).jpg');
-        this.load.image('pg30', './assets/Storyboard/Page (30).jpg');
-        this.load.image('pg31', './assets/Storyboard/Page (31).jpg');
-        this.load.image('pg32', './assets/Storyboard/Page (32).jpg');
-        this.load.image('pg33', './assets/Storyboard/Page (33).jpg');
-        this.load.image('pg34', './assets/Storyboard/Page (34).jpg');
-        this.load.image('pg35', './assets/Storyboard/Page (35).jpg');
+        this.load.image('pg28', './assets/Storyboard/Page (28).JPG');
+        this.load.image('pg29', './assets/Storyboard/Page (29).JPG');
+        this.load.image('pg30', './assets/Storyboard/Page (30).JPG');
+        this.load.image('pg31', './assets/Storyboard/Page (31).JPG');
+        this.load.image('pg32', './assets/Storyboard/Page (32).JPG');
+        this.load.image('pg33', './assets/Storyboard/Page (33).JPG');
+        this.load.image('pg34', './assets/Storyboard/Page (34).JPG');
+        this.load.image('pg35', './assets/Storyboard/Page (35).JPG');
         this.bg = {};
 
     }
