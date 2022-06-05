@@ -195,7 +195,7 @@ class Level3 extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.respawnGroup, (obj1, obj2) => {
             this.respawnX = obj2.x;
-            this.respawnY = obj2.y + 1500;
+            this.respawnY = obj2.y;
         })
 
         // FALL DEATH GROUP
