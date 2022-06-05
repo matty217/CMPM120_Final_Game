@@ -51,10 +51,15 @@ class Level3 extends Phaser.Scene {
             frameHeight: 512
         });
         this.load.audio('meow', 'assets/meow.wav');
+        this.load.audio('lvl3music', './assets/Sounds/Music/Level 3/Ketsa - Never Forget.mp3')
 
     }
 
     create() {
+        this.game.sound.stopAll();
+        this.lvl3music = this.sound.add('lvl3music', {volume: 0.3});
+        this.lvl3music.loop = true;
+        this.lvl3music.play();
         // BACKGROUND STUFF
 
         this.back1 = this.add.sprite(-800, 2500, 'lvl3back', 0).setScale(3).setScrollFactor(0.2,0.2);
@@ -298,6 +303,7 @@ class Level3 extends Phaser.Scene {
 
     goToLevel4(player, checkpoint) {
         if (this.coinCounter == 3) {
+            this.lvl3music.stop();
             console.log('next level 4');
             this.scene.start('charonScene');
             this.scene.bringToTop('charonScene');

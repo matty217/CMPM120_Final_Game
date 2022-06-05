@@ -45,9 +45,15 @@ class Level4 extends Phaser.Scene {
 
         this.load.audio('meow', 'assets/meow.wav');
 
+        this.load.audio('lvl4music', './assets/Sounds/Music/Level 4/depth-of-focus.mp3');
+
     }
 
     create() {
+        this.game.sound.stopAll();
+        this.lvl4music = this.sound.add('lvl4music', {volume: 0.2});
+        this.lvl4music.loop = true;
+        this.lvl4music.play();
         // BACKGROUND STUFF
         this.cameras.main.fadeIn(1000);
         // this.physics.enable(sky, Phaser.Physics.ARCADE);
@@ -561,6 +567,7 @@ class Level4 extends Phaser.Scene {
     }
 
     goToLevel5(player, checkpoint) {
+        this.lvl4music.stop();
         this.scene.start('beforeLevel5Scene');
         this.scene.bringToTop('beforeLevel5Scene');
         this.scene.sleep('level1Scene');

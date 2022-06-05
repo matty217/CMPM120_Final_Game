@@ -53,9 +53,15 @@ class Level1 extends Phaser.Scene {
 
         this.load.audio('meow', 'assets/meow.wav');
 
+        this.load.audio('lvl1music', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3');
+
     }
 
     create() {
+        this.game.sound.stopAll();
+        this.lvl1music = this.sound.add('lvl1music', {volume: 0.2});
+        this.lvl1music.loop = true;
+        this.lvl1music.play();
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -421,6 +427,7 @@ class Level1 extends Phaser.Scene {
     }
 
     goToLevel2(player, checkpoint) {
+        this.lvl1music.stop();
         game.scene.start('beforeLevel2Scene');
         game.scene.bringToTop('beforeLevel2Scene');
         game.scene.sleep('level1Scene');

@@ -26,10 +26,14 @@ class Level2 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
-
+        this.load.audio('lvl2music', './assets/Sounds/Music/Level 2/Ketsa - Dark Future.mp3');
     }
 
     create() {
+        this.game.sound.stopAll();
+        this.lvl2music = this.sound.add('lvl2music', {volume: 0.2});
+        this.lvl2music.loop = true;
+        this.lvl2music.play();
         const geyserAnimate = this.anims.create({
             key: 'geyser',
             frames: this.anims.generateFrameNames('geyser', {
@@ -602,6 +606,7 @@ class Level2 extends Phaser.Scene {
     }
 
     goToLevel3(player, checkpoint) {
+        this.lvl2music.stop();
         game.scene.start('level3Scene');
         game.scene.bringToTop('level3Scene');
         game.scene.pause('level1Scene');
