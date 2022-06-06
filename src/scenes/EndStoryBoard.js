@@ -4,20 +4,26 @@ class EndStoryBoard extends Phaser.Scene {
 
     }
     preload() {
-        this.load.image('pg28', './assets/Storyboard/Page (28).jpg');
-        this.load.image('pg29', './assets/Storyboard/Page (29).jpg');
-        this.load.image('pg30', './assets/Storyboard/Page (30).jpg');
-        this.load.image('pg31', './assets/Storyboard/Page (31).jpg');
-        this.load.image('pg32', './assets/Storyboard/Page (32).jpg');
-        this.load.image('pg33', './assets/Storyboard/Page (33).jpg');
-        this.load.image('pg34', './assets/Storyboard/Page (34).jpg');
-        this.load.image('pg35', './assets/Storyboard/Page (35).jpg');
+        this.load.image('pg28', './assets/Storyboard/Page (28).JPG');
+        this.load.image('pg29', './assets/Storyboard/Page (29).JPG');
+        this.load.image('pg30', './assets/Storyboard/Page (30).JPG');
+        this.load.image('pg31', './assets/Storyboard/Page (31).JPG');
+        this.load.image('pg32', './assets/Storyboard/Page (32).JPG');
+        this.load.image('pg33', './assets/Storyboard/Page (33).JPG');
+        this.load.image('pg34', './assets/Storyboard/Page (34).JPG');
+        this.load.image('pg35', './assets/Storyboard/Page (35).JPG');
         this.bg = {};
+        this.load.audio('endMusic', './assets/Sounds/Music/Level 5/Ketsa - Disappearing Memory.mp3');
 
     }
     create() {
        
-        
+      this.game.sound.stopAll();
+
+      this.endMusic = this.sound.add('endMusic', {volume: 0.15});
+      this.endMusic.loop = true;
+      this.endMusic.play();
+
         this.bg.camera = this.cameras.add(0, 0, 1080, 720);
         this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
 
@@ -70,6 +76,7 @@ class EndStoryBoard extends Phaser.Scene {
         this.endpressCounter+=1;
 
           if (this.endpressCounter == 37) {
+            this.endMusic.stop();
             this.scene.start('gameOverScene'); 
             this.scene.bringToTop('gameOverScene');
             this.scene.sleep('level1Scene');

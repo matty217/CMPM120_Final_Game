@@ -8,10 +8,14 @@ class BeforeLevel2 extends Phaser.Scene {
         this.load.image('pg12', './assets/Storyboard/Page (12).jpg');
         this.load.image('pg13', './assets/Storyboard/Page (13).jpg');
         this.bg = {};
+        this.load.audio('storymusic', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3')
 
     }
     create() {
-  
+      this.game.sound.stopAll();
+      this.storyMusic2 = this.sound.add('storymusic', {volume: 0.5});
+      this.storyMusic2.loop = true;
+      this.storyMusic2.play();
         this.scene.stop('level1Scene');
 
         
@@ -67,6 +71,7 @@ class BeforeLevel2 extends Phaser.Scene {
         this.pressCounter+=1;
 
           if (this.pressCounter == 15) {
+            this.storyMusic2.stop();
             this.scene.start('level2Scene'); 
             this.scene.bringToTop('level2Scene');
             this.scene.sleep('level1Scene');

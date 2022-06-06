@@ -53,11 +53,20 @@ class Level5 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
-
+        this.load.audio('birds_sfx', './assets/Sounds/Birds In Forest-SoundBible.com-472460759.mp3');
+        this.load.audio('lvl5music', './assets/Sounds/Music/Level 5/Ketsa - Disappearing Memory.mp3');
     }
 
     create() {
+        this.game.sound.stopAll();
+        // this.sound.play('birds');
+        this.sfx = this.sound.add('birds_sfx');
+        this.sfx.loop = true;
+        this.sfx.play();
 
+        this.music = this.sound.add('lvl5music', {volume: 0.2});
+        this.music.loop = true;
+        this.music.play();
 
         // BACKGROUND STUFF
         this.back0 = this.add.sprite(-5000, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
@@ -350,6 +359,8 @@ class Level5 extends Phaser.Scene {
         }
     }
     goToEndTransition() {
+        this.sfx.stop();
+        this.music.stop();
         this.scene.start('endStoryBoardScene'); 
         this.scene.bringToTop('endStoryBoardScene');
         this.scene.sleep('level1Scene');

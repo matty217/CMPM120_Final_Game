@@ -18,9 +18,14 @@ class Menu extends Phaser.Scene {
 
         this.load.image('titleimg', './assets/Levels/Title Screen/Title Screen Background.PNG');
         this.bg = {};
+        this.load.audio('storymusic', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3');
     }
     create() {
-
+      this.game.sound.stopAll();
+      this.storyMusic = this.sound.add('storymusic', {volume: 0.5});
+      this.storyMusic.loop = true;
+      this.storyMusic.play();
+      
         this.bg.camera = this.cameras.add(0, 0, 1080, 720);
         this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
         this.titleImg = this.add.sprite(100, 445, 'titleimg').setScale(0.27);
@@ -90,6 +95,7 @@ class Menu extends Phaser.Scene {
         this.pressedCounter+=1;
 
           if (this.pressedCounter == 12) {
+            this.storyMusic.stop();
             this.scene.start('level1Scene'); 
           }
     }

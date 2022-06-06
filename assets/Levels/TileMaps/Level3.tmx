@@ -292,11 +292,11 @@
  <objectgroup id="6" name="Objects">
   <object id="46" x="-8192" y="24576"/>
   <object id="47" name="death" x="-16384" y="25088" width="31744" height="2048"/>
-  <object id="49" name="respawn" x="-15872" y="13824" width="512" height="2048"/>
+  <object id="49" name="respawn" x="-15344.8" y="12936.5" width="512" height="861.712"/>
   <object id="50" name="respawn" x="-9728" y="15360" width="512" height="2048"/>
   <object id="51" name="respawn" x="-3072" y="9728" width="512" height="2048"/>
   <object id="52" name="checkpoint" x="3072" y="14848" width="512" height="1024"/>
-  <object id="55" name="water" x="-16384" y="16384" width="4608" height="1536"/>
+  <object id="55" name="water" x="-16384" y="16656.4" width="4608" height="1536"/>
   <object id="57" name="water" x="-3584" y="16384" width="18416" height="2048"/>
   <object id="58" name="water" x="1024" y="18432" width="13824" height="6656"/>
   <object id="60" name="water" x="-16384" y="17920" width="4608" height="7168"/>
