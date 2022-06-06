@@ -7,12 +7,17 @@ class BeforeLevel5 extends Phaser.Scene {
         this.load.image('pg26', './assets/Storyboard/Page (26).jpg');
         this.load.image('pg27', './assets/Storyboard/Page (27).jpg');
         this.bg = {};
+        this.load.audio('storymusic5', './assets/Sounds/Music/Level 4/depth-of-focus.mp3');
 
     }
     create() {
-  
+      
         this.scene.stop('level4Scene');
 
+        this.game.sound.stopAll();
+        this.storyMusic5 = this.sound.add('storymusic5', {volume: 0.15});
+        this.storyMusic5.loop = true;
+        this.storyMusic5.play();
         
         this.bg.camera = this.cameras.add(0, 0, 1080, 720);
         this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
@@ -66,6 +71,7 @@ class BeforeLevel5 extends Phaser.Scene {
         this.lvl5pressCounter+=1;
 
           if (this.lvl5pressCounter == 29) {
+            this.storyMusic5.stop();
             this.scene.start('level5Scene'); 
             this.scene.bringToTop('level5Scene');
             this.scene.pause('level1Scene');

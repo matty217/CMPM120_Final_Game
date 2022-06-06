@@ -15,11 +15,15 @@ class Charon extends Phaser.Scene {
         this.load.image('pg25', './assets/Storyboard/Page (25).JPG');
         this.load.image('black', './assets/Levels/Blocks/Tiles/Solid Block.PNG');
         this.bg = {};
+        this.load.audio('charonMusic', './assets/Sounds/Music/Level 3/Ketsa - Never Forget.mp3');
 
     }
     create() {
         
-  
+      this.game.sound.stopAll();
+      this.charonMusic = this.sound.add('charonMusic', {volume: 0.15});
+      this.charonMusic.loop = true;
+      this.charonMusic.play();
         this.scene.stop('level3Scene');
 
         
@@ -75,6 +79,7 @@ class Charon extends Phaser.Scene {
         this.charonPressCounter+=1;
 
           if (this.charonPressCounter == 27) {
+            this.charonMusic.stop();
             this.scene.start('level4Scene'); 
             this.scene.bringToTop('level4Scene');
             this.scene.pause('level1Scene');

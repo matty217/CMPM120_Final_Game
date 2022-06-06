@@ -18,11 +18,11 @@ class Menu extends Phaser.Scene {
 
         this.load.image('titleimg', './assets/Levels/Title Screen/Title Screen Background.PNG');
         this.bg = {};
-        this.load.audio('storymusic', './assets/Sounds/Music/Story Board/Siddhartha Corsus - The Far Shore.mp3');
+        this.load.audio('storymusic', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3');
     }
     create() {
-      // this.game.sound.stopAll();
-      this.storyMusic = this.sound.add('storymusic');
+      this.game.sound.stopAll();
+      this.storyMusic = this.sound.add('storymusic', {volume: 0.5});
       this.storyMusic.loop = true;
       this.storyMusic.play();
       
