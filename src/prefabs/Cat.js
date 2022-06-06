@@ -28,6 +28,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         this.anim_climb = false;
         this.anim_slide = false;
         this.anim_idle = false;
+        
     }
 
     create() {
@@ -50,6 +51,10 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         if (this.alive) {
 
             if (this.wallSliding) {
+                if (!this.slideLooping) {
+                    game.slideSound.play();
+                    this.slideLooping = true;
+                }
                 this.body.setDragY(this.WALL_DRAG);
                 //this.body.setVelocityY(0)
                 this.body.allowGravity = false;
@@ -57,6 +62,8 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                     this.body.velocity.y += this.SLIDE_VEL/2;
                 }
             } else {
+                game.slideSound.stop();
+                this.slideLooping = false;
                 this.body.setDrag(0);
                 this.body.allowGravity = true;
             }
@@ -114,6 +121,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 // jump
                 if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                     // normal jump
+                    this.sfxJump();
                     this.body.setVelocityY(this.JUMP_VEL);
                     console.log('Jump');
                     if (!this.anim_jumping) {
@@ -168,6 +176,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                     // double jump
                     if (this.jumps < this.maxAirJumps) {
+                        this.sfxJump();
                         this.body.setVelocityY(this.AIR_JUMP_VEL);
                         console.log('Air Jump');
                         this.jumps += 1;
@@ -241,6 +250,7 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
                 if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
                     // wall jump
                     this.body.setVelocityY(this.WALL_JUMP_VEL_Y);
+                    this.sfxJump();
                     if (this.body.blocked.right) {
                         this.body.setVelocityX(-this.WALL_JUMP_VEL_X);
                         this.flipX = true;
@@ -263,6 +273,20 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         }
         else {
             this.setVelocity(0,0);
+        }
+    }
+
+    sfxJump() {
+        var rand = Math.round(Math.random()*(2));
+
+        if (rand == 0) {
+            game.sfxJump1.play();
+        }
+        else if (rand == 1) {
+            game.sfxJump2.play();
+        }
+        else {
+            game.sfxJump3.play();
         }
     }
 }

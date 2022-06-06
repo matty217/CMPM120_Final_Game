@@ -54,14 +54,25 @@ class Level1 extends Phaser.Scene {
         this.load.audio('meow', 'assets/meow.wav');
 
         this.load.audio('lvl1music', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3');
+        this.load.audio('jump1', './assets/Sounds/SFX/Jump1.wav');
+        this.load.audio('jump2', './assets/Sounds/SFX/Jump2.wav');
+        this.load.audio('jump3', './assets/Sounds/SFX/Jump3.wav');
+        this.load.audio('slide', './assets/Sounds/SFX/slide.wav');
 
     }
 
     create() {
         this.game.sound.stopAll();
-        this.lvl1music = this.sound.add('lvl1music', {volume: 0.2});
+        this.lvl1music = this.sound.add('lvl1music', {volume: 0.1});
         this.lvl1music.loop = true;
         this.lvl1music.play();
+
+        game.slideSound = game.sound.add('slide', {volume: 2});
+        game.slideSound.loop = true;
+
+        game.sfxJump1 = game.sound.add('jump1', {volume: 1});
+        game.sfxJump2 = game.sound.add('jump2', {volume: 1});
+        game.sfxJump3 = game.sound.add('jump3', {volume: 1});
 
         //ANIMATIONS
         const catWalk = this.anims.create({
