@@ -53,7 +53,7 @@ class Level5 extends Phaser.Scene {
             frameWidth: 512,
             frameHeight: 512
         });
-        this.load.audio('birds_sfx', './assets/Sounds/Birds In Forest-SoundBible.com-472460759.mp3');
+        this.load.audio('birds_sfx', './assets/Sounds/Birds.mp3');
         this.load.audio('lvl5music', './assets/Sounds/Music/Level 5/Ketsa - Disappearing Memory.mp3');
     }
 
