@@ -799,7 +799,7 @@
 </chunk>
    <chunk x="-16" y="16" width="16" height="16">
 8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
-8,8,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
+8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
 8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
 8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
 8,8,9,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -1160,7 +1160,7 @@
   </data>
  </layer>
  <objectgroup id="3" name="Objects">
-  <object id="3" name="Spike" gid="3221225478" x="-6200.55" y="9248.33" width="512" height="512" rotation="270"/>
+  <object id="3" name="Spike" gid="3221225478" x="-6180.55" y="9224.33" width="512" height="512" rotation="270"/>
   <object id="6" name="Respawn" x="5162.3" y="10718.2" width="900" height="3500"/>
   <object id="8" name="Spike" gid="3221225478" x="-6208" y="9680" width="512" height="512" rotation="270"/>
   <object id="9" name="Spike" gid="3221225478" x="-6256" y="10096" width="512" height="512" rotation="270"/>
@@ -1430,7 +1430,7 @@
   <object id="312" name="Spike" gid="1073741830" x="92256" y="-3204" width="512" height="512" rotation="-270"/>
   <object id="313" name="Spike" gid="6" x="92720" y="-2236" width="512" height="512" rotation="270"/>
   <object id="314" name="End" x="134120" y="17632" width="4576" height="456"/>
-  <object id="319" name="End" x="-6704" y="10060" width="488" height="456"/>
+  <object id="319" name="End" x="-6604" y="8768" width="488" height="456"/>
   <object id="320" name="rockSound" x="58816" y="-1952" width="496" height="4944"/>
  </objectgroup>
 </map>

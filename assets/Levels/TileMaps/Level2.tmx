@@ -974,7 +974,6 @@
   <object id="410" name="Sign" x="75930.5" y="8618.42" width="616" height="616"/>
   <object id="411" name="Sign" x="66785.8" y="14767.5" width="616" height="616"/>
   <object id="412" name="Sign" x="19154.3" y="13235.6" width="616" height="616"/>
-  <object id="413" name="End" x="-7068" y="13868" width="488" height="456"/>
   <object id="414" name="Spike" gid="3221225478" x="68752" y="8826" width="512" height="512" rotation="180"/>
   <object id="415" name="Spike" gid="1073741830" x="68888" y="8806" width="512" height="512" rotation="-180"/>
   <object id="416" name="Spike" gid="2147483654" x="72720" y="6413" width="512" height="512" rotation="-180"/>
