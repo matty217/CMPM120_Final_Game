@@ -80,6 +80,8 @@ class Level1 extends Phaser.Scene {
         game.sfxJump2 = game.sound.add('jump2', {volume: 1});
         game.sfxJump3 = game.sound.add('jump3', {volume: 1});
         game.sfxDeath = game.sound.add('death', {volume: 1});
+        game.sfxRock = game.sound.add('rock', {volume: 1});
+        game.sfxFire = game.sound.add('fire', {volume: 1});
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -388,6 +390,23 @@ class Level1 extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.EndGroup, (obj1, obj2) => {
             this.scene.stop('pauseScene');
             this.goToLevel2();
+        })
+
+        // Rock Sound Group
+        this.rockSound = map.createFromObjects("Objects", {
+            name: "rockSound",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.rockSound, Phaser.Physics.Arcade.STATIC_BODY);
+        this.rockSoundGroup = this.add.group(this.rockSound);
+
+        this.physics.add.overlap(this.player, this.rockSoundGroup, (obj1, obj2) => {
+            if (!this.rockPlayed) {
+                game.sfxRock.play();
+                this.rockPlayed = true;
+            }
         })
 
 

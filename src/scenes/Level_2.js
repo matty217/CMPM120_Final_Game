@@ -413,6 +413,26 @@ class Level2 extends Phaser.Scene {
     
         this.physics.world.enable(this.sign, Phaser.Physics.Arcade.STATIC_BODY);
         this.signGroup = this.add.group(this.sign);
+
+        // Fire Sound Group
+        this.fireSound = map.createFromObjects("Objects", {
+            name: "fireSound",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.fireSound, Phaser.Physics.Arcade.STATIC_BODY);
+        this.fireSoundGroup = this.add.group(this.fireSound);
+
+        this.physics.add.overlap(this.player, this.fireSoundGroup, (obj1, obj2) => {
+            if (this.fireOn && !this.firePlaying) {
+                game.sfxFire.play();
+                this.firePlaying = true;
+            }
+            if (!this.fireOn) {
+                this.firePlaying = false;
+            }
+        })
  
 
 

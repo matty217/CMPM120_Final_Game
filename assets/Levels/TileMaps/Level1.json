@@ -4511,6 +4511,17 @@
                  "width":488,
                  "x":-6704,
                  "y":10060
+                }, 
+                {
+                 "height":4944,
+                 "id":320,
+                 "name":"rockSound",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":496,
+                 "x":58816,
+                 "y":-1952
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4519,7 +4530,7 @@
          "y":0
         }],
  "nextlayerid":4,
- "nextobjectid":320,
+ "nextobjectid":321,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",

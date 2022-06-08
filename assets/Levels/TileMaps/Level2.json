@@ -2370,6 +2370,39 @@
                  "width":2144,
                  "x":78564,
                  "y":3760
+                }, 
+                {
+                 "height":9568,
+                 "id":437,
+                 "name":"fireSound",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":15712,
+                 "x":27208,
+                 "y":7448
+                }, 
+                {
+                 "height":5360,
+                 "id":438,
+                 "name":"fireSound",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":3088,
+                 "x":64392,
+                 "y":7568
+                }, 
+                {
+                 "height":2240,
+                 "id":439,
+                 "name":"fireSound",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":5088,
+                 "x":70664,
+                 "y":6512
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2378,7 +2411,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":437,
+ "nextobjectid":440,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.8.5",
