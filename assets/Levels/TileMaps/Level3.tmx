@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="7" nextobjectid="66">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="7" nextobjectid="67">
+ <editorsettings>
+  <export target="Level3.json" format="json"/>
+ </editorsettings>
  <tileset firstgid="1" name="standard_tiles" tilewidth="512" tileheight="512" tilecount="24" columns="6">
   <image source="terrain_tiles.png" width="3072" height="2048"/>
   <tile id="0">
@@ -304,5 +307,6 @@
   <object id="63" name="water" x="-3072" y="21504" width="4096" height="1536"/>
   <object id="64" name="water" x="-3072" y="20480" width="1024" height="1536"/>
   <object id="65" name="checkpoint" x="-15664" y="9600" width="512" height="1024"/>
+  <object id="66" name="Level_End" x="4140" y="13880" width="1976" height="1936"/>
  </objectgroup>
 </map>

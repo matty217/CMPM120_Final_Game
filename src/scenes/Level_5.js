@@ -282,6 +282,20 @@ class Level5 extends Phaser.Scene {
 
         this.physics.add.overlap(this.player, this.checkpointGroup, this.goToEndTransition, null, this);
 
+        // LEVEL END GROUP
+        this.levelEnd = map.createFromObjects("Objects", {
+            name: "Level_End",
+            key: "heart",
+            frame: "0"
+        });
+    
+        this.physics.world.enable(this.levelEnd, Phaser.Physics.Arcade.STATIC_BODY);
+        this.levelEndGroup = this.add.group(this.levelEnd);
+
+        this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.partEmHeart.explode(30);
+        })
+
         this.input.keyboard.on('keydown', sceneSwitcher);
 
          // follow player with camera
@@ -302,6 +316,21 @@ class Level5 extends Phaser.Scene {
                 
                 follow: this.player
             });
+
+            // heart at end
+        this.heartParticles = this.add.particles('red_part');
+        this.partEmHeart = this.heartParticles.createEmitter({
+            radial: true,
+            lifespan: { min: 800, max: 1500},
+            speed: { min: 2000, max: 3000 },
+            quantity: 0,
+            gravityY: 2000,
+            scale: { start: 4, end: 0, ease: 'Power3' },
+            active: true,
+            mode: 'ADD',
+            x: 5144,
+            y: 14818
+        });
 
 
     }

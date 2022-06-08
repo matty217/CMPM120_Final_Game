@@ -527,6 +527,20 @@ class Level4 extends Phaser.Scene {
             this.Death(obj1);
         })
 
+        // LEVEL END GROUP
+        this.levelEnd = map.createFromObjects("Objects", {
+            name: "Level_End",
+            key: "heart",
+            frame: "1"
+        });
+    
+        this.physics.world.enable(this.levelEnd, Phaser.Physics.Arcade.STATIC_BODY);
+        this.levelEndGroup = this.add.group(this.levelEnd);
+
+        this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.partEmHeart.explode(30);
+        })
+
         //ANIMATIONS
         const catWalk = this.anims.create({
             key: 'walk',
@@ -541,7 +555,25 @@ class Level4 extends Phaser.Scene {
         this.cat_example.play({ key: 'walk' });
 
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+
+
+        // heart at end
+        this.heartParticles = this.add.particles('red_part');
+        this.partEmHeart = this.heartParticles.createEmitter({
+            radial: true,
+            lifespan: { min: 800, max: 1500},
+            speed: { min: 2000, max: 3000 },
+            quantity: 0,
+            gravityY: 2000,
+            scale: { start: 4, end: 0, ease: 'Power3' },
+            active: true,
+            mode: 'ADD',
+            x: 5144,
+            y: 14818
+        });
     }
+
+    
 
     update() {
         this.player.update();
