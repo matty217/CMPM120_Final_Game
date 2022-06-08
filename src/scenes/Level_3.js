@@ -392,6 +392,7 @@ class Level3 extends Phaser.Scene {
             });
             this.partEm.explode(100, this.player.x, this.player.y);
             this.player.alpha = 0;
+            game.sfxDeath.play();
 
             let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
                 this.cameras.main.fadeOut(500);

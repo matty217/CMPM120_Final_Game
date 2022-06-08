@@ -58,6 +58,9 @@ class Level1 extends Phaser.Scene {
         this.load.audio('jump2', './assets/Sounds/SFX/Jump2.wav');
         this.load.audio('jump3', './assets/Sounds/SFX/Jump3.wav');
         this.load.audio('slide', './assets/Sounds/SFX/slide_sfx.wav');
+        this.load.audio('fire', './assets/Sounds/SFX/fire.wav');
+        this.load.audio('death', './assets/Sounds/SFX/death.wav');
+        this.load.audio('rock', './assets/Sounds/SFX/rock.wav');
 
     }
 
@@ -76,6 +79,7 @@ class Level1 extends Phaser.Scene {
         game.sfxJump1 = game.sound.add('jump1', {volume: 1});
         game.sfxJump2 = game.sound.add('jump2', {volume: 1});
         game.sfxJump3 = game.sound.add('jump3', {volume: 1});
+        game.sfxDeath = game.sound.add('death', {volume: 1});
 
         //ANIMATIONS
         const catWalk = this.anims.create({
@@ -484,6 +488,7 @@ class Level1 extends Phaser.Scene {
             });
             this.partEm.explode(100, this.player.x, this.player.y);
             this.player.alpha = 0;
+            game.sfxDeath.play();
 
             let fadeout = this.time.addEvent({ delay: 1200, callback: () =>{
                 this.cameras.main.fadeOut(500);
