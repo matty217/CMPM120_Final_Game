@@ -34,6 +34,7 @@ class Level2 extends Phaser.Scene {
 
     create() {
         this.scene.launch('pauseScene');
+        game.scene.bringToTop('pauseScene');
         game.currentScene = 'level2Scene';
 
 
