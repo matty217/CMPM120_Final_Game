@@ -43,7 +43,7 @@ class TakeCare extends Phaser.Scene {
           },
         }
         this.add.text(game.config.width/2, game.config.height/2, 'Take care of her for me.', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
+        // this.add.text(game.config.width/2, 680, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.pressCounterT = 35;
