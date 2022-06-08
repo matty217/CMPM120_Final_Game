@@ -740,7 +740,7 @@ class Level2 extends Phaser.Scene {
             angle: {min:10, max: -10}
         });
 
-        this.smokeEm10 = this.fireParticles.createEmitter({
+        this.smokeEm10 = this.smokeParticles.createEmitter({
             radial: true,
             x: 64440,
             y: 9596,
