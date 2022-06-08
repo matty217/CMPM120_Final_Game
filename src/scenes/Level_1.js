@@ -141,35 +141,46 @@ class Level1 extends Phaser.Scene {
 
 
 
-
+        this.backWidth = 8170;
+        this.backBrownTopHeight = -4200;
 
         // BACKGROUND STUFF
         //this.background = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, 0x444444).setOrigin(0.5,0.5);
-        this.back_0001 = this.add.sprite(-1000, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
-        this.back_0002 = this.add.sprite(5800, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
-        this.back_0003 = this.add.sprite(12600, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
-        this.back_0004 = this.add.sprite(19400, 2500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0001 = this.add.sprite(-1000, 1500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0002 = this.add.sprite((this.backWidth) - 1000, 1500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0003 = this.add.sprite((this.backWidth * 2) - 1000, 1500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
+        this.back_0004 = this.add.sprite((this.backWidth * 3) - 1000, 1500, 'back_1', 0).setScale(3).setScrollFactor(0.15,0.15);
 
-        this.mid_0001 = this.add.sprite(-1000, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.mid_0002 = this.add.sprite(5800, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.mid_0003 = this.add.sprite(12600, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
-        this.mid_0003 = this.add.sprite(19400, 2500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0001 = this.add.sprite(-1000, 1500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0002 = this.add.sprite((this.backWidth) - 1000, 1500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0003 = this.add.sprite((this.backWidth * 2) - 1000, 1500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
+        this.mid_0003 = this.add.sprite((this.backWidth * 3) - 1000, 1500, 'mid_1', 0).setScale(3).setScrollFactor(0.2,0.2);
 
 
 
         this.fore_0001 = this.add.sprite(-1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
-        this.fore_0002 = this.add.sprite(5800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
-        this.fore_0003 = this.add.sprite(12600, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
-        this.fore_0004 = this.add.sprite(this.fore_0003.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
-        this.fore_0005 = this.add.sprite(this.fore_0004.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
-        this.fore_0006 = this.add.sprite(this.fore_0005.x+6800, 2500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0002 = this.add.sprite((this.backWidth) - 1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0003 = this.add.sprite((this.backWidth * 2) - 1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0004 = this.add.sprite((this.backWidth * 3) - 1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0005 = this.add.sprite((this.backWidth * 4) - 1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
+        this.fore_0006 = this.add.sprite((this.backWidth * 5) - 1000, 1500, 'fore_1', 0).setScale(3).setScrollFactor(0.25,0.25);
 
+        //bottom brown back
+        this.back_brown = this.add.sprite(-1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth) - 1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 2) - 1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 3) - 1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 4) - 1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 5) - 1000, 7500, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
 
+        //top brown back
+        this.back_brown = this.add.sprite(-1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth) - 1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 2) - 1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 3) - 1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 4) - 1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
+        this.back_brown = this.add.sprite((this.backWidth * 5) - 1000, this.backBrownTopHeight, 'brown_1', 0).setScale(3).setScrollFactor(0.25, 0.25);
 
-        // this.back_brown = this.add.sprite(-1000, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        // this.back_brown = this.add.sprite(5800, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        // this.back_brown = this.add.sprite(12600, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        // this.back_brown = this.add.sprite(19400, 8500, 'brown_1', 0).setScale(3).setScrollFactor(0.4, 0.4);
 
 
 

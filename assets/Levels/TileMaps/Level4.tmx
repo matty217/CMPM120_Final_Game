@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="6" nextobjectid="145">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="512" tileheight="512" infinite="1" nextlayerid="6" nextobjectid="146">
  <tileset firstgid="1" name="standard_tiles" tilewidth="512" tileheight="512" tilecount="24" columns="6">
   <image source="terrain_tiles.png" width="3072" height="2048"/>
   <tile id="0">
@@ -312,6 +312,7 @@
   <object id="142" name="test1" gid="5" x="11264" y="11776" width="512" height="512"/>
   <object id="143" name="test2" gid="11" x="11776" y="11776" width="512" height="512"/>
   <object id="144" name="test3" gid="23" x="12288" y="11776" width="512" height="512"/>
+  <object id="145" name="Level_End" x="31772" y="9296" width="1976" height="1936"/>
  </objectgroup>
  <layer id="1" name="Ground" width="64" height="16">
   <data encoding="csv">
@@ -427,10 +428,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,10,0,0,0,0,0,0,0,0,0,0,0,0,0,
+20,20,15,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
