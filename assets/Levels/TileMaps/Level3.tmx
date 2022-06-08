@@ -306,7 +306,6 @@
   <object id="62" name="water" x="-11776" y="23040" width="12800" height="2048"/>
   <object id="63" name="water" x="-3072" y="21504" width="4096" height="1536"/>
   <object id="64" name="water" x="-3072" y="20480" width="1024" height="1536"/>
-  <object id="65" name="checkpoint" x="-15664" y="9600" width="512" height="1024"/>
   <object id="66" name="Level_End" x="4140" y="13880" width="1976" height="1936"/>
  </objectgroup>
 </map>

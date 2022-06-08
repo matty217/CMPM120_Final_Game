@@ -72,15 +72,15 @@ class Level5 extends Phaser.Scene {
         this.music.play();
 
         // BACKGROUND STUFF
-        this.back0 = this.add.sprite(-5000, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.back1 = this.add.sprite(3200, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.back2 = this.add.sprite(11400, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.back3 = this.add.sprite(19610, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.back0 = this.add.sprite(-5000, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back1 = this.add.sprite(3200, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back2 = this.add.sprite(11400, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back3 = this.add.sprite(19610, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
 
-        this.mid0 = this.add.sprite(-5000, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.mid1 = this.add.sprite(3200, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.mid2 = this.add.sprite(11400, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.mid3 = this.add.sprite(19610, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.mid0 = this.add.sprite(-5000, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid1 = this.add.sprite(3200, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid2 = this.add.sprite(11400, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid3 = this.add.sprite(19610, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
 
         this.for0 = this.add.sprite(-5000, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
         this.for1 = this.add.sprite(3200, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);

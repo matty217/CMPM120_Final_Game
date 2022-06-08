@@ -363,17 +363,6 @@
                  "y":20480
                 }, 
                 {
-                 "height":1024,
-                 "id":65,
-                 "name":"checkpoint",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":512,
-                 "x":-15664,
-                 "y":9600
-                }, 
-                {
                  "height":1936,
                  "id":66,
                  "name":"Level_End",
@@ -381,8 +370,8 @@
                  "type":"",
                  "visible":true,
                  "width":1976,
-                 "x":3892,
-                 "y":13912
+                 "x":4140,
+                 "y":13880
                 }],
          "opacity":1,
          "type":"objectgroup",
