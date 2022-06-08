@@ -67,7 +67,7 @@ class Menu extends Phaser.Scene {
         this.add.text(game.config.width/2, 300, 'A: Move Left', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 350, 'D: Move Right', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 400, 'Space: Jump/Double Jump', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width/2, 450, 'W+Space: Wall Climb', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 450, 'W: Wall Climb', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 500, 'Q: Meow', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 685, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
