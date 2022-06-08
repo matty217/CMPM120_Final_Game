@@ -12,7 +12,7 @@ let config = {
             debug: true
         }
     },
-    scene: [ Menu, Level1, BeforeLevel2, Level2, Level3, Charon, Level4, BeforeLevel5, Level5, EndStoryBoard, GameOver]
+    scene: [ Menu, Level1, BeforeLevel2, Level2, Level3, Charon, Level4, BeforeLevel5, Level5, EndStoryBoard, GameOver, Paused]
 }
 
 
@@ -21,9 +21,10 @@ game.settings = {
     worldSpeed: 8
 };
 game.goodBoyCoins = 0;
+game.paused = false;
 
 // reserving keyboard variables
-let keyW, keyA, keyS, keyD, keySPACE, keyQ, keyLEFT;
+let keyW, keyA, keyS, keyD, keySPACE, keyQ, keyLEFT, keyESC;
 
 let sceneSwitcher = (event) => {
     //console.log("Key is: " + event.key);

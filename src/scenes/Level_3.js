@@ -56,6 +56,9 @@ class Level3 extends Phaser.Scene {
     }
 
     create() {
+        game.currentScene = 'level3Scene';
+
+
         this.game.sound.stopAll();
         this.lvl3music = this.sound.add('lvl3music', {volume: 0.3});
         this.lvl3music.loop = true;

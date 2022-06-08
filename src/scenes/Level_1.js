@@ -57,17 +57,20 @@ class Level1 extends Phaser.Scene {
         this.load.audio('jump1', './assets/Sounds/SFX/Jump1.wav');
         this.load.audio('jump2', './assets/Sounds/SFX/Jump2.wav');
         this.load.audio('jump3', './assets/Sounds/SFX/Jump3.wav');
-        this.load.audio('slide', './assets/Sounds/SFX/slide.wav');
+        this.load.audio('slide', './assets/Sounds/SFX/slide_sfx.wav');
 
     }
 
     create() {
+        this.scene.launch('pauseScene');
+        game.currentScene = 'level1Scene';
+
         this.game.sound.stopAll();
         this.lvl1music = this.sound.add('lvl1music', {volume: 0.1});
         this.lvl1music.loop = true;
         this.lvl1music.play();
 
-        game.slideSound = game.sound.add('slide', {volume: 2});
+        game.slideSound = game.sound.add('slide', {volume: 1});
         game.slideSound.loop = true;
 
         game.sfxJump1 = game.sound.add('jump1', {volume: 1});
@@ -200,6 +203,7 @@ class Level1 extends Phaser.Scene {
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyQ = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
         
 
             // set up player character
@@ -336,6 +340,8 @@ class Level1 extends Phaser.Scene {
         this.levelEndGroup = this.add.group(this.levelEnd);
 
         this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.scene.stop('pauseScene');
+
             this.partEmHeart.explode(30);
             this.breakingGroundGroup.clear(true);
         })
@@ -354,23 +360,21 @@ class Level1 extends Phaser.Scene {
             game.goodBoyCoins += 1;
         })
 
-       
+        // End Group
+        this.End = map.createFromObjects("Objects", {
+            name: "End",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.End, Phaser.Physics.Arcade.STATIC_BODY);
+        this.EndGroup = this.add.group(this.End);
 
-        // use checkpoint to go to next level
-        this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-        this.checkpoint1 = this.add.sprite(136352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint2 = this.add.sprite(135352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint3 = this.add.sprite(134352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint4 = this.add.sprite(137352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint5 = this.add.sprite(138352.00, 12368.00, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint6 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
-        this.checkpoint.add(this.checkpoint1);
-        this.checkpoint.add(this.checkpoint2);
-        this.checkpoint.add(this.checkpoint3);
-        this.checkpoint.add(this.checkpoint4);
-        this.checkpoint.add(this.checkpoint5);
-        this.checkpoint.add(this.checkpoint6);
-        this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel2, null, this);
+        this.physics.add.overlap(this.player, this.EndGroup, (obj1, obj2) => {
+            this.scene.stop('pauseScene');
+            this.goToLevel2();
+        })
+
 
         this.input.keyboard.on('keydown', sceneSwitcher);
 
@@ -380,7 +384,7 @@ class Level1 extends Phaser.Scene {
         var style = { font: "90px Arial", fill: "#ffffff" };
         this.add.text(200,-200,'WASD to move', style);
         this.add.text(1000,-300,'SPACE to jump', style);
-        this.add.text(40880,3500,'W to climb', style);
+        this.add.text(40880,3500,'W to climb', style); 
 
         this.add.text(13800,-2400,'END', style);
 

@@ -51,9 +51,13 @@ class Cat extends Phaser.Physics.Arcade.Sprite {
         if (this.alive) {
 
             if (this.wallSliding) {
-                if (!this.slideLooping) {
+                if (!this.slideLooping && this.body.velocity.y > 0) {
                     game.slideSound.play();
                     this.slideLooping = true;
+                }
+                if (this.body.velocity.y < 0) {
+                    game.slideSound.stop();
+                    this.slideLooping = false;
                 }
                 this.body.setDragY(this.WALL_DRAG);
                 //this.body.setVelocityY(0)

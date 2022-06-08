@@ -11,6 +11,7 @@ class Level2 extends Phaser.Scene {
         this.load.image('fore_2', './assets/Levels/Level-2/Foreground-2.PNG');
         this.load.image('fire', './assets/Levels/Blocks/Tiles/fire.png');
         this.load.image('lava', './assets/Levels/Blocks/Tiles/lava.png');
+        this.load.image('smoke2', './assets/Cat/smoke2.png');
 
 
         // TILE MAP
@@ -30,13 +31,16 @@ class Level2 extends Phaser.Scene {
     }
 
     create() {
+        game.currentScene = 'level2Scene';
+
+
         this.game.sound.stopAll();
         this.lvl2music = this.sound.add('lvl2music', {volume: 0.2});
         this.lvl2music.loop = true;
         this.lvl2music.play();
         const geyserAnimate = this.anims.create({
             key: 'geyser',
-            frames: this.anims.generateFrameNames('geyser', {
+            frames: this.anims.generateFrameNames('blue_geyser', {
                 start: 0,
                 end: 2
             }),
@@ -181,9 +185,6 @@ class Level2 extends Phaser.Scene {
         this.respawnX = -6725.70;
         this.respawnY = 10630.20;
         //this.player.body.setMaxVelocity(600, 5000);
-        
-        // geyser
-        this.geyser = new Geyser(this, -5000, 12000, 'transparent').setOrigin(0.5, 0.5).setScale(1);
     
         // TILE MAP COLLIDER
         groundLayer.setCollisionByProperty({ 
@@ -295,6 +296,11 @@ class Level2 extends Phaser.Scene {
         this.physics.add.overlap(this.player, this.geyserGroup, (obj1, obj2) => {
             obj1.body.velocity.y = -15000;
         })
+
+        //animating geyser group
+        Phaser.Actions.Call(this.geyserGroup.getChildren(), function(geyser) {
+            geyser.play({ key : 'geyser' });
+          }, this);
 
         // FIRE GROUP
         this.fire = map.createFromObjects("Objects", {
@@ -430,6 +436,21 @@ class Level2 extends Phaser.Scene {
         });
         this.fireEm.active = false;
 
+        this.smokeParticles = this.add.particles('smoke2');
+        this.smokeEm = this.smokeParticles.createEmitter({
+            radial: true,
+            x: -3592.00,
+            y: 14368.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
         // shoots right
         this.fireEm2 = this.fireParticles.createEmitter({
             radial: true,
@@ -440,6 +461,20 @@ class Level2 extends Phaser.Scene {
             quantity: 2,
             gravityY: -1000,
             scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
+
+        this.smokeEm2 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 30000,
+            y: 9894,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
             active: true,
             mode: 'ADD',
             angle: {min:10, max: -10}
@@ -460,6 +495,20 @@ class Level2 extends Phaser.Scene {
             angle: {min:-170, max: -190}
         });
 
+        this.smokeEm3 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 34956.00,
+            y: 10020.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
         // shoots up
         this.fireEm4 = this.fireParticles.createEmitter({
             radial: true,
@@ -475,6 +524,20 @@ class Level2 extends Phaser.Scene {
             angle: {min:-80, max: -100}
         });
 
+        this.smokeEm4 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 31820.00,
+            y: 13912.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
         // shoots up
         this.fireEm5 = this.fireParticles.createEmitter({
             radial: true,
@@ -482,6 +545,20 @@ class Level2 extends Phaser.Scene {
             y: 16984.00,
             lifespan: { min: 1000, max: 1500},
             speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        this.smokeEm5 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 33250.00,
+            y: 16984.00,
+            lifespan: { min: 500, max: 1000},
+            speed: { min: 1500, max: 2000 },
             quantity: 2,
             gravityY: -1000,
             scale: { start: 1.5, end: 0, ease: 'Power2' },
@@ -505,11 +582,25 @@ class Level2 extends Phaser.Scene {
             angle: {min:-80, max: -100}
         });
 
+        this.smokeEm6 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 34314.00,
+            y: 16984.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
         // shoots left
         this.fireEm7 = this.fireParticles.createEmitter({
             radial: true,
-            x: 39728.00,
-            y: 13460.00,
+            x: 39680.00,
+            y: 13760.00,
             lifespan: { min: 1000, max: 1500},
             speed: { min: 1500, max: 3000 },
             quantity: 2,
@@ -520,16 +611,44 @@ class Level2 extends Phaser.Scene {
             angle: {min:-170, max: -190}
         });
 
+        this.smokeEm7 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 39680.00,
+            y: 13760.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
         // shoots right
         this.fireEm8 = this.fireParticles.createEmitter({
             radial: true,
             x: 37188.00,
-            y: 13460.00,
+            y: 13760.00,
             lifespan: { min: 1000, max: 1500},
             speed: { min: 1500, max: 3000 },
             quantity: 2,
             gravityY: -1000,
             scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
+
+        this.smokeEm8 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 37188.00,
+            y: 13760.00,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
             active: true,
             mode: 'ADD',
             angle: {min:10, max: -10}
@@ -568,6 +687,14 @@ class Level2 extends Phaser.Scene {
             this.fireEm6.on = true;
             this.fireEm7.on = true;
             this.fireEm8.on = true;
+            this.smokeEm.on = false;
+            this.smokeEm2.on = false;
+            this.smokeEm3.on = false;
+            this.smokeEm4.on = false;
+            this.smokeEm5.on = false;
+            this.smokeEm6.on = false;
+            this.smokeEm7.on = false;
+            this.smokeEm8.on = false;
         } else {
             this.fireEm.on = false;
             this.fireEm2.on = false;
@@ -577,6 +704,14 @@ class Level2 extends Phaser.Scene {
             this.fireEm6.on = false;
             this.fireEm7.on = false;
             this.fireEm8.on = false;
+            this.smokeEm.on = true;
+            this.smokeEm2.on = true;
+            this.smokeEm3.on = true;
+            this.smokeEm4.on = true;
+            this.smokeEm5.on = true;
+            this.smokeEm6.on = true;
+            this.smokeEm7.on = true;
+            this.smokeEm8.on = true;
         }
         
         
