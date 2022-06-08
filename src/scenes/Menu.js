@@ -22,7 +22,7 @@ class Menu extends Phaser.Scene {
     }
     create() {
       this.game.sound.stopAll();
-      this.storyMusic = this.sound.add('storymusic', {volume: 0.5});
+      this.storyMusic = this.sound.add('storymusic', {volume: 0.1});
       this.storyMusic.loop = true;
       this.storyMusic.play();
       
