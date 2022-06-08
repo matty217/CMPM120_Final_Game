@@ -18,6 +18,7 @@ class Level5 extends Phaser.Scene {
         this.load.image('lvl5back', './assets/Levels/Level-5/Background-5.PNG');
         this.load.image('lvl5mid', './assets/Levels/Level-5/Midground-5.PNG');
         this.load.image('lvl5fore', './assets/Levels/Level-5/Foreground-5.PNG');
+        this.load.image('lvl5green', './assets/Levels/Level-5/green.png');
 
 
         this.load.image('4x1', './assets/Levels/Blocks/4x1 Block_f.PNG');
@@ -72,20 +73,25 @@ class Level5 extends Phaser.Scene {
         this.music.play();
 
         // BACKGROUND STUFF
-        this.back0 = this.add.sprite(-5000, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
-        this.back1 = this.add.sprite(3200, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
-        this.back2 = this.add.sprite(11400, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
-        this.back3 = this.add.sprite(19610, 5000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back0 = this.add.sprite(-5000, 3000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back1 = this.add.sprite(3200, 3000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back2 = this.add.sprite(11300, 3000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
+        this.back3 = this.add.sprite(19510, 3000, 'lvl5back', 0).setScale(3).setScrollFactor(0.2, 0.2);
 
-        this.mid0 = this.add.sprite(-5000, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
-        this.mid1 = this.add.sprite(3200, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
-        this.mid2 = this.add.sprite(11400, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
-        this.mid3 = this.add.sprite(19610, 5000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid0 = this.add.sprite(-5000, 4000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid1 = this.add.sprite(3100, 4000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid2 = this.add.sprite(11200, 4000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
+        this.mid3 = this.add.sprite(19510, 4000, 'lvl5mid', 0).setScale(3).setScrollFactor(0.3, 0.3);
 
         this.for0 = this.add.sprite(-5000, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.for1 = this.add.sprite(3200, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.for2 = this.add.sprite(11400, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
-        this.for3 = this.add.sprite(19610, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for1 = this.add.sprite(3100, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for2 = this.add.sprite(11250, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for3 = this.add.sprite(19450, 5000, 'lvl5fore', 0).setScale(3).setScrollFactor(0.4, 0.4);
+
+        this.for0 = this.add.sprite(-5000, -1100, 'lvl5green', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for1 = this.add.sprite(3100, -1100, 'lvl5green', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for2 = this.add.sprite(11250, -1100, 'lvl5green', 0).setScale(3).setScrollFactor(0.4, 0.4);
+        this.for3 = this.add.sprite(19450, -1100, 'lvl5green', 0).setScale(3).setScrollFactor(0.4, 0.4);
 
         this.cameras.main.fadeIn(1000);
         

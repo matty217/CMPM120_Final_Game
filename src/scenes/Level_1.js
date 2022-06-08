@@ -478,8 +478,8 @@ class Level1 extends Phaser.Scene {
     goToLevel2(player, checkpoint) {
         this.scene.stop('pauseScene');
         this.lvl1music.stop();
-        game.scene.start('beforeLevel2Scene');
-        game.scene.bringToTop('beforeLevel2Scene');
+        game.scene.start('beforeLevel5Scene');
+        game.scene.bringToTop('beforeLevel5Scene');
         game.scene.sleep('level1Scene');
         game.scene.sleep('level3Scene');
         game.scene.sleep('level4Scene');
