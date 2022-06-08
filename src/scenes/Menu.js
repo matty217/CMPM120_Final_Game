@@ -15,10 +15,13 @@ class Menu extends Phaser.Scene {
         this.load.image('pg9', './assets/Storyboard/Page (9).jpg');
         this.load.image('pg10', './assets/Storyboard/Page (10).jpg');
 
+        this.load.image('graveyard', './assets/Levels/Level-4/graveyard.jpg');
+
 
         this.load.image('titleimg', './assets/Levels/Title Screen/Title Screen Background.PNG');
         this.bg = {};
         this.load.audio('storymusic', './assets/Sounds/Music/Level 1/Ketsa - Protective Spirits.mp3');
+        
     }
     create() {
       this.game.sound.stopAll();
@@ -26,6 +29,8 @@ class Menu extends Phaser.Scene {
       this.storyMusic.loop = true;
       this.storyMusic.play();
       
+      this.graveImg = this.add.sprite(game.config.width/2, game.config.height/2, 'graveyard');
+
         this.bg.camera = this.cameras.add(0, 0, 1080, 720);
         this.bg.camera.setBackgroundColor('rgba(151,156,131, 0.5)');
         this.titleImg = this.add.sprite(100, 445, 'titleimg').setScale(0.27);
@@ -63,6 +68,7 @@ class Menu extends Phaser.Scene {
         this.add.text(game.config.width/2, 350, 'D: Move Right', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 400, 'Space: Jump/Double Jump', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 450, 'W+Space: Wall Climb', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width/2, 500, 'Q: Meow', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, 685, 'Press Space to Continue', menuConfig).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
