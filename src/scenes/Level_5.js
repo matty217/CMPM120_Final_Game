@@ -58,6 +58,9 @@ class Level5 extends Phaser.Scene {
     }
 
     create() {
+        this.scene.launch('pauseScene');
+        game.currentScene = 'level5Scene';
+
         this.game.sound.stopAll();
         // this.sound.play('birds');
         this.sfx = this.sound.add('birds_sfx');

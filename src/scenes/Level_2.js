@@ -12,6 +12,7 @@ class Level2 extends Phaser.Scene {
         this.load.image('fire', './assets/Levels/Blocks/Tiles/fire.png');
         this.load.image('lava', './assets/Levels/Blocks/Tiles/lava.png');
         this.load.image('smoke2', './assets/Cat/smoke2.png');
+        this.load.image('sign', './assets/Levels/Blocks/sign_right.png');
 
 
         // TILE MAP
@@ -31,6 +32,7 @@ class Level2 extends Phaser.Scene {
     }
 
     create() {
+        this.scene.launch('pauseScene');
         game.currentScene = 'level2Scene';
 
 
@@ -347,51 +349,44 @@ class Level2 extends Phaser.Scene {
             obj2.setActive(false).setVisible(false);
         })
 
-        // GEYSERS
-        
-        // // Geyser Group
-        // this.geyserGroup2 = this.physics.add.group( {allowGravity: false, immovable: true } );
-        // this.physics.add.collider(this.player, this.geyserGroup2);
+        // Level End Group
+        this.levelEnd = map.createFromObjects("Objects", {
+            name: "Level_End",
+            key: "heart",
+            frame: "3"
+        });
+    
+        this.physics.world.enable(this.levelEnd, Phaser.Physics.Arcade.STATIC_BODY);
+        this.levelEndGroup = this.add.group(this.levelEnd);
 
-        // // Geyser 1
-        // this.geyser1 = this.add.sprite(-3000, 13136, 'geyser', 0).setOrigin(0, 0);
-        // let t = this.tweens.add({
-        //     targets: this.geyser1,
-        //     y: 400,
-        //     duration: 3000,
-        //     ease: 'Linear',
-        //     yoyo: true,
-        //     repeat: 2000
-        // });
-        // t.restart();
-        // this.geyserBase1 = this.add.sprite(800, 600, 'platform_vert', 0).setOrigin(0, 0);
+        this.physics.add.overlap(this.player, this.levelEndGroup, (obj1, obj2) => {
+            this.partEmHeart.explode(30);
+        })
 
-        // // Geyser 2
-        // this.geyser2 = this.add.sprite(1200, 500, 'platform_vert', 0).setOrigin(0, 0);
-        // let t2 = this.tweens.add({
-        //     targets: this.geyser2,
-        //     y: 400,
-        //     duration: 2500,
-        //     ease: 'Linear',
-        //     yoyo: true,
-        //     repeat: 2000
-        // });
-        // t2.restart();
-        // this.geyserBase2 = this.add.sprite(1200, 600, 'platform_vert', 0).setOrigin(0, 0);
+        // End Group
+        this.End = map.createFromObjects("Objects", {
+            name: "End",
+            key: "transparent",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.End, Phaser.Physics.Arcade.STATIC_BODY);
+        this.EndGroup = this.add.group(this.End);
 
-        // // Add Geysers to group
-        // this.geyserGroup2.add(this.geyser1);
-        // this.geyserGroup2.add(this.geyserBase1);
-        // this.geyserGroup2.add(this.geyser2);
-        // this.geyserGroup2.add(this.geyserBase2);
-        
-         // CHECKPOINT TO NEXT LEVEL
-         this.checkpoint = this.physics.add.group({allowGravity: false, immovable: true });
-         this.checkpoint1 = this.add.sprite(65232.00, 12000.00, 'rect', 0).setOrigin(0,0.5);
-         this.checkpoint2 = this.add.sprite(-7000, 14000, 'rect', 0).setOrigin(0,0.5);
-         this.checkpoint.add(this.checkpoint1);
-         this.checkpoint.add(this.checkpoint2);
-         this.physics.add.overlap(this.player, this.checkpoint, this.goToLevel3, null, this);
+        this.physics.add.overlap(this.player, this.EndGroup, (obj1, obj2) => {
+            this.scene.stop('pauseScene');
+            this.goToLevel3();
+        })
+
+        // Sign Group
+        this.sign = map.createFromObjects("Objects", {
+            name: "Sign",
+            key: "sign",
+            frame: ""
+        });
+    
+        this.physics.world.enable(this.sign, Phaser.Physics.Arcade.STATIC_BODY);
+        this.signGroup = this.add.group(this.sign);
  
 
 
@@ -654,6 +649,140 @@ class Level2 extends Phaser.Scene {
             angle: {min:10, max: -10}
         });
 
+        // shoots left
+        this.fireEm9 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 66122,
+            y: 11008,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
+        this.smokeEm9 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 66122,
+            y: 11008,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-170, max: -190}
+        });
+
+        // shoots right
+        this.fireEm10 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 64440,
+            y: 9596,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
+
+        this.smokeEm10 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 64440,
+            y: 9596,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:10, max: -10}
+        });
+
+        // shoots up
+        this.fireEm11 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 66280,
+            y: 9256,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        this.smokeEm11 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 66280,
+            y: 9256,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        // shoots up
+        this.fireEm12 = this.fireParticles.createEmitter({
+            radial: true,
+            x: 73856,
+            y: 8756,
+            lifespan: { min: 1000, max: 1500},
+            speed: { min: 1500, max: 3000 },
+            quantity: 2,
+            gravityY: -1000,
+            scale: { start: 1.5, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+        this.smokeEm12 = this.smokeParticles.createEmitter({
+            radial: true,
+            x: 73856,
+            y: 8756,
+            lifespan: { min: 1500, max: 2000},
+            speed: { min: 500, max: 1000 },
+            quantity: 1,
+            gravityY: -1000,
+            scale: { start: 1, end: 0, ease: 'Power2' },
+            active: true,
+            mode: 'ADD',
+            angle: {min:-80, max: -100}
+        });
+
+
+
+
+        // heart at end
+        this.heartParticles = this.add.particles('red_part');
+        this.partEmHeart = this.heartParticles.createEmitter({
+            radial: true,
+            lifespan: { min: 800, max: 1500},
+            speed: { min: 2000, max: 3000 },
+            quantity: 0,
+            gravityY: 2000,
+            scale: { start: 4, end: 0, ease: 'Power3' },
+            active: true,
+            mode: 'ADD',
+            x: 79564,
+            y: 4868
+        });
+
 
 
         this.cameras.main.fadeOut(1);
@@ -687,6 +816,10 @@ class Level2 extends Phaser.Scene {
             this.fireEm6.on = true;
             this.fireEm7.on = true;
             this.fireEm8.on = true;
+            this.fireEm9.on = true;
+            this.fireEm10.on = true;
+            this.fireEm11.on = true;
+            this.fireEm12.on = true;
             this.smokeEm.on = false;
             this.smokeEm2.on = false;
             this.smokeEm3.on = false;
@@ -695,6 +828,10 @@ class Level2 extends Phaser.Scene {
             this.smokeEm6.on = false;
             this.smokeEm7.on = false;
             this.smokeEm8.on = false;
+            this.smokeEm9.on = false;
+            this.smokeEm10.on = false;
+            this.smokeEm11.on = false;
+            this.smokeEm12.on = false;
         } else {
             this.fireEm.on = false;
             this.fireEm2.on = false;
@@ -704,6 +841,10 @@ class Level2 extends Phaser.Scene {
             this.fireEm6.on = false;
             this.fireEm7.on = false;
             this.fireEm8.on = false;
+            this.fireEm9.on = false;
+            this.fireEm10.on = false;
+            this.fireEm11.on = false;
+            this.fireEm12.on = false;
             this.smokeEm.on = true;
             this.smokeEm2.on = true;
             this.smokeEm3.on = true;
@@ -712,6 +853,10 @@ class Level2 extends Phaser.Scene {
             this.smokeEm6.on = true;
             this.smokeEm7.on = true;
             this.smokeEm8.on = true;
+            this.smokeEm9.on = true;
+            this.smokeEm10.on = true;
+            this.smokeEm11.on = true;
+            this.smokeEm12.on = true;
         }
         
         
@@ -741,6 +886,7 @@ class Level2 extends Phaser.Scene {
     }
 
     goToLevel3(player, checkpoint) {
+        this.scene.stop('pauseScene');
         this.lvl2music.stop();
         game.scene.start('level3Scene');
         game.scene.bringToTop('level3Scene');

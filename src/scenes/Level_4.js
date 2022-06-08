@@ -50,6 +50,9 @@ class Level4 extends Phaser.Scene {
     }
 
     create() {
+        this.scene.launch('pauseScene');
+        game.currentScene = 'level4Scene';
+
         this.game.sound.stopAll();
         this.lvl4music = this.sound.add('lvl4music', {volume: 0.2});
         this.lvl4music.loop = true;
