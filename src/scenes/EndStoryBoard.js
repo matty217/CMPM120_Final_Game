@@ -11,7 +11,7 @@ class EndStoryBoard extends Phaser.Scene {
         this.load.image('pg32', './assets/Storyboard/Page (32).JPG');
         this.load.image('pg33', './assets/Storyboard/Page (33).JPG');
         this.load.image('pg34', './assets/Storyboard/Page (34).JPG');
-        this.load.image('pg35', './assets/Storyboard/Page (35).JPG');
+        // this.load.image('pg35', './assets/Storyboard/Page (35).JPG');
         this.bg = {};
         this.load.audio('endMusic', './assets/Sounds/Music/Level 5/Ketsa - Disappearing Memory.mp3');
 
@@ -75,10 +75,10 @@ class EndStoryBoard extends Phaser.Scene {
         this.story = this.add.sprite(540, 340, 'pg'+[this.endpressCounter]).setScale(0.3);
         this.endpressCounter+=1;
 
-          if (this.endpressCounter == 37) {
+          if (this.endpressCounter == 36) {
             this.endMusic.stop();
-            this.scene.start('gameOverScene'); 
-            this.scene.bringToTop('gameOverScene');
+            this.scene.start('takeCareScene'); 
+            this.scene.bringToTop('takeCareScene');
             this.scene.sleep('level1Scene');
             this.scene.sleep('level2Scene');
             this.scene.sleep('level3Scene');
